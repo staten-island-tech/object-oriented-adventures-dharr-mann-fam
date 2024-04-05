@@ -42,3 +42,4 @@ if Tutorial == "Y":
         if Tutorial_Dummy.health == 0:
             hero.exp = hero.exp + Tutorial_Dummy.exp
             print("Congrats yours getting pretty good at this. Time for another challenge")
+            print(__name__)

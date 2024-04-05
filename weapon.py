@@ -25,4 +25,4 @@ base_dagger = Weapon(name = "Basic Dagger",
 shortbow = Weapon(name = "Shortbow",
                  damage = 15,
                  rarity = "E",
-                 clas = "Assassin")
+                 clas = "Archer")
