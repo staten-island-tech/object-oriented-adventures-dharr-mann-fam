@@ -45,6 +45,7 @@ if Tutorial == "Y":
             hero.exp = hero.exp + Tutorial_Dummy.exp
             print("Congrats yours getting pretty good at this. Time for another challenge")
 
+
 add_data = Hero(name=Creation, health = hero.health, damage = hero.health, classes = Class_Chooser, level = hero.level, exp = hero.exp, exp_next = hero.exp_next)
 
 
@@ -71,3 +72,4 @@ with open(new_file, "w") as f:
 # Overwrite the old JSON file with the new one
 os.remove("data.json")
 os.rename(new_file, "data.json")
+
