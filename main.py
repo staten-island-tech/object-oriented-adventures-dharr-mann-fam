@@ -46,7 +46,7 @@ if Tutorial == "Y":
             print("Congrats yours getting pretty good at this. Time for another challenge")
 
 
-add_data = Hero(name=Creation, health = hero.health, damage = hero.health, classes = Class_Chooser, level = hero.level, exp = hero.exp, exp_next = hero.exp_next)
+add_data = Hero(name = hero.name, health = hero.health, damage = hero.damage, classes = Class_Chooser, level = hero.level, exp = hero.exp, exp_next = hero.exp_next)
 
 
 with open("data.json", "r") as f:
