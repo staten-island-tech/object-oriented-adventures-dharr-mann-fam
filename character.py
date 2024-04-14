@@ -1,10 +1,10 @@
 from weapon import Weapon
 
 class Character():
-    def __init__(self, name: str, health: int, damage: int, classes: str, level: int, exp: int, exp_next: int):
+    def __init__(self, name: str, health: int, health_max: int, damage: int, classes: str, level: int, exp: int, exp_next: int):
         self.name = name
         self.health = health
-        self.health_max = health
+        self.health_max = health_max
         self.damage = damage
         self.classes = classes
         self.level = level
@@ -22,27 +22,27 @@ class Hero(Character):
     def __init__(self, 
                  name: str, 
                  health: int,
+                 health_max: int,
                  damage: int,
                  classes: str,
                  level: int,
                  exp: int,
                  exp_next: int):
-        super().__init__(name = name, health = health, damage = damage, classes = classes, level = level, exp = exp, exp_next = exp_next)
+        super().__init__(name = name, health = health, health_max = health_max, damage = damage, classes = classes, level = level, exp = exp, exp_next = exp_next)
 
-    
-    def exp_gain(self, exp):
-        if Enemy.health == 0:
-            Hero.exp == exp + Enemy.exp
+    def gain_experience(self, experience):
+        self.exp += experience
+        if self.exp >= self.exp_next:
+            self.level_up()
 
-    def levelup(self, exp):
-        if Hero.exp >= Hero.exp_next:
-            Hero.exp - Hero.exp_next
-            Hero.level = Hero.level + 1
-            Hero.exp_next = Hero.exp_next * 1.5
+    def level_up(self):
+        self.level += 1
+        self.exp -= self.exp_next
+        self.exp_next = self.exp_next * 1.2
 
 
 
 class Enemy(Character):
     def __init__(self, 
-                 name: str, health: int, damage: int, classes: str, level: int, exp: int, exp_next: int):
-        super().__init__(name = name, health = health, damage = damage, classes = classes, level = level, exp = exp, exp_next = exp_next)
+                 name: str, health: int, health_max: int, damage: int, classes: str, level: int, exp: int, exp_next: int):
+        super().__init__(name = name, health = health, health_max = health_max, damage = damage, classes = classes, level = level, exp = exp, exp_next = exp_next)
