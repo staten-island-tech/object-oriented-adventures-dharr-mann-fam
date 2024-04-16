@@ -45,7 +45,7 @@ def battle():
 
 
             if hero.health == 0:
-                print("You Lost! Restart to pick another dungeon!")
+                print("You Lost!")
                 hero.health = hero.health_max
                 break
 
@@ -103,7 +103,7 @@ if Tutorial == "y":
 
 
 
-add_data = Hero(name = hero.name, health = hero.health, health_max = hero.health_max, damage = hero.damage, classes = hero.classes, level = hero.level, exp = hero.exp, exp_next = hero.exp * 1.5 ) 
+add_data = Hero(name = hero.name, health = hero.health, health_max = hero.health_max, damage = hero.damage, classes = hero.classes, level = hero.level, exp = hero.exp, exp_next = hero.exp_next ) 
 
 
 with open("data.json", "r") as f:
