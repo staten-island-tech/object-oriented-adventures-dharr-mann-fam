@@ -6,6 +6,51 @@ up = json.load(f)
 Y = 0
 N = 1
 
+def battle():
+    while Enemy.health > 0:
+        print(f"Health of {Enemy.name}:{Enemy.health_max}")    
+        print(f"Health of {Enemy.name}:{Enemy.health_max}")    
+
+        hero.attack(Enemy)
+        Enemy.attack(hero)          
+
+        print(f"Health of {hero.name}:{hero.health}")    
+        print(f"Health of {Enemy.name}:{Enemy.health}")
+
+        input()
+        print("Press Enter to continue battle")
+
+    if Enemy.health == 0:
+        hero.gain_experience(Enemy.exp)
+        print(f"{hero.name} has gained {Enemy.exp} exp")
+        for i in range(1,10):
+            Enemy.health = Enemy.health_max
+            while Enemy.health > 0:
+                print(f"Health of {Enemy.name}:{Enemy.health_max}")   
+                print(f"Health of {hero.name}:{hero.health}") 
+                hero.attack(Enemy)
+                Enemy.attack(hero)          
+
+                print(f"Health of {hero.name}:{hero.health}")    
+                print(f"Health of {Enemy.name}:{Enemy.health}")
+
+                input()
+                print("Press Enter to continue battle")
+                if Enemy.health == 0:
+                    hero.gain_experience(Enemy.exp)
+                    print(" ")
+                    print(f"{hero.name} has gained {Enemy.exp} exp")
+
+
+
+
+            if hero.health == 0:
+                print("You Lost! Restart to pick another dungeon!")
+                hero.health = hero.health_max
+                break
+
+
+
 Creation = input("Enter your Username: ")
 Class_Chooser = input("Enter class [Warrior,Archer,Assassin]: ")
 Class_Chooser.lower()
