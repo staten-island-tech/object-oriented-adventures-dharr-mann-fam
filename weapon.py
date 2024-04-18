@@ -26,3 +26,8 @@ shortbow = Weapon(name = "Shortbow",
                  damage = 15,
                  rarity = "E",
                  clas = "Archer")
+
+none = Weapon(name = "Unequiped",
+              damage = 0,
+              rarity = "?",
+              clas = "Every")
