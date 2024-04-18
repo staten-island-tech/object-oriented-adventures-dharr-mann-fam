@@ -56,19 +56,19 @@ Class_Chooser = input("Enter class [Warrior,Archer,Assassin]: ")
 Class_Chooser.lower()
 if Class_Chooser == "warrior":
     Class = "Warrior"
-    hero = Hero(name = Creation, health = 200, health_max=200, damage = 15, classes = "Warrior", level = 1, exp = 0, exp_next = 100)
+    hero = Hero(name = Creation, health = 200, health_max=200, damage = 15, classes = "Warrior", level = 1, exp = 0, exp_next = 100, crit_chance = -1)
 
 if Class_Chooser == "archer":
     Class = "Archer"
-    hero = Hero(name = Creation, health = 100, health_max=100, damage = 25, classes = "Archer", level = 1, exp = 0, exp_next = 100)
+    hero = Hero(name = Creation, health = 100, health_max=100, damage = 25, classes = "Archer", level = 1, exp = 0, exp_next = 100, crit_chance = -1)
 
 if Class_Chooser == "assassin":
     Class = "Assassin"
-    hero = Hero(name = Creation, health = 100, health_max=100, damage = 40, classes = "Assassin", level = 1, exp = 0, exp_next = 100)
+    hero = Hero(name = Creation, health = 100, health_max=100, damage = 40, classes = "Assassin", level = 1, exp = 0, exp_next = 100,crit_chance = 40)
 
 
 
-Tutorial_Dummy = Enemy(name = "Dummy", health = 50, health_max=50, damage = 5, classes = "Tutorial", level = 1, exp = 100, exp_next = 100)
+Tutorial_Dummy = Enemy(name = "Dummy", health = 50, health_max=50, damage = 5, classes = "Tutorial", level = 1, exp = 100, exp_next = 100, crit_chance = 0)
 
 Tutorial = input("Would you like a tutorial?[Y/N]: ")
 Tutorial.lower()
@@ -103,7 +103,7 @@ if Tutorial == "y":
 
 
 
-add_data = Hero(name = hero.name, health = hero.health, health_max = hero.health_max, damage = hero.damage, classes = hero.classes, level = hero.level, exp = hero.exp, exp_next = hero.exp_next ) 
+add_data = Hero(name = hero.name, health = hero.health, health_max = hero.health_max, damage = hero.damage, classes = hero.classes, level = hero.level, exp = hero.exp, exp_next = hero.exp_next, crit_chance = hero.crit_chance ) 
 
 
 with open("data.json", "r") as f:
