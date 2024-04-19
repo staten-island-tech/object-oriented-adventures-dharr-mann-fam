@@ -13,7 +13,7 @@ class Character():
         self.statpoints = statpoints
         self.exp_next = exp_next
   
-
+ 
 
 
     def attack(self, target):
