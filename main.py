@@ -22,6 +22,9 @@ Tutorial_Dummy = Enemy(name = "Dummy", health = 50, health_max = 50, damage = 5,
 Wolves = Enemy(name="Lycan", health=50, health_max=65, damage=10, classes="mob", level=5, exp=40, statpoints=0,exp_next=0)
 Eilte_Wolf = Boss(name="Vemon Cobra", health=250, health_max=250, damage = 40, classes = "boss", level = 10, exp=150, statpoints=0, exp_next=0)
 
+#Dungeon 3
+Placeholder = Enemy(name="PlaceHolder", health = 150, health_max=150, damage=25, classes="mob", level = 10, exp = 100, statpoints=0, exp_next=0)
+PlaceholderBoss = Boss(name="PlaceHolder Boss", health=500, health_max=500, damage=60, classes="boss", level = 20, exp = 300, statpoints=0, exp_next=0 )
 
 def battle():
     while Enemy.health > 0:
@@ -128,7 +131,7 @@ if Choice == "2":
     
 def search():
 
-    Dungeons = ["[1] Goblin Outpost",
+    Dungeons = ["[1] Goblins",
                 "[2] Wolves",
                 "[3] PlaceHolder",
                 "[4] PlaceHolder",
@@ -144,7 +147,7 @@ if Choice == "1":
     for i in up:
         if Search in i["name"]:
             hero = Hero(name = i["name"], health = i["health"], health_max = i["health_max"], damage = i["damage"], classes = i["classes"], level = i["level"], exp = i["exp"], statpoints = i["statpoints"], exp_next = i["exp_next"])
-            print("Welcome back hunter!")
+            print("Welcome back!")
             print(hero)
             search()
             Narration = input("Now pick a dungeon to complete (Type the number corresponding to the Dungeon): ")
@@ -156,7 +159,7 @@ if Choice == "1":
         Boss = Goblin_Leader
         number_mobs = 10
         battle()
-        search()
+
 
         
     ##Dungeon 2
@@ -166,13 +169,19 @@ if Choice == "1":
         number_mobs = 10
         battle()
 
+    if Narration == "3":
+        Enemy = Placeholder
+        Boss = PlaceholderBoss
+        number_mobs = 10
+        battle()
+
 
 
 
 
 
 if Choice == "2":
-    Tutorial = input("Would you like a tutorial?[Y/Y] (You are forced 💀): ")
+    Tutorial = input("Would you like a tutorial?[Y/Y] (You are forced): ")
     if Tutorial == "Y" or "y":
         while Tutorial_Dummy.health > 0:
             os.system("cls")
