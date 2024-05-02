@@ -9,7 +9,11 @@ N = 1
 os.system("cls")
 number_mobs = 1
 play = input("Do you want to play again [True/False]")
-play = True
+if play == "True".lower:
+    play = True
+
+if play == "False".lower:
+    play = False
 
 ##Mobs
 
@@ -29,57 +33,40 @@ Placeholder = Enemy(name="PlaceHolder", health = 150, health_max=150, damage=25,
 PlaceholderBoss = Boss(name="PlaceHolder Boss", health=500, health_max=500, damage=60, classes="boss", level = 20, exp = 300, statpoints=0, exp_next=0 )
 
 def battle():
-    while Enemy.health > 0 and play == True:
-        os.system("cls")
-        print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health_max}")    
-        print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health_max}")    
-
-        hero.attack(Enemy)
-        Enemy.attack(hero)          
-
-        print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
-        print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health}")
-
-        input()
-        print("Press Enter to continue battle")
-
-    if Enemy.health == 0:
-        hero.gain_experience(Enemy.exp)
-        print(f"{hero.name} has gained {Enemy.exp} exp")
+    while Enemy.health > 0 and hero.health > 0:
         for i in range(1,number_mobs):
             os.system("cls")
             Enemy.health = Enemy.health_max
-            while Enemy.health > 0:
-                print(f"Total number of mobs: {number_mobs}")
-                print(f"Health of {Enemy.name} [Level:{hero.level}]:{Enemy.health_max}")   
-                print(f"Health of {hero.name} [Level:[{Enemy.level}]:{hero.health}")
-                print("Enter to continue")
-                input()
+            print(f"Total number of mobs: {number_mobs}")
+            print(f"Health of {Enemy.name} [Level:{hero.level}]:{Enemy.health_max}")   
+            print(f"Health of {hero.name} [Level:[{Enemy.level}]:{hero.health}")
+            print("Enter to continue")
+            input()
 
-                hero.attack(Enemy)
-                Enemy.attack(hero)          
+            hero.attack(Enemy)
+            Enemy.attack(hero)          
 
-                print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health} ")    
-                print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health} ")
+            print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health} ")    
+            print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health} ")
 
-                input()
-                print("Press Enter to continue battle")
-                if Enemy.health == 0:
-                    hero.gain_experience(Enemy.exp)
-                    print(" ")
-                    print(f"{hero.name} has gained {Enemy.exp} exp")
+            input()
+            print("Press Enter to continue battle")
+            if Enemy.health == 0:
+                hero.gain_experience(Enemy.exp)
+                print(" ")
+                print(f"{hero.name} has gained {Enemy.exp} exp")
 
-                if hero.health == 0:
-                    print("You Lost! Restart to pick another dungeon!")
-                    hero.health = hero.health_max
-                    play = input("Do you want to play again [True/False]")
-                    break
+            if hero.health == 0:
+                print("You Lost! Restart to pick another dungeon!")
+                hero.health = hero.health_max
+                play = input("Do you want to play again [True/False]")
+                break
 
     print("You are now moving onto the boss room...")
     print(" ")
     input()
 
-    while Boss.health > 0:
+    while Boss.health > 0 and hero.health > 0:
         os.system("cls")
         print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
         print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}") 
