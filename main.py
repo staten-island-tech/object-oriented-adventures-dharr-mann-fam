@@ -25,8 +25,8 @@ Goblin_Leader = Boss(name="Goblins Leader", health=120, health_max=120, damage=1
 Tutorial_Dummy = Enemy(name = "Dummy", health = 50, health_max = 50, damage = 5, classes = "Tutorial", level = 1, exp = 100, statpoints = 0, exp_next = 0)
 
 #Dungeon 2
-Wolves = Enemy(name="Lycan", health=50, health_max=65, damage=10, classes="mob", level=5, exp=40, statpoints=0,exp_next=0)
-Eilte_Wolf = Boss(name="Vemon Cobra", health=250, health_max=250, damage = 40, classes = "boss", level = 10, exp=150, statpoints=0, exp_next=0)
+Wolves = Enemy(name="Wolf", health=50, health_max=65, damage=10, classes="mob", level=5, exp=40, statpoints=0,exp_next=0)
+Eilte_Wolf = Boss(name="Elite Wolf", health=250, health_max=250, damage = 40, classes = "boss", level = 10, exp=150, statpoints=0, exp_next=0)
 
 #Dungeon 3
 Placeholder = Enemy(name="PlaceHolder", health = 150, health_max=150, damage=25, classes="mob", level = 10, exp = 100, statpoints=0, exp_next=0)
@@ -134,14 +134,15 @@ def search():
 
 
 if Choice == "1":
-    Search = input("Enter username to start search: ")
-    for i in up:
-        if Search in i["name"]:
-            hero = Hero(name = i["name"], health = i["health"], health_max = i["health_max"], damage = i["damage"], classes = i["classes"], level = i["level"], exp = i["exp"], statpoints = i["statpoints"], exp_next = i["exp_next"])
-            print("Welcome back!")
-            print(hero)
-            search()
-            Narration = input("Now pick a dungeon to complete (Type the number corresponding to the Dungeon): ")
+    while play == True:
+        Search = input("Enter username to start search: ")
+        for i in up:
+            if Search in i["name"]:
+                hero = Hero(name = i["name"], health = i["health"], health_max = i["health_max"], damage = i["damage"], classes = i["classes"], level = i["level"], exp = i["exp"], statpoints = i["statpoints"], exp_next = i["exp_next"])
+                print("Welcome back!")
+                print(hero)
+                search()
+                Narration = input("Now pick a dungeon to complete (Type the number corresponding to the Dungeon): ")
         
         
     ##Dungeon 1
