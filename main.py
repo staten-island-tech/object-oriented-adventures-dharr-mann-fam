@@ -152,8 +152,7 @@ def play():
             number_mobs = 10
             battle()
 
-
-            
+   
         ##Dungeon 2
         if Narration == "2":
             Enemy = Wolves
@@ -161,6 +160,7 @@ def play():
             number_mobs = 10
             battle()
 
+        ##Dungeon 3
         if Narration == "3":
             Enemy = Placeholder
             Boss = PlaceholderBoss
