@@ -198,21 +198,17 @@ def play():
 
 
 
-if Choice == "3":
-    for j in up:
-        hero = Hero(name = j["name"], health = j["health"], health_max = j["health_max"], damage = j["damage"], classes = j["classes"], level = j["level"], exp = j["exp"], statpoints = j["statpoints"], exp_next= j["exp_next"])
-        print(f"[name: {hero.name}, level: {hero.level}, hp: {hero.health_max}, damage: {hero.damage}, class: {hero.classes}, exp: {hero.exp}, next level: {hero.exp_next}, statpoints: {hero.statpoints}, Exp Req: {hero.exp_next}]")
     if Choice == "3":
         for j in up:
-            hero = Hero(name = j["name"], health = j["health"], health_max = j["health_max"], damage = j["damage"], classes = j["classes"], level = j["level"], exp = j["exp"], statpoints = j["statpoints"])
+            hero = Hero(name = j["name"], health = j["health"], health_max = j["health_max"], damage = j["damage"], classes = j["classes"], level = j["level"], exp = j["exp"], statpoints = j["statpoints"], exp_next= j["exp_next"])
             print(f"[name: {hero.name}, level: {hero.level}, hp: {hero.health_max}, damage: {hero.damage}, class: {hero.classes}, exp: {hero.exp}, next level: {hero.exp_next}, statpoints: {hero.statpoints}, Exp Req: {hero.exp_next}]")
+
 
 
 
     add_data = Hero(name = hero.name, health = hero.health, health_max = hero.health_max, damage = hero.damage, classes = hero.classes, level = hero.level, exp = hero.exp, statpoints = hero.statpoints, exp_next = hero.exp_next) 
 
-while play == True:
-    play()
+
 
 
     with open("data.json", "r") as f:
@@ -231,14 +227,14 @@ while play == True:
 
 #No code needed below this line
 # Creates a new JSON file with the updated data
-new_file = "updated.json"
-with open(new_file, "w") as f:
+    new_file = "updated.json"
+    with open(new_file, "w") as f:
     # Serialize the updated Python list to a JSON string
-    json_string = json.dumps(data)
+        json_string = json.dumps(data)
 
     # Write the JSON string to the new JSON file
-    f.write(json_string)
+        f.write(json_string)
 
 # Overwrite the old JSON file with the new one
-os.remove("data.json")
-os.rename(new_file, "data.json")
+    os.remove("data.json")
+    os.rename(new_file, "data.json")
