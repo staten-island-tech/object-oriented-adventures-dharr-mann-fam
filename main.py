@@ -198,6 +198,7 @@ def play():
 
 
 
+
     if Choice == "3":
         for j in up:
             hero = Hero(name = j["name"], health = j["health"], health_max = j["health_max"], damage = j["damage"], classes = j["classes"], level = j["level"], exp = j["exp"], statpoints = j["statpoints"], exp_next= j["exp_next"])
@@ -209,6 +210,10 @@ def play():
     add_data = Hero(name = hero.name, health = hero.health, health_max = hero.health_max, damage = hero.damage, classes = hero.classes, level = hero.level, exp = hero.exp, statpoints = hero.statpoints, exp_next = hero.exp_next) 
 
 
+
+
+
+    
 
 
     with open("data.json", "r") as f:
