@@ -15,11 +15,11 @@ if play == "True".lower:
 if play == "False".lower:
     play = False
 
-    ##Mobs
-
-        #Dungeon 1
 
 def play():
+    ##Mobs
+
+    #Dungeon 1
     Goblins = Enemy(name="Goblin", health=25, health_max=25, damage=5, classes="mob", level=1, exp=25, statpoints=0, exp_next=0)
     Goblin_Leader = Boss(name="Goblins Leader", health=120, health_max=120, damage=15, classes="boss", level=5, exp=75,statpoints=0, exp_next=0)
 
@@ -95,8 +95,6 @@ def play():
                 hero.health = hero.health_max
                 play = input("Do you want to play again [True/False]")
                 break
-
-
 
 
 
