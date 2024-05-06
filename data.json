@@ -1,1 +1,1 @@
-[{"name": "a", "health": 84.0, "health_max": 84.0, "damage": 21.0, "classes": "Archer", "level": 2, "exp": 10, "statpoints": 3, "exp_next": 135.0}, {"name": "a", "health": 84.0, "health_max": 84.0, "damage": 21.0, "classes": "Archer", "level": 2, "exp": 10, "statpoints": 3, "exp_next": ["exp_next"]}]
+[]
