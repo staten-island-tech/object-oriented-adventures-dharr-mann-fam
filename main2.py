@@ -9,7 +9,7 @@ N = 1
 os.system("cls")
 number_mobs = 1
 play = True
-alive = True
+alive = 0
 ##Mobs
 
 #Dungeon 1
@@ -28,66 +28,70 @@ Placeholder = Enemy(name="PlaceHolder", health = 150, health_max=150, damage=25,
 PlaceholderBoss = Boss(name="PlaceHolder Boss", health=500, health_max=500, damage=60, classes="boss", level = 20, exp = 300, statpoints=0, exp_next=0 )
 
 def battle():
-    for i in range(1,number_mobs):
-        Enemy.health = Enemy.health_max
-        while Enemy.health > 0 and alive == True:
-            print(f"Total number of mobs: {number_mobs}")
-            print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health}")   
-            print(f"Health of {hero.name} [Level:[{hero.level}]:{hero.health}")
-            print("Enter to continue")
+    alive = True
+    while alive == True:
+        for i in range(1,number_mobs):
+            Enemy.health = Enemy.health_max
+            while Enemy.health > 0:
+                print(f"Total number of mobs: {number_mobs}")
+                print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health}")   
+                print(f"Health of {hero.name} [Level:[{hero.level}]:{hero.health}")
+                print("Enter to continue")
+                input()
+
+                hero.attack(Enemy)
+                Enemy.attack(hero)          
+
+                print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health} ")    
+                print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health} ")
+
+
+                if Enemy.health == 0:
+                    hero.gain_experience(Enemy.exp)
+                    print(" ")
+                    print(f"{hero.name} has gained {Enemy.exp} exp")
+                    input()
+                    print(number_mobs - 1)
+
+
+                if hero.health == 0 and Enemy.health > 0:
+                    print("You Died!")
+                    alive = 2
+
+                    input()
+                    print("Press Enter to continue battle")
+
+
+    while alive == 1:
+        print("You are now moving onto the boss room...")
+        print(" ")
+        input()
+        while Boss.health > 0:
+            print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
+            print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}") 
+            print("Enter to continue")   
             input()
-
-            hero.attack(Enemy)
-            Enemy.attack(hero)          
-
-            print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health} ")    
-            print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health} ")
-
-
-            if Enemy.health == 0:
-                hero.gain_experience(Enemy.exp)
-                print(" ")
-                print(f"{hero.name} has gained {Enemy.exp} exp")
-                input()
-
-            if hero.health == 0 and Enemy.health > 0:
-                print("You Died!")
-                alive = False
-
-                input()
-                print("Press Enter to continue battle")
-
-
-    print("You are now moving onto the boss room...")
-    print(" ")
-    input()
-
-    while Boss.health > 0 and alive == True:
-        print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
-        print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}") 
-        print("Enter to continue")   
-        input()
  
-        hero.attack(Boss)
-        Boss.attack(hero)          
+            hero.attack(Boss)
+            Boss.attack(hero)          
 
-        print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
-        print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}")
+            print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
+            print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}")
 
-        input()
-        print("Press Enter to continue battle")
-        if Boss.health == 0:
-            hero.gain_experience(Boss.exp)
-            print(" ")
-            print(f"{hero.name} has gained {Boss.exp} exp")
-            hero.health = hero.health_max
-            print("You have beaten the dungeon!")
+            input()
+            print("Press Enter to continue battle")
+            if Boss.health == 0:
+                hero.gain_experience(Boss.exp)
+                print(" ")
+                print(f"{hero.name} has gained {Boss.exp} exp")
+                hero.health = hero.health_max
+                print("You have beaten the dungeon!")
   
-        if hero.health == 0 and Enemy.health > 0:
-            print("You Lost! Restart to pick another dungeon!")
-            hero.health = hero.health_max
-            alive = False
-            break
+            if hero.health == 0 and Enemy.health > 0:
+                print("You Lost! Restart to pick another dungeon!")
+                hero.health = hero.health_max
+                alive = 2
+                break
 
 
 

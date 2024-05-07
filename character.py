@@ -17,13 +17,9 @@ class Character():
 
 
     def attack(self, target):
-        if self.health == 0:
-            print("You died")
-            
-        else:
-            target.health -= self.damage
-            target.health = max(target.health, 0)
-            print(f"{self.name} dealt {self.damage} to [{target.name}]")
+        target.health -= self.damage
+        target.health = max(target.health, 0)
+        print(f"{self.name} dealt {self.damage} to [{target.name}]")
 
 
 
