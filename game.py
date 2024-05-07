@@ -96,8 +96,7 @@ def battle():
 Choice = input("What Would you like to do? [1]Load Existing Character, [2]Create New Character, [3]Inventory: ")
 if Choice == "2":
     Creation = input("Enter your Username: ")
-    Class_Chooser = input("Enter class [Warrior,Archer,Assassin]: ")
-    Class_Chooser.lower()
+    Class_Chooser = input("Enter class [Warrior,Archer,Assassin,Snowman,Noob]: ").lower()
 
     if Class_Chooser == "warrior":
         Class = "Warrior"
@@ -110,6 +109,15 @@ if Choice == "2":
     if Class_Chooser == "assassin":
         Class = "Assassin"
         hero = Hero(name = Creation, health = 100, health_max = 100, damage = 40, classes = "Assassin", level = 1, exp = 0, statpoints = 0, exp_next = 100)
+
+    if Class_Chooser == "snowman":
+        Class = "Snowman"
+        hero = Hero(name = Creation, health = 150, health_max = 150, damage = 30, classes = "Snowman", level = 1, exp = 0, statpoints = 0, exp_next = 100)
+        
+    if Class_Chooser == "noob":
+        Class = "Noob"
+        hero = Hero(name = Creation, health = 50, health_max = 50, damage = 10, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
+
 
 
 def search():
