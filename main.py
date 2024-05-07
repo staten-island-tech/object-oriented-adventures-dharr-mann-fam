@@ -15,11 +15,11 @@ if play == "True".lower:
 if play == "False".lower:
     play = False
 
-    ##Mobs
-
-        #Dungeon 1
 
 def play():
+    ##Mobs
+
+    #Dungeon 1
     Goblins = Enemy(name="Goblin", health=25, health_max=25, damage=5, classes="mob", level=1, exp=25, statpoints=0, exp_next=0)
     Goblin_Leader = Boss(name="Goblins Leader", health=120, health_max=120, damage=15, classes="boss", level=5, exp=75,statpoints=0, exp_next=0)
 
@@ -99,8 +99,6 @@ def play():
 
 
 
-
-
     Choice = input("What Would you like to do? [1]Load Existing Character, [2]Create New Character, [3]Inventory: ")
     if Choice == "2":
         Creation = input("Enter your Username: ")
@@ -154,8 +152,7 @@ def play():
             number_mobs = 10
             battle()
 
-
-            
+   
         ##Dungeon 2
         if Narration == "2":
             Enemy = Wolves
@@ -163,6 +160,7 @@ def play():
             number_mobs = 10
             battle()
 
+        ##Dungeon 3
         if Narration == "3":
             Enemy = Placeholder
             Boss = PlaceholderBoss
@@ -198,17 +196,22 @@ def play():
 
 
 
+
     if Choice == "3":
         for j in up:
-            hero = Hero(name = j["name"], health = j["health"], health_max = j["health_max"], damage = j["damage"], classes = j["classes"], level = j["level"], exp = j["exp"], statpoints = j["statpoints"])
+            hero = Hero(name = j["name"], health = j["health"], health_max = j["health_max"], damage = j["damage"], classes = j["classes"], level = j["level"], exp = j["exp"], statpoints = j["statpoints"], exp_next= j["exp_next"])
             print(f"[name: {hero.name}, level: {hero.level}, hp: {hero.health_max}, damage: {hero.damage}, class: {hero.classes}, exp: {hero.exp}, next level: {hero.exp_next}, statpoints: {hero.statpoints}, Exp Req: {hero.exp_next}]")
+
 
 
 
     add_data = Hero(name = hero.name, health = hero.health, health_max = hero.health_max, damage = hero.damage, classes = hero.classes, level = hero.level, exp = hero.exp, statpoints = hero.statpoints, exp_next = hero.exp_next) 
 
-while play == True:
-    play()
+
+
+
+
+    
 
 
     with open("data.json", "r") as f:
@@ -227,14 +230,14 @@ while play == True:
 
 #No code needed below this line
 # Creates a new JSON file with the updated data
-new_file = "updated.json"
-with open(new_file, "w") as f:
+    new_file = "updated.json"
+    with open(new_file, "w") as f:
     # Serialize the updated Python list to a JSON string
-    json_string = json.dumps(data)
+        json_string = json.dumps(data)
 
     # Write the JSON string to the new JSON file
-    f.write(json_string)
+        f.write(json_string)
 
 # Overwrite the old JSON file with the new one
-os.remove("data.json")
-os.rename(new_file, "data.json")
+    os.remove("data.json")
+    os.rename(new_file, "data.json")
