@@ -128,8 +128,7 @@ if Choice == "1":
         for i in up:
             if Search in i["name"]:
                 hero = Hero(name = i["name"], health = i["health"], health_max = i["health_max"], damage = i["damage"], classes = i["classes"], level = i["level"], exp = i["exp"], statpoints = i["statpoints"], exp_next = i["exp_next"])
-                print("Welcome back!")
-                print(hero)
+                print (f"Welcome back {hero.name}! ") 
                 search()
                 Narration = input("Now pick a dungeon to complete (Type the number corresponding to the Dungeon): ")
             
@@ -141,8 +140,6 @@ if Choice == "1":
             number_mobs = 10
             battle()
 
-
-            
         ##Dungeon 2
         if Narration == "2":
             Enemy = Wolves
