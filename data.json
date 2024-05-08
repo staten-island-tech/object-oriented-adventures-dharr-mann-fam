@@ -1,1 +1,5 @@
-[{"name": "a", "health": 84.0, "health_max": 84.0, "damage": 21.0, "classes": "Archer", "level": 2, "exp": 10, "statpoints": 3, "exp_next": 135.0}, {"name": "a", "health": 84.0, "health_max": 84.0, "damage": 21.0, "classes": "Archer", "level": 2, "exp": 10, "statpoints": 3, "exp_next": ["exp_next"]}, {"name": "a", "health": 105.0, "health_max": 105.0, "damage": 42.0, "classes": "Assassin", "level": 2, "exp": 0, "statpoints": 3, "exp_next": 150.0}, {"name": "a", "health": 105.0, "health_max": 105.0, "damage": 42.0, "classes": "Assassin", "level": 2, "exp": 0, "statpoints": 3, "exp_next": ["exp_next"]}, {"name": "nathan", "health": 105.0, "health_max": 105.0, "damage": 42.0, "classes": "Assassin", "level": 2, "exp": 0, "statpoints": 3, "exp_next": 150.0}, {"name": "snowmn", "health": 157.5, "health_max": 157.5, "damage": 31.5, "classes": "Snowman", "level": 2, "exp": 0, "statpoints": 3, "exp_next": 150.0}, {"name": "noob", "health": 52.5, "health_max": 52.5, "damage": 10.5, "classes": "Noob", "level": 2, "exp": 50, "statpoints": 3, "exp_next": 75.0}, {"name": "aaaa", "health": 52.5, "health_max": 52.5, "damage": 10.5, "classes": "Noob", "level": 2, "exp": 50, "statpoints": 3, "exp_next": 75.0}]
+
+[{"name": "a", "health": 84.0, "health_max": 84.0, "damage": 21.0, "classes": "Archer", "level": 2, "exp": 10, "statpoints": 3, "exp_next": 135.0}]
+
+
+
