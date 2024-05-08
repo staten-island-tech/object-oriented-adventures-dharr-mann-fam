@@ -21,6 +21,9 @@ class Character():
         target.health = max(target.health, 0)
         print(f"{self.name} dealt {self.damage} to [{target.name}]")
 
+    
+
+
 
 
 
@@ -53,6 +56,13 @@ class Hero(Character):
         self.health_max = self.health_max * 1.05
         self.damage = self.damage * 1.05
         self.health = self.health_max
+
+
+    def die(self):
+        if self.health == 0:
+            self.health = self.health_max
+            quit    
+            print("You died")
 
 
 

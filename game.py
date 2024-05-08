@@ -28,8 +28,7 @@ Placeholder = Enemy(name="PlaceHolder", health = 150, health_max=150, damage=25,
 PlaceholderBoss = Boss(name="PlaceHolder Boss", health=500, health_max=500, damage=60, classes="boss", level = 20, exp = 300, statpoints=0, exp_next=0 )
 
 def battle():
-    alive = True
-    while alive == True:
+        number_mobs = 10
         for i in range(1,number_mobs):
             Enemy.health = Enemy.health_max
             while Enemy.health > 0:
@@ -51,18 +50,12 @@ def battle():
                     print(" ")
                     print(f"{hero.name} has gained {Enemy.exp} exp")
                     input()
-                    print(number_mobs - 1)
+                    number_mobs = number_mobs - 1
 
 
-                if hero.health == 0 and Enemy.health > 0:
-                    print("You Died!")
-                    alive = 2
-
-                    input()
-                    print("Press Enter to continue battle")
 
 
-    while alive == 1:
+
         print("You are now moving onto the boss room...")
         print(" ")
         input()
@@ -87,11 +80,7 @@ def battle():
                 hero.health = hero.health_max
                 print("You have beaten the dungeon!")
   
-            if hero.health == 0 and Enemy.health > 0:
-                print("You Lost! Restart to pick another dungeon!")
-                hero.health = hero.health_max
-                alive = 2
-                break
+
 
 
 
@@ -120,7 +109,7 @@ if Choice == "2":
         
     if Class_Chooser == "noob":
         Class = "Noob"
-        hero = Hero(name = Creation, health = 50, health_max = 50, damage = 10, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
+        hero = Hero(name = Creation, health = 10, health_max = 10, damage = 5000, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
 
 
 
