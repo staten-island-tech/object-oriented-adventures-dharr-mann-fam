@@ -24,8 +24,21 @@ Wolves = Enemy(name="Wolf", health=50, health_max=65, damage=10, classes="mob", 
 Eilte_Wolf = Boss(name="Elite Wolf", health=250, health_max=250, damage = 40, classes = "boss", level = 10, exp=150, statpoints=0, exp_next=0)
 
 #Dungeon 3
+<<<<<<< Updated upstream
 Placeholder = Enemy(name="PlaceHolder", health = 150, health_max=150, damage=25, classes="mob", level = 10, exp = 100, statpoints=0, exp_next=0)
 PlaceholderBoss = Boss(name="PlaceHolder Boss", health=500, health_max=500, damage=60, classes="boss", level = 20, exp = 300, statpoints=0, exp_next=0 )
+=======
+Zombie = Enemy(name="Zombie", health = 250, health_max=250, damage=45, classes="mob", level = 15, exp = 750, statpoints=0, exp_next=0)
+Giant_Zombie = Boss(name="Giant_Zombie", health=500, health_max=500, damage=60, classes="boss", level = 20, exp = 300, statpoints=0, exp_next=0)
+
+#Dungeon 4 
+Spider = Enemy(name="Spider", health = 150, health_max=150, damage=25, classes="mob", level = 15, exp = 50, statpoints=0, exp_next=0)
+Tarantula = Boss(name="Tarantula", health=750, health_max=750, damage= 75, classes="boss", level = 20, exp = 300, statpoints=0, exp_next=0)
+
+#Dungeon 5
+Little_Whalen = Enemy(name="Mini. Whalen", health = 200, health_max=200, damage=50, classes="mob", level = 15, exp = 50, statpoints=0, exp_next=0)
+Boss_Whalen = Boss(name="Mr. Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 1000, statpoints=0, exp_next=0)
+>>>>>>> Stashed changes
 
 def battle():
         number_mobs = 10
