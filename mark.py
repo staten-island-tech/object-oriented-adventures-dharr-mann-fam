@@ -14,6 +14,8 @@ if play == "True".lower:
 
 if play == "False".lower:
     play = False
+dialouge_greet = ["Hello!", "I have been waiting for you", "The prophecies have fortold of your arrival!", "", "RAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "Dang it! Another one, really? Oh well."]
+choice_greet = random.randint(1,5)
 
     ##Mobs
 
@@ -76,6 +78,17 @@ def battle():
     input()
 
     while Boss.health > 0 and hero.health > 0:
+        if Boss.health == Boss.health_max:
+            if choice_greet == 1:
+                print(dialouge_greet[0])
+            elif choice_greet == 2:
+                print(dialouge_greet[1])
+            elif choice_greet == 3:
+                print(dialouge_greet[2])
+            elif choice_greet == 4:
+                print(dialouge_greet[3])
+            else:
+                print(dialouge_greet[4])
         os.system("cls")
         print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
         print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}") 
@@ -134,7 +147,7 @@ def search():
                 "[2] Wolves",
                 "[3] Zombies",
                 "[4] Spiders",
-                "[5] PlaceHolder",
+                "[5] Mr. Whalen",
 ]
     list(map(print, Dungeons))
     
