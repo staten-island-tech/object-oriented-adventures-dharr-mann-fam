@@ -37,6 +37,7 @@ def battle():
                 print(f"Health of {hero.name} [Level:[{hero.level}]:{hero.health}")
                 print("Enter to continue")
                 input()
+                
 
                 hero.attack(Enemy)
                 Enemy.attack(hero)          
@@ -51,6 +52,7 @@ def battle():
                     print(f"{hero.name} has gained {Enemy.exp} exp")
                     input()
                     number_mobs = number_mobs - 1
+                    
 
 
 
@@ -68,8 +70,7 @@ def battle():
             hero.attack(Boss)
             Boss.attack(hero)          
 
-            print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
-            print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}")
+
 
             input()
             print("Press Enter to continue battle")
@@ -140,6 +141,7 @@ if Choice == "1":
             Boss = Goblin_Leader
             number_mobs = 10
             battle()
+            break
 
         ##Dungeon 2
         if Narration == "2":
@@ -147,12 +149,14 @@ if Choice == "1":
             Boss = Eilte_Wolf
             number_mobs = 10
             battle()
+            break
 
         if Narration == "3":
             Enemy = Placeholder
             Boss = PlaceholderBoss
             number_mobs = 10
             battle()
+            break
 
 if Choice == "2":
     Tutorial = input("Would you like a tutorial?[Y/Y] (You are forced): ")
@@ -180,7 +184,8 @@ if Choice == "2":
 if Choice == "3":
     for j in up:
         hero = Hero(name = j["name"], health = j["health"], health_max = j["health_max"], damage = j["damage"], classes = j["classes"], level = j["level"], exp = j["exp"], statpoints = j["statpoints"], exp_next=["exp_next"])
-        print(f"[name: {hero.name}, level: {hero.level}, hp: {hero.health_max}, damage: {hero.damage}, class: {hero.classes}, exp: {hero.exp}, next level: {hero.exp_next}, statpoints: {hero.statpoints}, Exp Req: {hero.exp_next}]")
+        print(f"[name: {hero.name}, level: {hero.level}, hp: {hero.health_max}, damage: {hero.damage}, class: {hero.classes}, exp: {hero.exp}, statpoints: {hero.statpoints}, Exp Req: {hero.exp_next}]")
+        exit()
 
 
 
