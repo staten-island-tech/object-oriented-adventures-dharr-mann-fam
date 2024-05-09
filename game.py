@@ -142,7 +142,7 @@ if Choice == "1":
             Boss = Goblin_Leader
             number_mobs = 10
             battle()
-            break
+            
 
         ##Dungeon 2
         if Narration == "2":
