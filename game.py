@@ -32,7 +32,9 @@ Spider = Enemy(name="Spider", health = 150, health_max=150, damage=25, classes="
 Tarantula = Boss(name="Tarantula", health=750, health_max=750, damage= 75, classes="boss", level = 20, exp = 300, statpoints=0, exp_next=0)
 
 #Dungeon 5
+Little_Whalen = Enemy(name="Mini. Whalen", health = 200, health_max=200, damage=50, classes="mob", level = 15, exp = 50, statpoints=0, exp_next=0)
 Boss_Whalen = Boss(name="Mr. Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 1000, statpoints=0, exp_next=0)
+
 
 def battle():
         number_mobs = 10
@@ -150,8 +152,6 @@ if Choice == "1":
             Boss = Goblin_Leader
             number_mobs = 10
             battle()
-            break
-
 
         ##Dungeon 2
         if Narration == "2":
@@ -159,25 +159,26 @@ if Choice == "1":
             Boss = Eilte_Wolf
             number_mobs = 10
             battle()
-            break
 
         ##Dungeon 3
         if Narration == "3":
             Enemy = Zombie
             Boss = Giant_Zombie
-            number_mobs = 1
+            number_mobs = 12
             battle()
 
         ##Dungeon 4
         if Narration == "4":
             Enemy = Spider
             Boss = Tarantula
-            number_mobs = 20
+            number_mobs = 15
             battle()
 
         ##Dungeon 5
         if Narration == "5":
+            Enemy = Little_Whalen
             Boss = Boss_Whalen
+            number_mobs = 20
             battle()
 
 if Choice == "2":
