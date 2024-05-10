@@ -129,8 +129,8 @@ def search():
     Dungeons = ["[1] Goblins",
                 "[2] Wolves",
                 "[3] Zombies",
-                "[4] Spiders",
-                "[5] FINAL BOSS",
+                "[4] Arachnids",
+                "[5] Whalens",
     ]
     list(map(print, Dungeons))
 
