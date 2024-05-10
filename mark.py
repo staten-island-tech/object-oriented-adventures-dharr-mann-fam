@@ -16,6 +16,7 @@ if play == "False".lower:
     play = False
 dialouge_greet = ["Hello!", "I have been waiting for you", "The prophecies have fortold of your arrival!", "", "RAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "Dang it! Another one, really? Oh well."]
 choice_greet = random.randint(1,5)
+dialouge_fight = ["You truly are a mighty opponent!", ""]
 
     ##Mobs
 
