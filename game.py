@@ -127,9 +127,9 @@ if Choice == "2":
 def search():
     Dungeons = ["[1] Goblins",
                 "[2] Wolves",
-                "[3] PlaceHolder",
-                "[4] PlaceHolder",
-                "[5] PlaceHolder",
+                "[3] Zombies",
+                "[4] Arachnids",
+                "[5] Whalen",
     ]
     list(map(print, Dungeons))
 
