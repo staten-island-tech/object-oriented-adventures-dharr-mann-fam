@@ -10,7 +10,10 @@ os.system("cls")
 number_mobs = 1
 play = True
 alive = 0
+dialouge_greet = ["Hello!", "I have been waiting for you", "The prophecies have fortold of your arrival!", "", "RAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "Dang it! Another one, really? Oh well."]
+dialouge_fight = ["You truly are a mighty opponent!", "Owww", "This is going to be easy", "", "RARRRRR"]
 ##Mobs
+
 
 #Dungeon 1
 Goblins = Enemy(name="Goblin", health=25, health_max=25, damage=5, classes="mob", level=1, exp=25, statpoints=0, exp_next=0)
@@ -36,60 +39,93 @@ Little_Whalen = Enemy(name="Mini. Whalen", health = 200, health_max=200, damage=
 Boss_Whalen = Boss(name="Mr. Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 1000, statpoints=0, exp_next=0)
 
 
+
 def battle():
-        number_mobs = 10
+    while Enemy.health > 0 and hero.health > 0:
         for i in range(1,number_mobs):
+            os.system("cls")
             Enemy.health = Enemy.health_max
-            while Enemy.health > 0:
-                print(f"Total number of mobs: {number_mobs}")
-                print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health}")   
-                print(f"Health of {hero.name} [Level:[{hero.level}]:{hero.health}")
-                print("Enter to continue")
-                input()
-                
-
-                hero.attack(Enemy)
-                Enemy.attack(hero)          
-
-                print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health} ")    
-                print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health} ")
-
-
-                if Enemy.health == 0:
-                    hero.gain_experience(Enemy.exp)
-                    print(" ")
-                    print(f"{hero.name} has gained {Enemy.exp} exp")
-                    input()
-                    number_mobs = number_mobs - 1
-                    
-
-
-
-
-
-        print("You are now moving onto the boss room...")
-        print(" ")
-        input()
-        while Boss.health > 0:
-            print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
-            print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}") 
-            print("Enter to continue")   
+            print(f"Total number of mobs: {number_mobs}")
+            print(f"Health of {Enemy.name} [Level:{hero.level}]:{Enemy.health_max}")   
+            print(f"Health of {hero.name} [Level:[{Enemy.level}]:{hero.health}")
+            print("Enter to continue")
             input()
- 
-            hero.attack(Boss)
-            Boss.attack(hero)          
 
+            hero.attack(Enemy)
+            Enemy.attack(hero)          
 
+            print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health} ")    
+            print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health} ")
 
             input()
             print("Press Enter to continue battle")
-            if Boss.health == 0:
-                hero.gain_experience(Boss.exp)
+            if Enemy.health == 0:
+                hero.gain_experience(Enemy.exp)
                 print(" ")
-                print(f"{hero.name} has gained {Boss.exp} exp")
+                print(f"{hero.name} has gained {Enemy.exp} exp")
+
+            if hero.health == 0:
+                print("You Lost! Restart to pick another dungeon!")
                 hero.health = hero.health_max
-                print("You have beaten the dungeon! Run the code again and choose another dungeon. ")
-                
+                play = input("Do you want to play again [True/False]")
+                break
+
+    print("You are now moving onto the boss room...")
+    print(" ")
+    input()
+
+    while Boss.health > 0 and hero.health > 0:
+        if Boss.health == Boss.health_max:
+            choice_greet = random.randint(1,5)
+            if choice_greet == 1:
+                print(dialouge_greet[0])
+            elif choice_greet == 2:
+                print(dialouge_greet[1])
+            elif choice_greet == 3:
+                print(dialouge_greet[2])
+            elif choice_greet == 4:
+                print(dialouge_greet[3])
+            else:
+                print(dialouge_greet[4])
+ 
+        os.system("cls")
+        print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
+        print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}") 
+        choice_fight = random.randint(1,10)
+        if choice_fight == 1:
+            print(dialouge_fight[0])
+        elif choice_fight == 2:
+            print(dialouge_fight[1])
+        elif choice_fight == 3:
+            print(dialouge_fight[2])
+        elif choice_fight == 4:
+            print(dialouge_fight[3])
+        elif choice_fight:
+            print(dialouge_fight[4])
+        else:
+            print("")
+        print("Enter to continue")   
+        input()
+
+        hero.attack(Boss)
+        Boss.attack(hero)          
+
+        print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
+        print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}")
+
+        input()
+        print("Press Enter to continue battle")
+        if Boss.health == 0:
+            hero.gain_experience(Boss.exp)
+            print(" ")
+            print(f"{hero.name} has gained {Boss.exp} exp")
+            hero.health = hero.health_max
+            print("You have beaten the dungeon!")
+
+        if hero.health == 0:
+            print("You Lost! Restart to pick another dungeon!")
+            hero.health = hero.health_max
+            break                
                 
   
 
