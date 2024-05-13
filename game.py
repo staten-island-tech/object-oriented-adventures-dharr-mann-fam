@@ -89,9 +89,6 @@ def battle():
                 print(f"{hero.name} has gained {Boss.exp} exp")
                 hero.health = hero.health_max
                 print("You have beaten the dungeon! Run the code again and choose another dungeon. ")
-                
-                
-  
 
 
 
@@ -101,7 +98,7 @@ def battle():
 Choice = input("What Would you like to do? [1]Load Existing Character, [2]Create New Character, [3]Inventory: ")
 if Choice == "2":
     Creation = input("Enter your Username: ")
-    Class_Chooser = input("Enter class [Warrior,Archer,Assassin,Snowman,Noob]: ").lower()
+    Class_Chooser = input("Enter class [Warrior,Archer,Assassin,Snowman,Noob,God]: ").lower()
 
     if Class_Chooser == "warrior":
         Class = "Warrior"
@@ -121,7 +118,11 @@ if Choice == "2":
         
     if Class_Chooser == "noob":
         Class = "Noob"
-        hero = Hero(name = Creation, health = 10, health_max = 10, damage = 5000, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
+        hero = Hero(name = Creation, health = 50, health_max = 50, damage = 500, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
+
+    if Class_Chooser == "god":
+        Class = "God"
+        hero = Hero(name = Creation, health = 100, health_max = 100, damage = 15, classes = "Gpd", level = 1, exp = 0, statpoints = 0, exp_next = 10)
 
 
 
