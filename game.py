@@ -41,19 +41,14 @@ def battle():
             Enemy.health = Enemy.health_max
             while Enemy.health > 0:
                 os.system("cls")
+                hero.attack(Enemy)
+                Enemy.attack(hero) 
                 print(f"Total number of mobs: {number_mobs}")
                 print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health}")   
                 print(f"Health of {hero.name} [Level:[{hero.level}]:{hero.health}")
                 print("Enter to continue")
                 input()
                 
-                os.system("cls")
-                hero.attack(Enemy)
-                Enemy.attack(hero)          
-
-                print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health} ")    
-                print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health} ")
-
 
                 if Enemy.health == 0:
                     hero.gain_experience(Enemy.exp)
@@ -69,18 +64,15 @@ def battle():
         print(" ")
         input()
         while Boss.health > 0:
-            print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
-            print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}") 
-            print("Enter to continue")   
-            input()
- 
+            os.system("cls")
             hero.attack(Boss)
             Boss.attack(hero)          
-
-
-
+            print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
+            print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}") 
+            print("Press Enter to continue battle")  
             input()
-            print("Press Enter to continue battle")
+
+
             if Boss.health == 0:
                 hero.gain_experience(Boss.exp)
                 print(" ")
