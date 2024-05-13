@@ -8,7 +8,6 @@ Y = 0
 N = 1
 os.system("cls")
 number_mobs = 1
-play = True
 alive = 0
 ##Mobs
 
@@ -32,7 +31,7 @@ Spider = Enemy(name="Spider", health = 150, health_max=150, damage=25, classes="
 Tarantula = Boss(name="Tarantula", health=750, health_max=750, damage= 75, classes="boss", level = 20, exp = 300, statpoints=0, exp_next=0)
 
 #Dungeon 5
-Little_Whalen = Enemy(name="Mini. Whalen", health = 200, health_max=200, damage=50, classes="mob", level = 15, exp = 50, statpoints=0, exp_next=0)
+Little_Whalen = Enemy(name="Little Whalen", health = 200, health_max=200, damage=50, classes="mob", level = 15, exp = 50, statpoints=0, exp_next=0)
 Boss_Whalen = Boss(name="Mr. Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 1000, statpoints=0, exp_next=0)
 
 
@@ -41,13 +40,14 @@ def battle():
         for i in range(1,number_mobs):
             Enemy.health = Enemy.health_max
             while Enemy.health > 0:
+                os.system("cls")
                 print(f"Total number of mobs: {number_mobs}")
                 print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health}")   
                 print(f"Health of {hero.name} [Level:[{hero.level}]:{hero.health}")
                 print("Enter to continue")
                 input()
                 
-
+                os.system("cls")
                 hero.attack(Enemy)
                 Enemy.attack(hero)          
 
@@ -61,12 +61,10 @@ def battle():
                     print(f"{hero.name} has gained {Enemy.exp} exp")
                     input()
                     number_mobs = number_mobs - 1
+                
+                if hero.health <= 0:
+                    hero.die()
                     
-
-
-
-
-
         print("You are now moving onto the boss room...")
         print(" ")
         input()
@@ -90,7 +88,9 @@ def battle():
                 hero.health = hero.health_max
                 print("You have beaten the dungeon! Run the code again and choose another dungeon. ")
 
-
+            if hero.health <= 0:
+                hero.die()
+                
 
 
 
@@ -136,9 +136,7 @@ def search():
     list(map(print, Dungeons))
 
 if Choice == "1":
-    while play == True:
         Search = input("Enter username to start search: ")
-        play == False
         for i in up:
             if Search in i["name"]:
                 hero = Hero(name = i["name"], health = i["health"], health_max = i["health_max"], damage = i["damage"], classes = i["classes"], level = i["level"], exp = i["exp"], statpoints = i["statpoints"], exp_next = i["exp_next"])
@@ -181,6 +179,7 @@ if Choice == "1":
             Boss = Boss_Whalen
             number_mobs = 20
             battle()
+
 
 if Choice == "2":
     Tutorial = input("Would you like a tutorial?[Y/Y] (You are forced): ")
