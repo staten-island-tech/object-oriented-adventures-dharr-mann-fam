@@ -62,6 +62,7 @@ class Hero(Character):
         if self.health == 0:
             self.health = self.health_max    
             print("You died")
+            quit()
 
 
 
