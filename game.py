@@ -43,19 +43,14 @@ def battle():
             Enemy.health = Enemy.health_max
             while Enemy.health > 0:
                 os.system("cls")
+                hero.attack(Enemy)
+                Enemy.attack(hero) 
                 print(f"Total number of mobs: {number_mobs}")
                 print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health}")   
                 print(f"Health of {hero.name} [Level:[{hero.level}]:{hero.health}")
                 print("Enter to continue")
                 input()
                 
-                os.system("cls")
-                hero.attack(Enemy)
-                Enemy.attack(hero)          
-
-                print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health} ")    
-                print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health} ")
-
 
                 if Enemy.health == 0:
                     hero.gain_experience(Enemy.exp)
@@ -71,18 +66,15 @@ def battle():
         print(" ")
         input()
         while Boss.health > 0:
-            print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
-            print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}") 
-            print("Enter to continue")   
-            input()
- 
+            os.system("cls")
             hero.attack(Boss)
             Boss.attack(hero)          
-
-
-
+            print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
+            print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}") 
+            print("Press Enter to continue battle")  
             input()
-            print("Press Enter to continue battle")
+
+
             if Boss.health == 0:
                 hero.gain_experience(Boss.exp)
                 print(" ")
@@ -93,8 +85,6 @@ def battle():
             if hero.health <= 0:
                 hero.die()
                 
-
-
 
 
 Choice = input("What Would you like to do? [1]Load Existing Character, [2]Create New Character, [3]Inventory: ")
@@ -123,9 +113,13 @@ if Choice == "2":
         Class = "Noob"
         hero = Hero(name = Creation, health = 50, health_max = 50, damage = 500, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
 
-    if Class_Chooser == "???":
+    if Class_Chooser == "god":
         Class = "God"
-        hero = Hero(name = Creation, health = 100, health_max = 100, damage = 15, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 10)
+        hero = Hero(name = Creation, health = 150, health_max = 150, damage = 35, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 10)
+    
+    if Class_Chooser == "hidden":
+        Class = "Hidden"
+        hero = Hero(name = Creation, health = 100, health_max = 100, damage = -1, classes = "Hidden", level = 1, exp = 0, statpoints = 0, exp_next = 10)
 
 
 
@@ -218,6 +212,10 @@ if Choice == "2":
             hero.health = hero.health_max
 
             print("Congrats on your first win! Kill Terminal and go to inventory to see drops/use stat points.")
+
+        if hero.health <= 0:
+            hero.die()
+            print("How you die to Tutorial")
 
 
 if Choice == "3":
