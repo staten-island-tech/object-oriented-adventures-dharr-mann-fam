@@ -65,6 +65,20 @@ class Hero(Character):
             quit()
 
 
+    def statpoint_atk(self, amount):
+        amount = input("enter amount: ")
+        self.statpoints -= amount
+        self.damage = self.damage * 1.01(amount)
+
+
+    def statpoint_HP(self, amount):
+        amount = input("enter amount: ")
+        self.statpoints -= amount
+        self.health = self.health * 1.01(amount)
+        self.health_max = self.health_max * 1.01(amount)
+
+
+
 
 class Enemy(Character):
     def __init__(self, 
