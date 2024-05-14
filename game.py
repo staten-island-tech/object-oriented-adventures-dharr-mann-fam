@@ -35,6 +35,7 @@ Little_Whalen = Enemy(name="Little Whalen", health = 200, health_max=200, damage
 Boss_Whalen = Boss(name="Mr. Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 10000, statpoints=0, exp_next=0)
 
 #Dungeon 6
+Professor_Whalen = Enemy(name="Professor Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 10000, statpoints=0, exp_next=0)
 Mega_Whalen = Boss(name="Mega Whalen", health=99999, health_max=99999, damage= 999, classes="boss", level = 99, exp = 99999, statpoints=0, exp_next=0)
 def battle():
         number_mobs = 10
@@ -183,9 +184,9 @@ if Choice == "1":
             battle()    
         ##Dungeon 6
         if Narration == "6":
-            Enemy = Little_Whalen
+            Enemy = Professor_Whalen
             Boss = Mega_Whalen
-            number_mobs = 0
+            number_mobs = 1
             battle()
 
 
