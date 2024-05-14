@@ -19,22 +19,24 @@ Goblin_Leader = Boss(name="Goblins Leader", health=120, health_max=120, damage=1
 Tutorial_Dummy = Enemy(name = "Dummy", health = 50, health_max = 50, damage = 5, classes = "Tutorial", level = 1, exp = 100, statpoints = 0, exp_next = 0)
 
 #Dungeon 2
-Wolves = Enemy(name="Wolf", health=50, health_max=65, damage=10, classes="mob", level=5, exp=40, statpoints=0,exp_next=0)
+Wolves = Enemy(name="Wolf", health=50, health_max=65, damage=10, classes="mob", level=5, exp=50, statpoints=0,exp_next=0)
 Eilte_Wolf = Boss(name="Elite Wolf", health=250, health_max=250, damage = 40, classes = "boss", level = 10, exp=150, statpoints=0, exp_next=0)
 
 #Dungeon 3
-Zombie = Enemy(name="Zombie", health = 250, health_max=250, damage=45, classes="mob", level = 15, exp = 750, statpoints=0, exp_next=0)
-Giant_Zombie = Boss(name="Giant_Zombie", health=500, health_max=500, damage=60, classes="boss", level = 20, exp = 300, statpoints=0, exp_next=0)
+Zombie = Enemy(name="Zombie", health = 250, health_max=250, damage=45, classes="mob", level = 15, exp = 150, statpoints=0, exp_next=0)
+Giant_Zombie = Boss(name="Giant_Zombie", health=500, health_max=500, damage=60, classes="boss", level = 20, exp = 450, statpoints=0, exp_next=0)
 
 #Dungeon 4 
-Spider = Enemy(name="Spider", health = 150, health_max=150, damage=25, classes="mob", level = 15, exp = 50, statpoints=0, exp_next=0)
-Tarantula = Boss(name="Tarantula", health=750, health_max=750, damage= 75, classes="boss", level = 20, exp = 300, statpoints=0, exp_next=0)
+Spider = Enemy(name="Spider", health = 150, health_max=150, damage=25, classes="mob", level = 15, exp = 600, statpoints=0, exp_next=0)
+Tarantula = Boss(name="Tarantula", health=750, health_max=750, damage= 75, classes="boss", level = 20, exp = 3000, statpoints=0, exp_next=0)
 
 #Dungeon 5
-Little_Whalen = Enemy(name="Little Whalen", health = 200, health_max=200, damage=50, classes="mob", level = 15, exp = 50, statpoints=0, exp_next=0)
-Boss_Whalen = Boss(name="Mr. Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 1000, statpoints=0, exp_next=0)
+Little_Whalen = Enemy(name="Little Whalen", health = 200, health_max=200, damage=50, classes="mob", level = 15, exp = 1000, statpoints=0, exp_next=0)
+Boss_Whalen = Boss(name="Mr. Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 10000, statpoints=0, exp_next=0)
 
-
+#Dungeon 6
+Professor_Whalen = Enemy(name="Professor Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 10000, statpoints=0, exp_next=0)
+Mega_Whalen = Boss(name="Mega Whalen", health=99999, health_max=99999, damage= 999, classes="boss", level = 99, exp = 99999, statpoints=0, exp_next=0)
 def battle():
         number_mobs = 10
         for i in range(1,number_mobs):
@@ -90,7 +92,7 @@ def battle():
 Choice = input("What Would you like to do? [1]Load Existing Character, [2]Create New Character, [3]Inventory: ")
 if Choice == "2":
     Creation = input("Enter your Username: ")
-    Class_Chooser = input("Enter class [Warrior,Archer,Assassin,Snowman,Noob,God]: ").lower()
+    Class_Chooser = input("Enter class [Warrior,Archer,Assassin,Snowman,Noob,???]: ").lower()
 
     if Class_Chooser == "warrior":
         Class = "Warrior"
@@ -112,9 +114,9 @@ if Choice == "2":
         Class = "Noob"
         hero = Hero(name = Creation, health = 50, health_max = 50, damage = 500, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
 
-    if Class_Chooser == "god":
+    if Class_Chooser == "???":
         Class = "God"
-        hero = Hero(name = Creation, health = 100, health_max = 100, damage = 15, classes = "Gpd", level = 1, exp = 0, statpoints = 0, exp_next = 10)
+        hero = Hero(name = Creation, health = 100, health_max = 100, damage = 15, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 10)
 
 
 
@@ -124,6 +126,7 @@ def search():
                 "[3] Zombies",
                 "[4] Arachnids",
                 "[5] Whalens",
+                "[6] Mega Boss"
     ]
     list(map(print, Dungeons))
 
@@ -170,7 +173,14 @@ if Choice == "1":
             Enemy = Little_Whalen
             Boss = Boss_Whalen
             number_mobs = 20
+            battle()    
+        ##Dungeon 6
+        if Narration == "6":
+            Enemy = Professor_Whalen
+            Boss = Mega_Whalen
+            number_mobs = 1
             battle()
+
 
 
 if Choice == "2":
