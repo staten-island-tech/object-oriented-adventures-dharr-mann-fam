@@ -87,8 +87,6 @@ def battle():
                 
 
 
-
-
 Choice = input("What Would you like to do? [1]Load Existing Character, [2]Create New Character, [3]Inventory: ")
 if Choice == "2":
     Creation = input("Enter your Username: ")
@@ -114,9 +112,13 @@ if Choice == "2":
         Class = "Noob"
         hero = Hero(name = Creation, health = 50, health_max = 50, damage = 500, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
 
-    if Class_Chooser == "???":
+    if Class_Chooser == "god":
         Class = "God"
-        hero = Hero(name = Creation, health = 100, health_max = 100, damage = 15, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 10)
+        hero = Hero(name = Creation, health = 150, health_max = 150, damage = 35, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 10)
+    
+    if Class_Chooser == "hidden":
+        Class = "Hidden"
+        hero = Hero(name = Creation, health = 100, health_max = 100, damage = -1, classes = "Hidden", level = 1, exp = 0, statpoints = 0, exp_next = 10)
 
 
 
@@ -204,6 +206,10 @@ if Choice == "2":
             hero.health = hero.health_max
 
             print("Congrats on your first win! Kill Terminal and go to inventory to see drops/use stat points.")
+
+        if hero.health <= 0:
+            hero.die()
+            print("How you die to Tutorial")
 
 
 if Choice == "3":

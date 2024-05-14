@@ -1,1 +1,1 @@
-[]
+[{"name": "easy", "health": 105.0, "health_max": 105.0, "damage": 15.75, "classes": "God", "level": 2, "exp": 90, "statpoints": 3, "exp_next": 15.0}, {"name": "a", "health": 157.5, "health_max": 157.5, "damage": 36.75, "classes": "God", "level": 2, "exp": 90, "statpoints": 3, "exp_next": 15.0}]
