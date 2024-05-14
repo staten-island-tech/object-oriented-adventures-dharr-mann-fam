@@ -100,6 +100,7 @@ def battle():
 Choice = input("What Would you like to do? [1]Load Existing Character, [2]Create New Character, [3]Inventory: ")
 if Choice == "2":
     Creation = input("Enter your Username: ")
+
     Class_Chooser = input("Enter class [Warrior,Archer,Assassin,Snowman,Noob,???]: ").lower()
 
     if Class_Chooser == "warrior":
@@ -186,12 +187,15 @@ if Choice == "1":
         if Narration == "6":
             Enemy = Professor_Whalen
             Boss = Mega_Whalen
-            number_mobs = 1
+            number_mobs = 2
             battle()
 
 
 
 if Choice == "2":
+    for i in  up:
+        if Choice in i["name"]:
+            print("Username is taken. Please choose another. ")
     Tutorial = input("Would you like a tutorial?[Y/Y] (You are forced): ")
     if Tutorial == "Y" or "y":
         while Tutorial_Dummy.health > 0:
