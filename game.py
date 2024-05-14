@@ -8,7 +8,6 @@ Y = 0
 N = 1
 os.system("cls")
 number_mobs = 1
-play = True
 alive = 0
 dialouge_greet = ["Hello!", "I have been waiting for you", "The prophecies have fortold of your arrival!", "", "RAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "Dang it! Another one, really? Oh well."]
 dialouge_fight = ["You truly are a mighty opponent!", "Owww", "This is going to be easy", "", "RARRRRR"]
@@ -35,7 +34,7 @@ Spider = Enemy(name="Spider", health = 150, health_max=150, damage=25, classes="
 Tarantula = Boss(name="Tarantula", health=750, health_max=750, damage= 75, classes="boss", level = 20, exp = 300, statpoints=0, exp_next=0)
 
 #Dungeon 5
-Little_Whalen = Enemy(name="Mini. Whalen", health = 200, health_max=200, damage=50, classes="mob", level = 15, exp = 50, statpoints=0, exp_next=0)
+Little_Whalen = Enemy(name="Little Whalen", health = 200, health_max=200, damage=50, classes="mob", level = 15, exp = 50, statpoints=0, exp_next=0)
 Boss_Whalen = Boss(name="Mr. Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 1000, statpoints=0, exp_next=0)
 
 
@@ -45,10 +44,39 @@ def battle():
         for i in range(1,number_mobs):
             os.system("cls")
             Enemy.health = Enemy.health_max
-            print(f"Total number of mobs: {number_mobs}")
-            print(f"Health of {Enemy.name} [Level:{hero.level}]:{Enemy.health_max}")   
-            print(f"Health of {hero.name} [Level:[{Enemy.level}]:{hero.health}")
-            print("Enter to continue")
+            while Enemy.health > 0:
+                os.system("cls")
+                print(f"Total number of mobs: {number_mobs}")
+                print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health}")   
+                print(f"Health of {hero.name} [Level:[{hero.level}]:{hero.health}")
+                print("Enter to continue")
+                input()
+                
+                os.system("cls")
+                hero.attack(Enemy)
+                Enemy.attack(hero)          
+
+                print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health} ")    
+                print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health} ")
+
+
+                if Enemy.health == 0:
+                    hero.gain_experience(Enemy.exp)
+                    print(" ")
+                    print(f"{hero.name} has gained {Enemy.exp} exp")
+                    input()
+                    number_mobs = number_mobs - 1
+                
+                if hero.health <= 0:
+                    hero.die()
+                    
+        print("You are now moving onto the boss room...")
+        print(" ")
+        input()
+        while Boss.health > 0:
+            print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
+            print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}") 
+            print("Enter to continue")   
             input()
 
             hero.attack(Enemy)
@@ -67,69 +95,11 @@ def battle():
             if hero.health == 0:
                 print("You Lost! Restart to pick another dungeon!")
                 hero.health = hero.health_max
-                play = input("Do you want to play again [True/False]")
-                break
+                print("You have beaten the dungeon! Run the code again and choose another dungeon. ")
 
-    print("You are now moving onto the boss room...")
-    print(" ")
-    input()
-
-    while Boss.health > 0 and hero.health > 0:
-        if Boss.health == Boss.health_max:
-            choice_greet = random.randint(1,5)
-            if choice_greet == 1:
-                print(dialouge_greet[0])
-            elif choice_greet == 2:
-                print(dialouge_greet[1])
-            elif choice_greet == 3:
-                print(dialouge_greet[2])
-            elif choice_greet == 4:
-                print(dialouge_greet[3])
-            else:
-                print(dialouge_greet[4])
- 
-        os.system("cls")
-        print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
-        print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}") 
-        choice_fight = random.randint(1,10)
-        if choice_fight == 1:
-            print(dialouge_fight[0])
-        elif choice_fight == 2:
-            print(dialouge_fight[1])
-        elif choice_fight == 3:
-            print(dialouge_fight[2])
-        elif choice_fight == 4:
-            print(dialouge_fight[3])
-        elif choice_fight:
-            print(dialouge_fight[4])
-        else:
-            print("")
-        print("Enter to continue")   
-        input()
-
-        hero.attack(Boss)
-        Boss.attack(hero)          
-
-        print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
-        print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}")
-
-        input()
-        print("Press Enter to continue battle")
-        if Boss.health == 0:
-            hero.gain_experience(Boss.exp)
-            print(" ")
-            print(f"{hero.name} has gained {Boss.exp} exp")
-            hero.health = hero.health_max
-            print("You have beaten the dungeon!")
-
-        if hero.health == 0:
-            print("You Lost! Restart to pick another dungeon!")
-            hero.health = hero.health_max
-            break                
+            if hero.health <= 0:
+                hero.die()
                 
-  
-
-
 
 
 
@@ -137,7 +107,7 @@ def battle():
 Choice = input("What Would you like to do? [1]Load Existing Character, [2]Create New Character, [3]Inventory: ")
 if Choice == "2":
     Creation = input("Enter your Username: ")
-    Class_Chooser = input("Enter class [Warrior,Archer,Assassin,Snowman,Noob]: ").lower()
+    Class_Chooser = input("Enter class [Warrior,Archer,Assassin,Snowman,Noob,God]: ").lower()
 
     if Class_Chooser == "warrior":
         Class = "Warrior"
@@ -157,7 +127,11 @@ if Choice == "2":
         
     if Class_Chooser == "noob":
         Class = "Noob"
-        hero = Hero(name = Creation, health = 10, health_max = 10, damage = 5000, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
+        hero = Hero(name = Creation, health = 50, health_max = 50, damage = 500, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
+
+    if Class_Chooser == "god":
+        Class = "God"
+        hero = Hero(name = Creation, health = 100, health_max = 100, damage = 15, classes = "Gpd", level = 1, exp = 0, statpoints = 0, exp_next = 10)
 
 
 
@@ -165,15 +139,13 @@ def search():
     Dungeons = ["[1] Goblins",
                 "[2] Wolves",
                 "[3] Zombies",
-                "[4] Spiders",
-                "[5] FINAL BOSS",
+                "[4] Arachnids",
+                "[5] Whalens",
     ]
     list(map(print, Dungeons))
 
 if Choice == "1":
-    while play == True:
         Search = input("Enter username to start search: ")
-        play == False
         for i in up:
             if Search in i["name"]:
                 hero = Hero(name = i["name"], health = i["health"], health_max = i["health_max"], damage = i["damage"], classes = i["classes"], level = i["level"], exp = i["exp"], statpoints = i["statpoints"], exp_next = i["exp_next"])
@@ -216,6 +188,7 @@ if Choice == "1":
             Boss = Boss_Whalen
             number_mobs = 20
             battle()
+
 
 if Choice == "2":
     Tutorial = input("Would you like a tutorial?[Y/Y] (You are forced): ")

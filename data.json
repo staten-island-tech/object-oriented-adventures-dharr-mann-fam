@@ -1,1 +1,3 @@
-[{"name": "a", "health": 84.0, "health_max": 84.0, "damage": 21.0, "classes": "Archer", "level": 2, "exp": 10, "statpoints": 3, "exp_next": 135.0}, {"name": "noob", "health": 10.5, "health_max": 10.5, "damage": 5250.0, "classes": "Noob", "level": 2, "exp": 50, "statpoints": 3, "exp_next": 75.0}, {"name": "nathan", "health": 110.25, "health_max": 110.25, "damage": 44.1, "classes": "Assassin", "level": 3, "exp": 150.0, "statpoints": 6, "exp_next": 225.0}, {"name": "noob", "health": 11.576250000000002, "health_max": 11.576250000000002, "damage": 5788.125, "classes": "Noob", "level": 4, "exp": 162.5, "statpoints": 9, "exp_next": 168.75}]
+
+[{"name": "a", "health": 157.5, "health_max": 157.5, "damage": 31.5, "classes": "Snowman", "level": 2, "exp": 0, "statpoints": 3, "exp_next": 150.0}]
+
