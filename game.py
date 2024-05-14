@@ -146,6 +146,7 @@ if Choice == "1":
                 hero = Hero(name = i["name"], health = i["health"], health_max = i["health_max"], damage = i["damage"], classes = i["classes"], level = i["level"], exp = i["exp"], statpoints = i["statpoints"], exp_next = i["exp_next"])
                 print (f"Welcome back {hero.name}! ") 
                 search()
+                """ up.remove(hero.remove(hero.name)) """
                 Narration = input("Now pick a dungeon to complete (Type the number corresponding to the Dungeon): ")
                 
             
@@ -194,8 +195,9 @@ if Choice == "1":
 
 if Choice == "2":
     for i in  up:
-        if Choice in i["name"]:
+        if Creation in i["name"]:
             print("Username is taken. Please choose another. ")
+            quit()
     Tutorial = input("Would you like a tutorial?[Y/Y] (You are forced): ")
     if Tutorial == "Y" or "y":
         while Tutorial_Dummy.health > 0:
