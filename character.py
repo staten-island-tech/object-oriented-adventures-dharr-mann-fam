@@ -45,7 +45,7 @@ class Hero(Character):
 
     def gain_experience(self, experience):
         self.exp += experience
-        if self.exp >= self.exp_next:
+        while self.exp >= self.exp_next:
             self.level_up()
 
     def level_up(self):
@@ -74,7 +74,7 @@ class Hero(Character):
     def statpoint_HP(self, amount):
         amount = input("enter amount: ")
         self.statpoints -= amount
-        self.health = self.health * 1.01(amount)
+        self.health = self.health * (amount * 1.01)
         self.health_max = self.health_max * (amount * 1.01)
 
 
