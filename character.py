@@ -66,16 +66,16 @@ class Hero(Character):
 
 
     def statpoint_atk(self, amount):
-        amount = input("enter amount: ")
+        amount = int(input("enter amount: "))
         self.statpoints -= amount
-        self.damage = self.damage * 1.01(amount)
+        self.damage = self.damage * (amount * 1.01)
 
 
     def statpoint_HP(self, amount):
         amount = input("enter amount: ")
         self.statpoints -= amount
         self.health = self.health * 1.01(amount)
-        self.health_max = self.health_max * 1.01(amount)
+        self.health_max = self.health_max * (amount * 1.01)
 
 
 

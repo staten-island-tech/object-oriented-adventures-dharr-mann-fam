@@ -218,15 +218,15 @@ if Choice == "3":
         print(f"[name: {hero.name}, level: {hero.level}, hp: {hero.health_max}, damage: {hero.damage}, class: {hero.classes}, exp: {hero.exp}, statpoints: {hero.statpoints}, Exp Req: {hero.exp_next}]")
         ask = input("What would you like to do?: [1] Edit Statpoints [2] Exit: ")
 
-        if ask == 2:
+        if ask == "2":
             exit()
-        if ask == 1:
+        if ask == "1":
             edit = input("Which Statpoint woud you like to change? [1] Damage, [2] Max Health:")
             if edit == "1":
-                hero.statpoint_atk()
+                hero.statpoint_atk(hero.statpoints)
 
             if edit == "2":
-                hero.statpoint_HP()
+                hero.statpoint_HP(hero.statpoints)
 
 
 
