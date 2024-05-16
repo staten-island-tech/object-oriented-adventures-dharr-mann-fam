@@ -23,40 +23,38 @@ Goblin_Leader = Boss(name="Goblins Leader", health=120, health_max=120, damage=1
 Tutorial_Dummy = Enemy(name = "Dummy", health = 50, health_max = 50, damage = 5, classes = "Tutorial", level = 1, exp = 100, statpoints = 0, exp_next = 0)
 
 #Dungeon 2
-Wolves = Enemy(name="Wolf", health=50, health_max=65, damage=10, classes="mob", level=5, exp=40, statpoints=0,exp_next=0)
+Wolves = Enemy(name="Wolf", health=50, health_max=65, damage=10, classes="mob", level=5, exp=50, statpoints=0,exp_next=0)
 Eilte_Wolf = Boss(name="Elite Wolf", health=250, health_max=250, damage = 40, classes = "boss", level = 10, exp=150, statpoints=0, exp_next=0)
 
 #Dungeon 3
-Zombie = Enemy(name="Zombie", health = 250, health_max=250, damage=45, classes="mob", level = 15, exp = 750, statpoints=0, exp_next=0)
-Giant_Zombie = Boss(name="Giant_Zombie", health=500, health_max=500, damage=60, classes="boss", level = 20, exp = 300, statpoints=0, exp_next=0)
+Zombie = Enemy(name="Zombie", health = 250, health_max=250, damage=45, classes="mob", level = 15, exp = 150, statpoints=0, exp_next=0)
+Giant_Zombie = Boss(name="Giant_Zombie", health=500, health_max=500, damage=60, classes="boss", level = 20, exp = 450, statpoints=0, exp_next=0)
 
 #Dungeon 4 
-Spider = Enemy(name="Spider", health = 150, health_max=150, damage=25, classes="mob", level = 15, exp = 50, statpoints=0, exp_next=0)
-Tarantula = Boss(name="Tarantula", health=750, health_max=750, damage= 75, classes="boss", level = 20, exp = 300, statpoints=0, exp_next=0)
+Spider = Enemy(name="Spider", health = 150, health_max=150, damage=25, classes="mob", level = 15, exp = 600, statpoints=0, exp_next=0)
+Tarantula = Boss(name="Tarantula", health=750, health_max=750, damage= 75, classes="boss", level = 20, exp = 3000, statpoints=0, exp_next=0)
 
 #Dungeon 5
-Little_Whalen = Enemy(name="Mini. Whalen", health = 200, health_max=200, damage=50, classes="mob", level = 15, exp = 50, statpoints=0, exp_next=0)
-Boss_Whalen = Boss(name="Mr. Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 1000, statpoints=0, exp_next=0)
+Little_Whalen = Enemy(name="Little Whalen", health = 200, health_max=200, damage=50, classes="mob", level = 15, exp = 1000, statpoints=0, exp_next=0)
+Boss_Whalen = Boss(name="Mr. Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 10000, statpoints=0, exp_next=0)
 
-
+#Dungeon 6
+Professor_Whalen = Enemy(name="Professor Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 10000, statpoints=0, exp_next=0)
+Mega_Whalen = Boss(name="Mega Whalen", health=99999, health_max=99999, damage= 999, classes="boss", level = 99, exp = 99999, statpoints=0, exp_next=0)
 def battle():
         number_mobs = 10
         for i in range(1,number_mobs):
             Enemy.health = Enemy.health_max
             while Enemy.health > 0:
+                os.system("cls")
+                hero.attack(Enemy)
+                Enemy.attack(hero) 
                 print(f"Total number of mobs: {number_mobs}")
                 print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health}")   
                 print(f"Health of {hero.name} [Level:[{hero.level}]:{hero.health}")
                 print("Enter to continue")
                 input()
                 
-
-                hero.attack(Enemy)
-                Enemy.attack(hero)          
-
-                print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health} ")    
-                print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health} ")
-
 
                 if Enemy.health == 0:
                     hero.gain_experience(Enemy.exp)
@@ -72,44 +70,42 @@ def battle():
         print(" ")
         input()
         while Boss.health > 0:
-            print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
-            print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}") 
-            print("Enter to continue")   
-            input()
- 
+            os.system("cls")
             hero.attack(Boss)
             Boss.attack(hero)          
-
-
-
+            print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
+            print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}") 
+            print("Press Enter to continue battle")  
             input()
-            print("Press Enter to continue battle")
+
+
             if Boss.health == 0:
                 hero.gain_experience(Boss.exp)
                 print(" ")
                 print(f"{hero.name} has gained {Boss.exp} exp")
                 hero.health = hero.health_max
                 print("You have beaten the dungeon! Run the code again and choose another dungeon. ")
+                
 
             if hero.health <= 0:
                 hero.die()
 
 
 
-
-
 Choice = input("What Would you like to do? [1]Load Existing Character, [2]Create New Character, [3]Inventory: ")
 if Choice == "2":
     Creation = input("Enter your Username: ")
-    Class_Chooser = input("Enter class [Warrior,Archer,Assassin,Snowman,Noob]: ").lower()
+    Class_Chooser = input("Enter class [Warrior,Archer,Assassin,Snowman,Noob,???]: ").lower()
 
     if Class_Chooser == "warrior":
         Class = "Warrior"
         hero = Hero(name = Creation, health = 200, health_max = 200, damage = 15, classes = "Warrior", level = 1, exp = 0, statpoints = 0, exp_next = 100)
+        warriorloot =  ["Base Sword", "sword", "Spear", "Sledge Hammer", "claymore", "Javelin", "Rapier", "Saber", "Cutlass", "Scimitar", "Zweihander"]
 
     if Class_Chooser == "archer":
         Class = "Archer"
         hero = Hero(name = Creation, health = 80, health_max = 80, damage = 20, classes = "Archer", level = 1, exp = 0, statpoints = 0, exp_next = 90)
+        archerloot = ["Short Bow", "Bow", "Crossbow", "Celestial Bow", "Tempest Bow", "Phantasm", "Daedalus Stormbow", "Regular Arrow", "Steel Arrow", "Celestial Arrow", "Flaming Arrow", "Unholy Arrow", "Venom Arrow", "Holy Arrow", ]
 
     if Class_Chooser == "assassin":
         Class = "Assassin"
@@ -121,7 +117,12 @@ if Choice == "2":
         
     if Class_Chooser == "noob":
         Class = "Noob"
-        hero = Hero(name = Creation, health = 10, health_max = 10, damage = 5000, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
+        hero = Hero(name = Creation, health = 50, health_max = 50, damage = 500, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
+
+    if Class_Chooser == "god":
+        Class = "God"
+        hero = Hero(name = Creation, health = 150, health_max = 150, damage = 35, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 10)
+    
 
 
 
@@ -129,8 +130,9 @@ def search():
     Dungeons = ["[1] Goblins",
                 "[2] Wolves",
                 "[3] Zombies",
-                "[4] Spiders",
-                "[5] FINAL BOSS",
+                "[4] Arachnids",
+                "[5] Whalens",
+                "[6] Mega Boss"
     ]
     list(map(print, Dungeons))
 
@@ -179,7 +181,15 @@ if Choice == "1":
             Enemy = Little_Whalen
             Boss = Boss_Whalen
             number_mobs = 20
+            battle()    
+        ##Dungeon 6
+        if Narration == "6":
+            Enemy = Professor_Whalen
+            Boss = Mega_Whalen
+            number_mobs = 1
             battle()
+
+
 
 if Choice == "2":
     Tutorial = input("Would you like a tutorial?[Y/Y] (You are forced): ")
@@ -203,12 +213,26 @@ if Choice == "2":
 
             print("Congrats on your first win! Kill Terminal and go to inventory to see drops/use stat points.")
 
+        if hero.health <= 0:
+            hero.die()
+            print("How you die to Tutorial")
+
 
 if Choice == "3":
     for j in up:
         hero = Hero(name = j["name"], health = j["health"], health_max = j["health_max"], damage = j["damage"], classes = j["classes"], level = j["level"], exp = j["exp"], statpoints = j["statpoints"], exp_next=["exp_next"])
         print(f"[name: {hero.name}, level: {hero.level}, hp: {hero.health_max}, damage: {hero.damage}, class: {hero.classes}, exp: {hero.exp}, statpoints: {hero.statpoints}, Exp Req: {hero.exp_next}]")
-        exit()
+        ask = input("What would you like to do?: [1] Edit Statpoints [2] Exit: ")
+
+        if ask == "2":
+            exit()
+        if ask == "1":
+            edit = input("Which Statpoint woud you like to change? [1] Damage, [2] Max Health:")
+            if edit == "1":
+                hero.statpoint_atk(hero.statpoints)
+
+            if edit == "2":
+                hero.statpoint_HP(hero.statpoints)
 
 
 
