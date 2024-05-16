@@ -45,7 +45,7 @@ class Hero(Character):
 
     def gain_experience(self, experience):
         self.exp += experience
-        if self.exp >= self.exp_next:
+        while self.exp >= self.exp_next:
             self.level_up()
 
     def level_up(self):
