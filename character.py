@@ -59,23 +59,30 @@ class Hero(Character):
 
 
     def die(self):
-        if self.health == 0:
+        if self.health <= 0:
             self.health = self.health_max    
-            print("You died!")
+            print("You died! No exp for you")
             quit()
-
 
     def statpoint_atk(self, amount):
         amount = int(input("enter amount: "))
-        self.statpoints -= amount
-        self.damage = self.damage * (amount * 1.01)
+        if amount > self.statpoints:
+            print("Error! Amount is too high, exit and retry")
+        else:
+            self.statpoints -= amount
+            self.damage = self.damage * (amount * 1.001)
+            print(f"You have put {amount} points into Damage!")
 
 
     def statpoint_HP(self, amount):
-        amount = input("enter amount: ")
-        self.statpoints -= amount
-        self.health = self.health * 1.01(amount)
-        self.health_max = self.health_max * (amount * 1.01)
+        amount = int(input("enter amount: "))
+        if amount > self.statpoints:
+            print("Error! Amount is too high, exit and retry")
+        else:
+            self.statpoints -= amount
+            self.health = self.health * (amount * 1.001)
+            self.health_max = self.health_max * (amount * 1.001)
+            print(f"You have put {amount} points into Health!")
 
 
 

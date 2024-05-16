@@ -116,9 +116,6 @@ if Choice == "2":
         Class = "God"
         hero = Hero(name = Creation, health = 150, health_max = 150, damage = 35, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 10)
     
-    if Class_Chooser == "hidden":
-        Class = "Hidden"
-        hero = Hero(name = Creation, health = 100, health_max = 100, damage = -1000000000, classes = "Hidden", level = 1, exp = 0, statpoints = 0, exp_next = 10)
 
 
 
