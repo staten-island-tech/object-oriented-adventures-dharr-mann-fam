@@ -65,23 +65,27 @@ class Hero(Character):
             quit()
 
     def statpoint_atk(self, amount):
+        print(f"Available Points: {self.statpoints}")
         amount = int(input("enter amount: "))
         if amount > self.statpoints:
             print("Error! Amount is too high, exit and retry")
         else:
-            self.statpoints -= amount
-            self.damage = self.damage * (amount * 1.001)
+            for i in range(amount):
+                self.statpoints -= 1
+                self.damage = (self.damage * 1.05)
             print(f"You have put {amount} points into Damage!")
 
 
     def statpoint_HP(self, amount):
+        print(f"Available Points: {self.statpoints}")
         amount = int(input("enter amount: "))
         if amount > self.statpoints:
             print("Error! Amount is too high, exit and retry")
         else:
-            self.statpoints -= amount
-            self.health = self.health * (amount * 1.001)
-            self.health_max = self.health_max * (amount * 1.001)
+            for i in range(amount):
+                self.statpoints -= 1
+                self.health = (self.health * 1.05)
+                self.health_max = (self.health_max * 1.05)
             print(f"You have put {amount} points into Health!")
 
 
