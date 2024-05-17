@@ -19,8 +19,10 @@ Goblin_Leader = Boss(name="Goblins Leader", health=120, health_max=120, damage=1
 Tutorial_Dummy = Enemy(name = "Dummy", health = 50, health_max = 50, damage = 5, classes = "Tutorial", level = 1, exp = 100, statpoints = 0, exp_next = 0)
 
 #Dungeon 2
+
 Wolves = Enemy(name="Wolf", health=225, health_max=225, damage=25, classes="mob", level=5, exp=100, statpoints=0,exp_next=0)
 Eilte_Wolf = Boss(name="Elite Wolf", health=500, health_max=500, damage = 50, classes = "boss", level = 10, exp=500, statpoints=0, exp_next=0)
+
 
 #Dungeon 3
 Zombie = Enemy(name="Zombie", health = 375, health_max=375, damage=40, classes="mob", level = 15, exp = 200, statpoints=0, exp_next=0)
@@ -39,8 +41,9 @@ Professor_Whalen = Enemy(name="Professor Whalen", health=1500, health_max=1500, 
 Mega_Whalen = Boss(name="Mega Whalen", health=99999, health_max=99999, damage= 999, classes="boss", level = 99, exp = 99999, statpoints=0, exp_next=0)
 
 #Impossible
+
 def battle():
-        number_mobs = 10
+        number_mobs = 20
         for i in range(1,number_mobs):
             Enemy.health = Enemy.health_max
             while Enemy.health > 0:
@@ -181,6 +184,7 @@ if Choice == "1":
             Boss = Boss_Whalen
             number_mobs = 20
             battle()    
+
         ##Dungeon 6
         if Narration == "6":
             Enemy = Professor_Whalen
@@ -224,7 +228,7 @@ if Choice == "2":
 if Choice == "3":
     Search = input("Enter username to start search: ")
     for j in up:
-        hero = Hero(name = j["name"], health = j["health"], health_max = j["health_max"], damage = j["damage"], classes = j["classes"], level = j["level"], exp = j["exp"], statpoints = j["statpoints"], exp_next=["exp_next"])
+        hero = Hero(name = j["name"], health = j["health"], health_max = j["health_max"], damage = j["damage"], classes = j["classes"], level = j["level"], exp = j["exp"], statpoints = j["statpoints"], exp_next=j["exp_next"])
         print(f"[name: {hero.name}, level: {hero.level}, hp: {hero.health_max}, damage: {hero.damage}, class: {hero.classes}, exp: {hero.exp}, statpoints: {hero.statpoints}, Exp Req: {hero.exp_next}]")
         ask = input("What would you like to do?: [1] Edit Statpoints [2] Exit: ")
 
