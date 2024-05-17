@@ -105,23 +105,27 @@ if Choice == "2":
     if Class_Chooser == "archer":
         Class = "Archer"
         hero = Hero(name = Creation, health = 80, health_max = 80, damage = 20, classes = "Archer", level = 1, exp = 0, statpoints = 0, exp_next = 90)
-        archerloot = ["Short Bow", "Bow", "Crossbow", "Celestial Bow", "Tempest Bow", "Phantasm", "Daedalus Stormbow", "Regular Arrow", "Steel Arrow", "Celestial Arrow", "Flaming Arrow", "Unholy Arrow", "Venom Arrow", "Holy Arrow", ]
+        archerloot = ["Short Bow", "Bow", "Crossbow", "Celestial Bow", "Tempest Bow", "Phantasm", "Storm bow", "Regular Arrow", "Steel Arrow", "Celestial Arrow", "Flaming Arrow", "Unholy Arrow", "Venom Arrow", "Holy Arrow", "Spectral Arrow", "Uci", "Gock-71", "BK - 48", "BR-16", "N-14", "Sub Submachine sun", "Machine gum", "Regular Bullet", "Nano Bullet", "Bouncy Bullet", "Homing Bullet", "Fast Bullet", "Buck Shot", "Slug Shot", ".50 Cal"]
 
     if Class_Chooser == "assassin":
         Class = "Assassin"
         hero = Hero(name = Creation, health = 100, health_max = 100, damage = 40, classes = "Assassin", level = 1, exp = 0, statpoints = 0, exp_next = 100)
+        assassinloot = ["Dagger", "Shuriken", "Kunai", "Brass Knucles", "Claws", "Choke", "Dagger but big", "Knife", "Siletto"]
 
     if Class_Chooser == "snowman":
         Class = "Snowman"
         hero = Hero(name = Creation, health = 150, health_max = 150, damage = 30, classes = "Snowman", level = 1, exp = 0, statpoints = 0, exp_next = 100)
+        snowmanloot = ["Snowballs", "Carrot Gun", "Coal Cannon", "Yellow Snow", "Ice Fist", "Brown Snow", "Carrot Sword"]
         
     if Class_Chooser == "noob":
         Class = "Noob"
         hero = Hero(name = Creation, health = 50, health_max = 50, damage = 500, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
+        noobloot = ["Dirt Sword", "Toy Hammer", "Slap", "Baloon Pop", "Scream", "Pee"]
 
     if Class_Chooser == "god":
         Class = "God"
         hero = Hero(name = Creation, health = 150, health_max = 150, damage = 35, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 10)
+        
     
 
 
