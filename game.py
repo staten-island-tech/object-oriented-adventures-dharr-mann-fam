@@ -13,13 +13,13 @@ alive = 0
 
 #Dungeon 1
 Goblins = Enemy(name="Goblin", health=25, health_max=25, damage=5, classes="mob", level=1, exp=25, statpoints=0, exp_next=0)
-Goblin_Leader = Boss(name="Goblins Leader", health=120, health_max=120, damage=15, classes="boss", level=5, exp=75,statpoints=0, exp_next=0)
+Goblin_Leader = Boss(name="Goblins Leader", health=120, health_max=120, damage=15, classes="boss", level=5, exp=100,statpoints=0, exp_next=0)
 
 #Tutorial
 Tutorial_Dummy = Enemy(name = "Dummy", health = 50, health_max = 50, damage = 5, classes = "Tutorial", level = 1, exp = 100, statpoints = 0, exp_next = 0)
 
 #Dungeon 2
-Wolves = Enemy(name="Wolf", health=50, health_max=65, damage=10, classes="mob", level=5, exp=50, statpoints=0,exp_next=0)
+Wolves = Enemy(name="Wolf", health=50, health_max=50, damage=10, classes="mob", level=5, exp=50, statpoints=0,exp_next=0)
 Eilte_Wolf = Boss(name="Elite Wolf", health=250, health_max=250, damage = 40, classes = "boss", level = 10, exp=150, statpoints=0, exp_next=0)
 
 #Dungeon 3
@@ -121,11 +121,15 @@ if Choice == "2":
         
     if Class_Chooser == "noob":
         Class = "Noob"
-        hero = Hero(name = Creation, health = 50, health_max = 50, damage = 500, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
+        hero = Hero(name = Creation, health = 50, health_max = 50, damage = 50, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
 
     if Class_Chooser == "???":
         Class = "God"
-        hero = Hero(name = Creation, health = 100, health_max = 100, damage = 15, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 10)
+        hero = Hero(name = Creation, health = 100, health_max = 100, damage = 25, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 10)
+
+    if Class_Chooser == "rizzler":
+        Class = "Rizzler"
+        hero = Hero(name = Creation, health = 99, health_max = 99, damage = 29, classes = "Rizzler", level = 1, exp = 0, statpoints = 0, exp_next = 99)
 
 
 
