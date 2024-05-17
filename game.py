@@ -20,12 +20,12 @@ Tutorial_Dummy = Enemy(name = "Dummy", health = 50, health_max = 50, damage = 5,
 
 #Dungeon 2
 
-Wolves = Enemy(name="Wolf", health=225, health_max=225, damage=25, classes="mob", level=5, exp=100, statpoints=0,exp_next=0)
+Wolves = Enemy(name="Wolf", health=100, health_max=100, damage=25, classes="mob", level=5, exp=100, statpoints=0,exp_next=0)
 Eilte_Wolf = Boss(name="Elite Wolf", health=500, health_max=500, damage = 50, classes = "boss", level = 10, exp=500, statpoints=0, exp_next=0)
 
 
 #Dungeon 3
-Zombie = Enemy(name="Zombie", health = 375, health_max=375, damage=40, classes="mob", level = 15, exp = 200, statpoints=0, exp_next=0)
+Zombie = Enemy(name="Zombie", health = 275, health_max=275, damage=40, classes="mob", level = 15, exp = 200, statpoints=0, exp_next=0)
 Giant_Zombie = Boss(name="Giant_Zombie", health=750, health_max=750, damage=75, classes="boss", level = 20, exp = 1000, statpoints=0, exp_next=0)
 
 #Dungeon 4 
