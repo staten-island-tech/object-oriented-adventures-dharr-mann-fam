@@ -7,27 +7,102 @@ class Weapon():
         
         self.name = name
         self.damage = damage
-        self.rarity = rarity
         self.clas = clas
 
-greatsword = Weapon(name = "Greatsword",
+basesword = Weapon(name = "Greatsword",
                     damage = 10,
-                    rarity = "E",
+                    clas = "Warrior")
+sword = Weapon(name = "Sword",
+                    damage = 12,
+                    clas = "Warrior")
+spear = Weapon(name = "Spear",
+                    damage = 15,
+                    clas = "Warrior")
+claymore = Weapon(name = "Claymore",
+                    damage = 20,
+                    clas = "Warrior")
+sledge_hammer = Weapon(name = "Sledge Hammer",
+                    damage = 30,
+                    clas = "Warrior")
+javelin = Weapon(name = "Javelin",
+                    damage = 35,
+                    clas = "Warrior")
+rapier = Weapon(name = "Rapier",
+                    damage = 40,
+                    clas = "Warrior")
+saber = Weapon(name = "Saber",
+                    damage = 45,
+                    clas = "Warrior")
+cutlass = Weapon(name = "Cutlass",
+                    damage = 50,
+                    clas = "Warrior")
+Scimitar = Weapon(name = "Scimitar",
+                    damage = 75,
                     clas = "Warrior")
 
-
-base_dagger = Weapon(name = "Basic Dagger",
-                     damage = 25,
-                     rarity = "E",
-                     clas = "Assassin")
 
 
 shortbow = Weapon(name = "Shortbow",
                  damage = 15,
-                 rarity = "E",
                  clas = "Archer")
+Bow = Weapon(name = "Bow",
+                 damage = 17.5,
+                 clas = "Archer")
+crossbow = Weapon(name = "Crossbow",
+                 damage = 20,
+                 clas = "Archer")
+celestial_bow = Weapon(name = "Celestial Bow",
+                 damage = 22.5,
+                 clas = "Archer")
+tempest_bow = Weapon(name = "Tempest Bow",
+                 damage = 25,
+                 clas = "Archer")
+uzi = Weapon(name = "Uci",
+                 damage = 30,
+                 clas = "Archer")
+glock = Weapon(name = "Gock-17",
+                 damage = 35,
+                 clas = "Archer")
+m14 = Weapon(name = "N-14",
+                 damage = 40,
+                 clas = "Archer")
+smg = Weapon(name = "Sub submachine sun",
+                 damage = 45,
+                 clas = "Archer")
+mg = Weapon(name = "Machine gum",
+                 damage = 50,
+                 clas = "Archer")
+ar = Weapon(name = "AR-16",
+                 damage = 75,
+                 clas = "Archer")
+ak = Weapon(name = "BK-47",
+                 damage = 90,
+                 clas = "Archer")
+
+
+base_dagger = Weapon(name = "Basic Dagger",
+                     damage = 12.5,
+                     clas = "Assassin")
+dagger = Weapon(name = "Basic Dagger",
+                     damage = 15,
+                     clas = "Assassin")
+shuriken = Weapon(name = "Shuriken",
+                     damage = 12.5,
+                     clas = "Assassin")
 
 none = Weapon(name = "Unequiped",
               damage = 0,
-              rarity = "?",
               clas = "Every")
+
+
+warriorloot =  ["Base Sword", "sword", "Spear", "Sledge Hammer", "claymore", "Javelin", "Rapier", "Saber", "Cutlass", "Scimitar"]
+
+archerloot = ["Short Bow", "Bow", "Crossbow", "Celestial Bow", "Tempest Bow", "Uci", "Gock-17", "N-14", "Sub Submachine sun", "Machine gum", "AR-16", "BK-47"]
+
+assassinloot = ["Basic Dagger", "Dagger", "Shuriken", "Kunai", "Brass Knuckles", "Claws", "Choke", "Dagger but big", "Knife", "Siletto"]
+
+snowmanloot = ["Snowballs", "Carrot Gun", "Coal Cannon", "Yellow Snow", "Ice Fist", "Brown Snow", "Carrot Sword"]
+
+noobloot = ["Dirt Sword", "Toy Hammer", "Slap", "Baloon Pop", "Scream"]
+
+godloot = ["Lightniing Bolt", "Earthquake", "Fireball", "Tsunami", "Enlightenment"]
