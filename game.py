@@ -19,23 +19,23 @@ Goblin_Leader = Boss(name="Goblins Leader", health=120, health_max=120, damage=1
 Tutorial_Dummy = Enemy(name = "Dummy", health = 50, health_max = 50, damage = 5, classes = "Tutorial", level = 1, exp = 100, statpoints = 0, exp_next = 0)
 
 #Dungeon 2
-Wolves = Enemy(name="Wolf", health=225, health_max=225, damage=25, classes="mob", level=5, exp=100, statpoints=0,exp_next=0)
-Eilte_Wolf = Boss(name="Elite Wolf", health=500, health_max=500, damage = 50, classes = "boss", level = 10, exp=500, statpoints=0, exp_next=0)
+Wolves = Enemy(name="Wolf", health=225, health_max=225, damage=25, classes="mob", level=5, exp=125, statpoints=0,exp_next=0)
+Eilte_Wolf = Boss(name="Elite Wolf", health=500, health_max=500, damage = 50, classes = "boss", level = 10, exp=625, statpoints=0, exp_next=0)
 
 #Dungeon 3
-Zombie = Enemy(name="Zombie", health = 375, health_max=375, damage=40, classes="mob", level = 15, exp = 200, statpoints=0, exp_next=0)
-Giant_Zombie = Boss(name="Giant_Zombie", health=750, health_max=750, damage=75, classes="boss", level = 20, exp = 1000, statpoints=0, exp_next=0)
+Zombie = Enemy(name="Zombie", health = 375, health_max=375, damage=40, classes="mob", level = 15, exp = 500, statpoints=0, exp_next=0)
+Giant_Zombie = Boss(name="Giant_Zombie", health=750, health_max=750, damage=75, classes="boss", level = 20, exp = 2500, statpoints=0, exp_next=0)
 
 #Dungeon 4 
-Spider = Enemy(name="Spider", health = 500, health_max=500, damage=50, classes="mob", level = 15, exp = 600, statpoints=0, exp_next=0)
-Tarantula = Boss(name="Tarantula", health=1000, health_max=1000, damage= 100, classes="boss", level = 20, exp = 3000, statpoints=0, exp_next=0)
+Spider = Enemy(name="Spider", health = 500, health_max=500, damage=50, classes="mob", level = 15, exp = 1000, statpoints=0, exp_next=0)
+Tarantula = Boss(name="Tarantula", health=1000, health_max=1000, damage= 100, classes="boss", level = 20, exp = 5000, statpoints=0, exp_next=0)
 
 #Dungeon 5
-Little_Whalen = Enemy(name="Little Whalen", health = 750, health_max=750, damage=75, classes="mob", level = 15, exp = 1500, statpoints=0, exp_next=0)
-Boss_Whalen = Boss(name="Mr. Whalen", health=1500, health_max=1500, damage= 150, classes="boss", level = 99, exp = 7500, statpoints=0, exp_next=0)
+Little_Whalen = Enemy(name="Little Whalen", health = 750, health_max=750, damage=75, classes="mob", level = 15, exp = 2000, statpoints=0, exp_next=0)
+Boss_Whalen = Boss(name="Mr. Whalen", health=1500, health_max=1500, damage= 150, classes="boss", level = 99, exp = 15000, statpoints=0, exp_next=0)
 
 #Dungeon 6
-Professor_Whalen = Enemy(name="Professor Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 3333, statpoints=0, exp_next=0)
+Professor_Whalen = Enemy(name="Professor Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 6666, statpoints=0, exp_next=0)
 Mega_Whalen = Boss(name="Mega Whalen", health=99999, health_max=99999, damage= 999, classes="boss", level = 99, exp = 99999, statpoints=0, exp_next=0)
 
 #Impossible
@@ -272,3 +272,4 @@ os.remove("data.json")
 os.rename(new_file, "data.json")
 
 
+#5,8,10,12,15,18

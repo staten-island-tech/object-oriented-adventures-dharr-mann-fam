@@ -1,31 +1,22 @@
 [
     {
         "name": "god",
-        "health": 121.55062500000001,
-        "health_max": 121.55062500000001,
-        "damage": 30.387656250000003,
-        "classes": "God",
-        "level": 5,
-        "exp": 18.75,
-        "statpoints": 12,
-        "exp_next": 50.625
-    },
-    {
-        "name": "god",
-        "health": 155.13282159785163,
-        "health_max": 155.13282159785163,
-        "damage": 38.78320539946291,
-        "classes": "God",
-        "level": 10,
-        "exp": 51.1328125,
-        "statpoints": 27,
-        "exp_next": 384.43359375
-    },
-    {
-        "name": "god",
         "health": 155.13282159785163,
         "health_max": 155.13282159785163,
         "damage": 50.73653362541567,
+        "classes": "God",
+        "level": 10,
+        "exp": 51.1328125,
+        "statpoints": 45,
+        "exp_next": [
+            "exp_next"
+        ]
+    },
+    {
+        "name": "god",
+        "health": 155.13282159785163,
+        "health_max": 155.13282159785163,
+        "damage": 79.39307309427869,
         "classes": "God",
         "level": 10,
         "exp": 51.1328125,
