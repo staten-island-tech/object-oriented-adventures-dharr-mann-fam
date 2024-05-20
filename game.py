@@ -120,12 +120,11 @@ if Choice == "2":
 
     if Class_Chooser == "god":
         Class = "God"
-        hero = Hero(name = Creation, health = 100, health_max = 100, damage = 25, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 10)
+        hero = Hero(name = Creation, health = 125, health_max = 125, damage = 25, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 10)
 
-    if Class_Chooser == "rizzler":
-        Class = "Rizzler"
-        hero = Hero(name = Creation, health = 99, health_max = 99, damage = 29, classes = "Rizzler", level = 1, exp = 0, statpoints = 0, exp_next = 99)
-
+    if Class_Chooser == "healer":
+        Class = "Healer"
+        hero = Hero(name = Creation, health = 125, health_max = 125, damage = 25, classes = "Healer", level = 1, exp = 0, statpoints = 0, exp_next = 10)
 
 
 
@@ -241,6 +240,8 @@ if Choice == "3":
 
             if edit == "2":
                 hero.statpoint_HP(hero.statpoints)
+            
+            
 
 
 
