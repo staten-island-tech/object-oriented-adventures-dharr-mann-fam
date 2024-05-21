@@ -118,7 +118,7 @@ if Choice == "2":
 
     if Class_Chooser == "god":
         Class = "God"
-        hero = Hero(name = Creation, health = 125, health_max = 125, damage = 25, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 10)
+        hero = Hero(name = Creation, health = 125, health_max = 125, damage = 25, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 1)
 
 
 
@@ -129,7 +129,8 @@ def search():
                 "[3] Zombies",
                 "[4] Arachnids",
                 "[5] Lizards",
-                "[6] Mega Boss"
+                "[6] Mega Boss",
+                "[7] Impossible"
     ]
     list(map(print, Dungeons))
 
