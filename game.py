@@ -181,14 +181,15 @@ if Choice == "1":
             Enemy = Lizard
             Boss = Dragon
             number_mobs = 20
-            battle()    
+            battle()   
+
         ##Dungeon 6
         if Narration == "6":
             Enemy = Professor_Whalen
             Boss = Mega_Whalen
             number_mobs = 2
             battle()
-
+            
         ##Dungeon 7
         if Narration == "7":
             Enemy = Impossible
