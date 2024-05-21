@@ -2,7 +2,6 @@ class Weapon():
     def __init__(self,
                 name: str,
                 damage: int,
-                rarity: str,
                 clas: str): 
         
         self.name = name
@@ -87,7 +86,25 @@ dagger = Weapon(name = "Basic Dagger",
                      damage = 15,
                      clas = "Assassin")
 shuriken = Weapon(name = "Shuriken",
-                     damage = 12.5,
+                     damage = 20,
+                     clas = "Assassin")
+kunai = Weapon(name = "Kunai",
+                     damage = 22.5,
+                     clas = "Assassin")
+brass = Weapon(name = "Brass Knuckles",
+                     damage = 27.5,
+                     clas = "Assassin")
+claws = Weapon(name = "Claws",
+                     damage = 30,
+                     clas = "Assassin")
+bigdagger = Weapon(name = "Dagger but Big",
+                     damage = 32.5,
+                     clas = "Assassin")
+knife = Weapon(name = "Knife",
+                     damage = 40,
+                     clas = "Assassin")
+siletto = Weapon(name = "Siletto",
+                     damage = 80,
                      clas = "Assassin")
 
 none = Weapon(name = "Unequiped",
