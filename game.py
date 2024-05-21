@@ -132,7 +132,8 @@ def search():
                 "[3] Zombies",
                 "[4] Arachnids",
                 "[5] Lizards",
-                "[6] Mega Boss"
+                "[6] Mega Boss",
+                "[7] Impossible"
     ]
     list(map(print, Dungeons))
 
