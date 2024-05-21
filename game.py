@@ -27,15 +27,15 @@ Zombie = Enemy(name="Zombie", health = 375, health_max=375, damage=40, classes="
 Giant_Zombie = Boss(name="Giant_Zombie", health=750, health_max=750, damage=75, classes="boss", level = 20, exp = 2500, statpoints=0, exp_next=0)
 
 #Dungeon 4 
-Spider = Enemy(name="Spider", health = 500, health_max=500, damage=50, classes="mob", level = 15, exp = 1000, statpoints=0, exp_next=0)
-Tarantula = Boss(name="Tarantula", health=1000, health_max=1000, damage= 100, classes="boss", level = 20, exp = 5000, statpoints=0, exp_next=0)
+Spider = Enemy(name="Spider", health = 500, health_max=500, damage=50, classes="mob", level = 15, exp = 1250, statpoints=0, exp_next=0)
+Tarantula = Boss(name="Tarantula", health=1000, health_max=1000, damage= 100, classes="boss", level = 20, exp = 7500, statpoints=0, exp_next=0)
 
 #Dungeon 5
-Little_Whalen = Enemy(name="Little Whalen", health = 750, health_max=750, damage=75, classes="mob", level = 15, exp = 2000, statpoints=0, exp_next=0)
-Boss_Whalen = Boss(name="Mr. Whalen", health=1500, health_max=1500, damage= 150, classes="boss", level = 99, exp = 15000, statpoints=0, exp_next=0)
+Lizard = Enemy(name="Lizard", health = 750, health_max=750, damage=75, classes="mob", level = 15, exp = 3000, statpoints=0, exp_next=0)
+Dragon = Boss(name="Dragon", health=1500, health_max=1500, damage= 150, classes="boss", level = 99, exp = 20000, statpoints=0, exp_next=0)
 
 #Dungeon 6
-Professor_Whalen = Enemy(name="Professor Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 6666, statpoints=0, exp_next=0)
+Professor_Whalen = Enemy(name="Professor Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 6969, statpoints=0, exp_next=0)
 Mega_Whalen = Boss(name="Mega Whalen", health=99999, health_max=99999, damage= 999, classes="boss", level = 99, exp = 99999, statpoints=0, exp_next=0)
 
 #Impossible
@@ -131,7 +131,7 @@ def search():
                 "[2] Wolves",
                 "[3] Zombies",
                 "[4] Arachnids",
-                "[5] Whalens",
+                "[5] Lizards",
                 "[6] Mega Boss"
     ]
     list(map(print, Dungeons))
@@ -177,8 +177,8 @@ if Choice == "1":
 
         ##Dungeon 5
         if Narration == "5":
-            Enemy = Little_Whalen
-            Boss = Boss_Whalen
+            Enemy = Lizard
+            Boss = Dragon
             number_mobs = 20
             battle()    
         ##Dungeon 6
@@ -273,3 +273,4 @@ os.rename(new_file, "data.json")
 
 
 #5,8,10,12,15,18
+#5,10,15,18,20,23
