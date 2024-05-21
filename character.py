@@ -45,7 +45,7 @@ class Hero(Character):
     def level_up(self):
         self.level += 1
         self.exp -= self.exp_next
-        self.exp_next = self.exp_next * 1.5
+        self.exp_next = self.exp_next * 1.25
         self.statpoints += 3
         self.health_max = self.health_max * 1.05
         self.damage = self.damage * 1.05
