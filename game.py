@@ -26,6 +26,7 @@ Eilte_Wolf = Boss(name="Elite Wolf", health=500, health_max=500, damage = 50, cl
 Zombie = Enemy(name="Zombie", health = 375, health_max=375, damage=40, classes="mob", level = 15, exp = 500, statpoints=0, exp_next=0)
 Giant_Zombie = Boss(name="Giant_Zombie", health=750, health_max=750, damage=75, classes="boss", level = 20, exp = 2500, statpoints=0, exp_next=0)
 
+
 #Dungeon 4 
 Spider = Enemy(name="Spider", health = 500, health_max=500, damage=50, classes="mob", level = 15, exp = 1250, statpoints=0, exp_next=0)
 Tarantula = Boss(name="Tarantula", health=1000, health_max=1000, damage= 100, classes="boss", level = 20, exp = 7500, statpoints=0, exp_next=0)
@@ -117,11 +118,7 @@ if Choice == "2":
 
     if Class_Chooser == "god":
         Class = "God"
-        hero = Hero(name = Creation, health = 100, health_max = 100, damage = 25, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 10)
-
-    if Class_Chooser == "rizzler":
-        Class = "Rizzler"
-        hero = Hero(name = Creation, health = 69, health_max = 69, damage = 69, classes = "Rizzler", level = 69, exp = 0, statpoints = 0, exp_next = 99)
+        hero = Hero(name = Creation, health = 125, health_max = 125, damage = 25, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 10)
 
 
 
@@ -237,6 +234,8 @@ if Choice == "3":
 
             if edit == "2":
                 hero.statpoint_HP(hero.statpoints)
+            
+            
 
 
 

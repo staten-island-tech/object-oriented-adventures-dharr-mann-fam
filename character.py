@@ -21,12 +21,6 @@ class Character():
         target.health = max(target.health, 0)
         print(f"{self.name} dealt {self.damage} to [{target.name}]")
 
-    
-
-
-
-
-
 
 
 class Hero(Character):
@@ -87,6 +81,8 @@ class Hero(Character):
                 self.health = (self.health * 1.015)
                 self.health_max = (self.health_max * 1.015)
             print(f"You have put {amount} points into Health!")
+
+
 
 
 
