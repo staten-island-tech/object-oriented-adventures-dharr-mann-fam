@@ -13,31 +13,37 @@ alive = 0
 ##Mobs
 
 #Dungeon 1
-Goblins = Enemy(name="Goblin", health=25, health_max=25, damage=5, classes="mob", level=1, exp=25, statpoints=0, exp_next=0)
-Goblin_Leader = Boss(name="Goblins Leader", health=120, health_max=120, damage=15, classes="boss", level=5, exp=75,statpoints=0, exp_next=0)
+Goblins = Enemy(name="Goblin", health=25, health_max=25, damage=5, classes="mob", level=1, exp=50, statpoints=0, exp_next=0)
+Goblin_Leader = Boss(name="Goblins Leader", health=120, health_max=120, damage=15, classes="boss", level=5, exp=250,statpoints=0, exp_next=0)
 
 #Tutorial
 Tutorial_Dummy = Enemy(name = "Dummy", health = 50, health_max = 50, damage = 5, classes = "Tutorial", level = 1, exp = 100, statpoints = 0, exp_next = 0)
 
 #Dungeon 2
-Wolves = Enemy(name="Wolf", health=50, health_max=65, damage=10, classes="mob", level=5, exp=50, statpoints=0,exp_next=0)
-Eilte_Wolf = Boss(name="Elite Wolf", health=250, health_max=250, damage = 40, classes = "boss", level = 10, exp=150, statpoints=0, exp_next=0)
+Wolves = Enemy(name="Wolf", health=225, health_max=225, damage=25, classes="mob", level=5, exp=125, statpoints=0,exp_next=0)
+Eilte_Wolf = Boss(name="Elite Wolf", health=500, health_max=500, damage = 50, classes = "boss", level = 10, exp=625, statpoints=0, exp_next=0)
 
 #Dungeon 3
-Zombie = Enemy(name="Zombie", health = 250, health_max=250, damage=45, classes="mob", level = 15, exp = 150, statpoints=0, exp_next=0)
-Giant_Zombie = Boss(name="Giant_Zombie", health=500, health_max=500, damage=60, classes="boss", level = 20, exp = 450, statpoints=0, exp_next=0)
+Zombie = Enemy(name="Zombie", health = 375, health_max=375, damage=40, classes="mob", level = 15, exp = 500, statpoints=0, exp_next=0)
+Giant_Zombie = Boss(name="Giant_Zombie", health=750, health_max=750, damage=75, classes="boss", level = 20, exp = 2500, statpoints=0, exp_next=0)
+
 
 #Dungeon 4 
-Spider = Enemy(name="Spider", health = 150, health_max=150, damage=25, classes="mob", level = 15, exp = 600, statpoints=0, exp_next=0)
-Tarantula = Boss(name="Tarantula", health=750, health_max=750, damage= 75, classes="boss", level = 20, exp = 3000, statpoints=0, exp_next=0)
+Spider = Enemy(name="Spider", health = 500, health_max=500, damage=50, classes="mob", level = 15, exp = 1250, statpoints=0, exp_next=0)
+Tarantula = Boss(name="Tarantula", health=1000, health_max=1000, damage= 100, classes="boss", level = 20, exp = 7500, statpoints=0, exp_next=0)
 
 #Dungeon 5
-Little_Whalen = Enemy(name="Little Whalen", health = 200, health_max=200, damage=50, classes="mob", level = 15, exp = 1000, statpoints=0, exp_next=0)
-Boss_Whalen = Boss(name="Mr. Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 10000, statpoints=0, exp_next=0)
+Lizard = Enemy(name="Lizard", health = 750, health_max=750, damage=75, classes="mob", level = 15, exp = 3000, statpoints=0, exp_next=0)
+Dragon = Boss(name="Dragon", health=1500, health_max=1500, damage= 150, classes="boss", level = 99, exp = 20000, statpoints=0, exp_next=0)
 
 #Dungeon 6
-Professor_Whalen = Enemy(name="Professor Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 10000, statpoints=0, exp_next=0)
+Professor_Whalen = Enemy(name="Professor Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 6969, statpoints=0, exp_next=0)
 Mega_Whalen = Boss(name="Mega Whalen", health=99999, health_max=99999, damage= 999, classes="boss", level = 99, exp = 99999, statpoints=0, exp_next=0)
+
+#Impossible
+Impossible = Enemy(name="Impossible Whalen Jr", health=5000, health_max=5000, damage= 500, classes="boss", level = 999, exp = 33333, statpoints=0, exp_next=0)
+Impossible_boss = Boss(name="Impossible Whalen", health=500000, health_max=500000, damage= 9999, classes="boss", level = 9999, exp = 999999, statpoints=0, exp_next=0)
+
 def battle():
         number_mobs = 10
         for i in range(1,number_mobs):
@@ -92,6 +98,7 @@ def battle():
 Choice = input("What Would you like to do? [1]Load Existing Character, [2]Create New Character, [3]Inventory: ")
 if Choice == "2":
     Creation = input("Enter your Username: ")
+
     Class_Chooser = input("Enter class [Warrior,Archer,Assassin,Snowman,Noob,???]: ").lower()
 
     if Class_Chooser == "warrior":
@@ -133,7 +140,7 @@ def search():
                 "[2] Wolves",
                 "[3] Zombies",
                 "[4] Arachnids",
-                "[5] Whalens",
+                "[5] Lizards",
                 "[6] Mega Boss"
     ]
     list(map(print, Dungeons))
@@ -147,6 +154,7 @@ if Choice == "1":
                 hero = Hero(name = i["name"], health = i["health"], health_max = i["health_max"], damage = i["damage"], classes = i["classes"], level = i["level"], exp = i["exp"], statpoints = i["statpoints"], exp_next = i["exp_next"])
                 print (f"Welcome back {hero.name}! ") 
                 search()
+                """ up.remove(hero.remove(hero.name)) """
                 Narration = input("Now pick a dungeon to complete (Type the number corresponding to the Dungeon): ")
                 
             
@@ -180,20 +188,31 @@ if Choice == "1":
 
         ##Dungeon 5
         if Narration == "5":
-            Enemy = Little_Whalen
-            Boss = Boss_Whalen
+            Enemy = Lizard
+            Boss = Dragon
             number_mobs = 20
             battle()    
         ##Dungeon 6
         if Narration == "6":
             Enemy = Professor_Whalen
             Boss = Mega_Whalen
-            number_mobs = 1
+            number_mobs = 2
+            battle()
+
+        ##Dungeon 7
+        if Narration == "7":
+            Enemy = Impossible
+            Boss = Impossible_boss
+            number_mobs = 2
             battle()
 
 
 
 if Choice == "2":
+    for i in  up:
+        if Creation in i["name"]:
+            print("Username is taken. Please choose another. ")
+            quit()
     Tutorial = input("Would you like a tutorial?[Y/Y] (You are forced): ")
     if Tutorial == "Y" or "y":
         while Tutorial_Dummy.health > 0:
@@ -221,6 +240,7 @@ if Choice == "2":
 
 
 if Choice == "3":
+    Search = input("Enter username to start search: ")
     for j in up:
         hero = Hero(name = j["name"], health = j["health"], health_max = j["health_max"], damage = j["damage"], classes = j["classes"], level = j["level"], exp = j["exp"], statpoints = j["statpoints"], exp_next=["exp_next"])
         print(f"[name: {hero.name}, level: {hero.level}, hp: {hero.health_max}, damage: {hero.damage}, class: {hero.classes}, exp: {hero.exp}, statpoints: {hero.statpoints}, Exp Req: {hero.exp_next}]")
@@ -235,6 +255,8 @@ if Choice == "3":
 
             if edit == "2":
                 hero.statpoint_HP(hero.statpoints)
+            
+            
 
 
 
@@ -270,3 +292,5 @@ os.remove("data.json")
 os.rename(new_file, "data.json")
 
 
+#5,8,10,12,15,18
+#5,10,15,18,20,23

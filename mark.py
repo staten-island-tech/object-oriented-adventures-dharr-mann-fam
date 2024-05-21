@@ -38,6 +38,7 @@ Spider = Enemy(name="Spider", health = 150, health_max=150, damage=25, classes="
 Tarantula = Boss(name="Tarantula", health=750, health_max=750, damage= 75, classes="boss", level = 20, exp = 300, statpoints=0, exp_next=0)
 
 #Dungeon 5
+
 Whalen = Boss(name="Mr. Whalen", health=1000, health_max=1000, damage= 100, classes="boss", level = 50, exp = 300, statpoints=0, exp_next=0)
 
 def battle():
