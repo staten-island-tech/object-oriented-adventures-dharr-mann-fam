@@ -10,10 +10,7 @@ os.system("cls")
 number_mobs = 1
 play = True
 alive = 0
-dialouge_greet = ["Hello!", "I have been waiting for you", "The prophecies have fortold of your arrival!", "", "RAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "Dang it! Another one, really? Oh well."]
-dialouge_fight = ["You truly are a mighty opponent!", "Owww", "This is going to be easy", "", "RARRRRR"]
 ##Mobs
-
 
 #Dungeon 1
 Goblins = Enemy(name="Goblin", health=25, health_max=25, damage=5, classes="mob", level=1, exp=25, statpoints=0, exp_next=0)

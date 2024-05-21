@@ -14,8 +14,6 @@ if play == "True".lower:
 
 if play == "False".lower:
     play = False
-dialouge_greet = ["Hello!", "I have been waiting for you", "The prophecies have fortold of your arrival!", "", "RAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "Dang it! Another one, really? Oh well."]
-dialouge_fight = ["You truly are a mighty opponent!", "Owww", "This is going to be easy", "", "RARRRRR"]
 
     ##Mobs
 
@@ -40,9 +38,7 @@ Spider = Enemy(name="Spider", health = 150, health_max=150, damage=25, classes="
 Tarantula = Boss(name="Tarantula", health=750, health_max=750, damage= 75, classes="boss", level = 20, exp = 300, statpoints=0, exp_next=0)
 
 #Dungeon 5
-Little_Whalen = Enemy(name="Mini. Whalen", health = 200, health_max=200, damage=50, classes="mob", level = 15, exp = 50, statpoints=0, exp_next=0)
-Boss_Whalen = Boss(name="Mr. Whalen", health=1500, health_max=1500, damage= 100, classes="boss", level = 99, exp = 1000, statpoints=0, exp_next=0)
-
+Whalen = Boss(name="Mr. Whalen", health=1000, health_max=1000, damage= 100, classes="boss", level = 50, exp = 300, statpoints=0, exp_next=0)
 
 def battle():
     while Enemy.health > 0 and hero.health > 0:
@@ -79,35 +75,9 @@ def battle():
     input()
 
     while Boss.health > 0 and hero.health > 0:
-        if Boss.health == Boss.health_max:
-            choice_greet = random.randint(1,5)
-            if choice_greet == 1:
-                print(dialouge_greet[0])
-            elif choice_greet == 2:
-                print(dialouge_greet[1])
-            elif choice_greet == 3:
-                print(dialouge_greet[2])
-            elif choice_greet == 4:
-                print(dialouge_greet[3])
-            else:
-                print(dialouge_greet[4])
- 
         os.system("cls")
         print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
         print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}") 
-        choice_fight = random.randint(1,10)
-        if choice_fight == 1:
-            print(dialouge_fight[0])
-        elif choice_fight == 2:
-            print(dialouge_fight[1])
-        elif choice_fight == 3:
-            print(dialouge_fight[2])
-        elif choice_fight == 4:
-            print(dialouge_fight[3])
-        elif choice_fight:
-            print(dialouge_fight[4])
-        else:
-            print("")
         print("Enter to continue")   
         input()
 
@@ -163,7 +133,7 @@ def search():
                 "[2] Wolves",
                 "[3] Zombies",
                 "[4] Spiders",
-                "[5] Mr. Whalen",
+                "[5] PlaceHolder",
 ]
     list(map(print, Dungeons))
     
@@ -214,9 +184,7 @@ if Choice == "1":
 
     ##Dungeon 5
     if Narration == "5":
-        Enemy = Little_Whalen
-        Boss = Boss_Whalen
-        number_mobs = 5
+        Boss = Whalen
         battle()
 
 
