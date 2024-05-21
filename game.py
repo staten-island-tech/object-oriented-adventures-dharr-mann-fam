@@ -40,6 +40,9 @@ Professor_Whalen = Enemy(name="Professor Whalen", health=1500, health_max=1500, 
 Mega_Whalen = Boss(name="Mega Whalen", health=99999, health_max=99999, damage= 999, classes="boss", level = 99, exp = 99999, statpoints=0, exp_next=0)
 
 #Impossible
+Impossible = Enemy(name="Impossible Whalen Jr", health=5000, health_max=5000, damage= 500, classes="boss", level = 999, exp = 33333, statpoints=0, exp_next=0)
+Impossible_boss = Boss(name="Impossible Whalen", health=500000, health_max=500000, damage= 9999, classes="boss", level = 9999, exp = 999999, statpoints=0, exp_next=0)
+
 def battle():
         number_mobs = 10
         for i in range(1,number_mobs):
@@ -183,6 +186,13 @@ if Choice == "1":
         if Narration == "6":
             Enemy = Professor_Whalen
             Boss = Mega_Whalen
+            number_mobs = 2
+            battle()
+
+        ##Dungeon 7
+        if Narration == "7":
+            Enemy = Impossible
+            Boss = Impossible_boss
             number_mobs = 2
             battle()
 
