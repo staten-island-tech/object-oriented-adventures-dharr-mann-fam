@@ -181,14 +181,15 @@ if Choice == "1":
             Enemy = Lizard
             Boss = Dragon
             number_mobs = 20
-            battle()    
+            battle()   
+
         ##Dungeon 6
         if Narration == "6":
             Enemy = Professor_Whalen
             Boss = Mega_Whalen
             number_mobs = 2
             battle()
-
+            
         ##Dungeon 7
         if Narration == "7":
             Enemy = Impossible
@@ -260,12 +261,10 @@ with open("data.json", "r") as f:
     data = json.load(f)
     
     ##Call classes in here
+data  = [obj for obj in data if obj['name'] != hero.name]
+print(json.dumps(data, indent = 4))
 
-
-if add_data.__dict__ in data:
-    add_data.__dict__.update(name = hero.name, health = hero.health, health_max = hero.health_max, damage = hero.damage, classes = hero.classes, level = hero.level, exp = hero.exp, statpoints = hero.statpoints, exp_next = hero.exp_next)
-else:
-    data.append(add_data.__dict__)
+data.append(add_data.__dict__)
 
 
 #No code needed below this line
