@@ -262,7 +262,7 @@ with open("data.json", "r") as f:
     
     ##Call classes in here
 data  = [obj for obj in data if obj['name'] != hero.name]
-print(json.dumps(data, indent = 4))
+json.dumps(data, indent = 4)
 
 data.append(add_data.__dict__)
 
