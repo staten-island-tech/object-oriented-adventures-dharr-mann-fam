@@ -1,13 +1,1 @@
-[
-    {
-        "name": "a",
-        "health": 243.10125000000002,
-        "health_max": 243.10125000000002,
-        "damage": 18.232593750000003,
-        "classes": "Warrior",
-        "level": 5,
-        "exp": 223.4375,
-        "statpoints": 12,
-        "exp_next": 244.140625
-    }
-]
+[]
