@@ -269,6 +269,8 @@ else:
 
 
 #No code needed below this line
+
+
 # Creates a new JSON file with the updated data
 new_file = "updated.json"
 with open(new_file, "w") as f:
