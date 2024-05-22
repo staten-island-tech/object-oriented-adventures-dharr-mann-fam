@@ -260,12 +260,10 @@ with open("data.json", "r") as f:
     # Serialize the updated Python list to a JSON string
     data = json.load(f)
     ##Call classes in here
+data  = [obj for obj in data if obj['name'] != hero.name]
+print(json.dumps(data, indent = 4))
 
-
-if add_data.__dict__ in data:
-    add_data.__dict__.update(name = hero.name, health = hero.health, health_max = hero.health_max, damage = hero.damage, classes = hero.classes, level = hero.level, exp = hero.exp, statpoints = hero.statpoints, exp_next = hero.exp_next)
-else:
-    data.append(add_data.__dict__)
+data.append(add_data.__dict__)
 
 
 #No code needed below this line
