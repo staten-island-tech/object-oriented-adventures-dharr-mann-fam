@@ -42,70 +42,118 @@ Scimitar = Weapon(name = "Scimitar",
 
 
 shortbow = Weapon(name = "Shortbow",
-                 damage = 15,
-                 clas = "Archer")
-Bow = Weapon(name = "Bow",
-                 damage = 17.5,
-                 clas = "Archer")
-crossbow = Weapon(name = "Crossbow",
                  damage = 20,
                  clas = "Archer")
-celestial_bow = Weapon(name = "Celestial Bow",
-                 damage = 22.5,
-                 clas = "Archer")
-tempest_bow = Weapon(name = "Tempest Bow",
-                 damage = 25,
-                 clas = "Archer")
-uzi = Weapon(name = "Uci",
-                 damage = 30,
-                 clas = "Archer")
-glock = Weapon(name = "Gock-17",
+Bow = Weapon(name = "Bow",
                  damage = 35,
                  clas = "Archer")
-m14 = Weapon(name = "N-14",
-                 damage = 40,
-                 clas = "Archer")
-smg = Weapon(name = "Sub submachine sun",
-                 damage = 45,
-                 clas = "Archer")
-mg = Weapon(name = "Machine gum",
+crossbow = Weapon(name = "Crossbow",
                  damage = 50,
                  clas = "Archer")
-ar = Weapon(name = "AR-16",
+celestial_bow = Weapon(name = "Celestial Bow",
+                 damage = 65,
+                 clas = "Archer")
+tempest_bow = Weapon(name = "Tempest Bow",
                  damage = 75,
                  clas = "Archer")
-ak = Weapon(name = "BK-47",
+uzi = Weapon(name = "Uci",
                  damage = 90,
+                 clas = "Archer")
+glock = Weapon(name = "Gock-17",
+                 damage = 105,
+                 clas = "Archer")
+m14 = Weapon(name = "N-14",
+                 damage = 115,
+                 clas = "Archer")
+smg = Weapon(name = "Sub submachine sun",
+                 damage = 135,
+                 clas = "Archer")
+mg = Weapon(name = "Machine gum",
+                 damage = 150,
+                 clas = "Archer")
+ar = Weapon(name = "AR-16",
+                 damage = 175,
+                 clas = "Archer")
+ak = Weapon(name = "BK-47",
+                 damage = 225,
                  clas = "Archer")
 
 
 base_dagger = Weapon(name = "Basic Dagger",
-                     damage = 12.5,
+                     damage = 15.5,
                      clas = "Assassin")
 dagger = Weapon(name = "Basic Dagger",
-                     damage = 15,
+                     damage = 27,
                      clas = "Assassin")
 shuriken = Weapon(name = "Shuriken",
-                     damage = 20,
+                     damage = 39,
                      clas = "Assassin")
 kunai = Weapon(name = "Kunai",
-                     damage = 22.5,
+                     damage = 51,
                      clas = "Assassin")
 brass = Weapon(name = "Brass Knuckles",
-                     damage = 27.5,
+                     damage = 58,
                      clas = "Assassin")
 claws = Weapon(name = "Claws",
-                     damage = 30,
+                     damage = 70,
                      clas = "Assassin")
 bigdagger = Weapon(name = "Dagger but Big",
-                     damage = 32.5,
+                     damage = 82,
                      clas = "Assassin")
 knife = Weapon(name = "Knife",
-                     damage = 40,
+                     damage = 90,
                      clas = "Assassin")
 siletto = Weapon(name = "Siletto",
-                     damage = 80,
+                     damage = 105,
                      clas = "Assassin")
+katana = Weapon(name = "Katana",
+                     damage = 117,
+                     clas = "Assassin")
+karambit = Weapon(name = "Karambit",
+                     damage = 136,
+                     clas = "Assassin")
+butterfly = Weapon(name = "Butterfly Knife",
+                     damage = 175,
+                     clas = "Assassin")
+
+snowball = Weapon(name = "Snowball",
+                     damage = 12.5,
+                     clas = "snowman")
+carrotgun = Weapon(name = "Carrot Gun",
+                     damage = 25,
+                     clas = "snowman")
+coalcannon = Weapon(name = "Coal Cannon",
+                     damage = 50,
+                     clas = "snowman")
+yellowsnow = Weapon(name = "Yellow Snow",
+                     damage = 75,
+                     clas = "snowman")
+icefist = Weapon(name = "Ice Fist",
+                     damage = 100,
+                     clas = "snowman")
+brownsnow = Weapon(name = "Brown Snow",
+                     damage = 125,
+                     clas = "snowman")
+carrotsword = Weapon(name = "Carrot Sword",
+                     damage = 150,
+                     clas = "snowman")
+
+dirtsword = Weapon(name = "Dirt Sword",
+                     damage = 500,
+                     clas = "noob")
+toyhammer = Weapon(name = "Toy Hammer",
+                     damage = 750,
+                     clas = "noob")
+slap = Weapon(name = "Slap",
+                     damage = 1000,
+                     clas = "noob")
+balloonpop = Weapon(name = "Balloon Pop",
+                     damage = 1500,
+                     clas = "noob")
+scream = Weapon(name = "Scream",
+                     damage = 2500,
+                     clas = "noob")
+
 
 none = Weapon(name = "Unequiped",
               damage = 0,
@@ -116,10 +164,10 @@ warriorloot =  ["Base Sword", "sword", "Spear", "Sledge Hammer", "claymore", "Ja
 
 archerloot = ["Short Bow", "Bow", "Crossbow", "Celestial Bow", "Tempest Bow", "Uci", "Gock-17", "N-14", "Sub Submachine sun", "Machine gum", "AR-16", "BK-47"]
 
-assassinloot = ["Basic Dagger", "Dagger", "Shuriken", "Kunai", "Brass Knuckles", "Claws", "Choke", "Dagger but big", "Knife", "Siletto"]
+assassinloot = ["Basic Dagger", "Dagger", "Shuriken", "Kunai", "Brass Knuckles", "Claws", "Dagger but big", "Knife", "Siletto"]
 
 snowmanloot = ["Snowballs", "Carrot Gun", "Coal Cannon", "Yellow Snow", "Ice Fist", "Brown Snow", "Carrot Sword"]
 
-noobloot = ["Dirt Sword", "Toy Hammer", "Slap", "Baloon Pop", "Scream"]
+noobloot = ["Dirt Sword", "Toy Hammer", "Slap", "Balloon Pop", "Scream"]
 
 godloot = ["Lightniing Bolt", "Earthquake", "Fireball", "Tsunami", "Enlightenment"]

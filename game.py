@@ -123,7 +123,7 @@ if Choice == "2":
         
     if Class_Chooser == "noob":
         Class = "Noob"
-        hero = Hero(name = Creation, health = 50, health_max = 50, damage = 500, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
+        hero = Hero(name = Creation, health = 5000, health_max = 5000, damage = 500, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
         noobloot = ["Dirt Sword", "Toy Hammer", "Slap", "Baloon Pop", "Scream"]
 
     if Class_Chooser == "god":
