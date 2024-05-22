@@ -258,6 +258,7 @@ add_data = Hero(name = hero.name, health = hero.health, health_max = hero.health
 with open("data.json", "r") as f:
     # Serialize the updated Python list to a JSON string
     data = json.load(f)
+    
     ##Call classes in here
 
 
