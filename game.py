@@ -44,7 +44,7 @@ Impossible = Enemy(name="Impossible Whalen Jr", health=5000, health_max=5000, da
 Impossible_boss = Boss(name="Impossible Whalen", health=500000, health_max=500000, damage= 9999, classes="boss", level = 9999, exp = 999999, statpoints=0, exp_next=0)
 
 def battle():
-        number_mobs = 10
+        number_mobs = 20
         for i in range(1,number_mobs):
             Enemy.health = Enemy.health_max
             while Enemy.health > 0:
@@ -90,7 +90,8 @@ def battle():
 
             if hero.health <= 0:
                 hero.die()
-                
+
+
 
 
 Choice = input("What Would you like to do? [1]Load Existing Character, [2]Create New Character, [3]Inventory: ")
@@ -125,7 +126,6 @@ if Choice == "2":
 
 
 
-
 def search():
     Dungeons = ["[1] Goblins",
                 "[2] Wolves",
@@ -152,49 +152,42 @@ if Choice == "1":
         if Narration == "1":
             Enemy = Goblins
             Boss = Goblin_Leader
-            number_mobs = 10
             battle()
 
         ##Dungeon 2
-        if Narration == "2":
+        elif Narration == "2":
             Enemy = Wolves
             Boss = Eilte_Wolf
-            number_mobs = 10
             battle()
 
         ##Dungeon 3
-        if Narration == "3":
+        elif Narration == "3":
             Enemy = Zombie
             Boss = Giant_Zombie
-            number_mobs = 12
             battle()
 
         ##Dungeon 4
-        if Narration == "4":
+        elif Narration == "4":
             Enemy = Spider
             Boss = Tarantula
-            number_mobs = 15
             battle()
 
         ##Dungeon 5
-        if Narration == "5":
+        elif Narration == "5":
             Enemy = Lizard
             Boss = Dragon
-            number_mobs = 20
             battle()   
 
         ##Dungeon 6
-        if Narration == "6":
+        elif Narration == "6":
             Enemy = Professor_Whalen
             Boss = Mega_Whalen
-            number_mobs = 2
             battle()
             
         ##Dungeon 7
-        if Narration == "7":
+        elif Narration == "7":
             Enemy = Impossible
             Boss = Impossible_boss
-            number_mobs = 2
             battle()
 
 
@@ -231,15 +224,16 @@ if Choice == "2":
 
 
 if Choice == "3":
-    Search = input("Enter username to start search: ")
+    os.system("cls")
     for j in up:
         hero = Hero(name = j["name"], health = j["health"], health_max = j["health_max"], damage = j["damage"], classes = j["classes"], level = j["level"], exp = j["exp"], statpoints = j["statpoints"], exp_next=j["exp_next"])
-        print(f"[name: {hero.name}, level: {hero.level}, hp: {hero.health_max}, damage: {hero.damage}, class: {hero.classes}, exp: {hero.exp}, statpoints: {hero.statpoints}, Exp Req: {hero.exp_next}]")
+        print(f"Stats: [name: {hero.name}, level: {hero.level}, hp: {hero.health_max}, damage: {hero.damage}, class: {hero.classes}, exp: {hero.exp}, statpoints: {hero.statpoints}, Exp Req: {hero.exp_next}]")
         ask = input("What would you like to do?: [1] Edit Statpoints [2] Exit: ")
 
         if ask == "2":
             exit()
         if ask == "1":
+            print(f"Available Points: {hero.statpoints}")
             edit = input("Which Statpoint woud you like to change? [1] Damage, [2] Max Health:")
             if edit == "1":
                 hero.statpoint_atk(hero.statpoints)
