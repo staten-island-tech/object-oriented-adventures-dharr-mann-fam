@@ -97,6 +97,10 @@ def battle():
 Choice = input("What Would you like to do? [1]Load Existing Character, [2]Create New Character, [3]Inventory: ")
 if Choice == "2":
     Creation = input("Enter your Username: ")
+    for i in  up:
+        if Creation in i["name"]:
+            print("Username is taken. Please choose another. ")
+            quit()
 
     Class_Chooser = input("Enter class [Warrior,Archer,Assassin,Snowman,Noob,???]: ").lower()
 
@@ -144,7 +148,6 @@ if Choice == "1":
                 hero = Hero(name = i["name"], health = i["health"], health_max = i["health_max"], damage = i["damage"], classes = i["classes"], level = i["level"], exp = i["exp"], statpoints = i["statpoints"], exp_next = i["exp_next"])
                 print (f"Welcome back {hero.name}! ") 
                 search()
-                """ up.remove(hero.remove(hero.name)) """
                 Narration = input("Now pick a dungeon to complete (Type the number corresponding to the Dungeon): ")
                 
             
@@ -193,34 +196,30 @@ if Choice == "1":
 
 
 if Choice == "2":
-    for i in  up:
-        if Creation in i["name"]:
-            print("Username is taken. Please choose another. ")
-            quit()
-    Tutorial = input("Would you like a tutorial?[Y/Y] (You are forced): ")
-    if Tutorial == "Y" or "y":
-        while Tutorial_Dummy.health > 0:
-            os.system("cls")
-            print(f"Health of {hero.name}:{hero.health_max}")
-            print(f"Health of {Tutorial_Dummy.name}: {Tutorial_Dummy.health_max}")
+    Tutorial = input("Tutorial is starting... ")
 
-            hero.attack(Tutorial_Dummy)
-            Tutorial_Dummy.attack(hero)
+    while Tutorial_Dummy.health > 0:
+        os.system("cls")
+        print(f"Health of {hero.name}:{hero.health_max}")
+        print(f"Health of {Tutorial_Dummy.name}: {Tutorial_Dummy.health_max}")
 
-            print(f"Health of {hero.name}:{hero.health}")
-            print(f"Health of {Tutorial_Dummy.name}: {Tutorial_Dummy.health}")
+        hero.attack(Tutorial_Dummy)
+        Tutorial_Dummy.attack(hero)
 
-            input()
-            print("Press Enter to continue battle")
-        if Tutorial_Dummy.health == 0:
-            hero.gain_experience(Tutorial_Dummy.exp)
-            hero.health = hero.health_max
+        print(f"Health of {hero.name}:{hero.health}")
+        print(f"Health of {Tutorial_Dummy.name}: {Tutorial_Dummy.health}")
 
-            print("Congrats on your first win! Kill Terminal and go to inventory to see drops/use stat points.")
+        input()
+        print("Press Enter to continue battle")
+    if Tutorial_Dummy.health == 0:
+        hero.gain_experience(Tutorial_Dummy.exp)
+        hero.health = hero.health_max
 
-        if hero.health <= 0:
-            hero.die()
-            print("How you die to Tutorial")
+        print("Congrats on your first win! Kill Terminal and go to inventory to see drops/use stat points.")
+
+    if hero.health <= 0:
+        hero.die()
+        print("How you die to Tutorial")
 
 
 if Choice == "3":
@@ -253,6 +252,7 @@ add_data = Hero(name = hero.name, health = hero.health, health_max = hero.health
 with open("data.json", "r") as f:
     # Serialize the updated Python list to a JSON string
     data = json.load(f)
+    
     ##Call classes in here
 data  = [obj for obj in data if obj['name'] != hero.name]
 json.dumps(data, indent = 4)
@@ -261,6 +261,8 @@ data.append(add_data.__dict__)
 
 
 #No code needed below this line
+
+
 # Creates a new JSON file with the updated data
 new_file = "updated.json"
 with open(new_file, "w") as f:
