@@ -1,1 +1,13 @@
-[{"name": "easy", "health": 258.84450361150317, "health_max": 258.84450361150317, "damage": 113.21271155302983, "classes": "Assassin", "level": 15, "exp": 605.0529822707176, "statpoints": 0, "exp_next": 2273.7367544323206}]
+[
+    {
+        "name": "easy",
+        "health": 258.84450361150317,
+        "health_max": 258.84450361150317,
+        "damage": 113.21271155302983,
+        "classes": "Assassin",
+        "level": 15,
+        "exp": 605.0529822707176,
+        "statpoints": 0,
+        "exp_next": 2273.7367544323206
+    }
+]
