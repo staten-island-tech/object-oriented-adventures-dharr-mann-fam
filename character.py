@@ -1,5 +1,6 @@
 from weapon import none
 import weapon
+import os
 
 class Character():
     def __init__(self, name: str, health: int, health_max: int, damage: int, classes: str, level: int, exp: int, statpoints: int, exp_next: int):
@@ -20,6 +21,8 @@ class Character():
         target.health -= self.damage
         target.health = max(target.health, 0)
         print(f"{self.name} dealt {self.damage} to [{target.name}]")
+
+
 
 
 
@@ -66,7 +69,7 @@ class Hero(Character):
         else:
             for i in range(amount):
                 self.statpoints -= 1
-                self.damage = (self.damage * 1.015)
+                self.damage = (self.damage * 1.05)
             print(f"You have put {amount} points into Damage!")
 
 
@@ -78,9 +81,11 @@ class Hero(Character):
         else:
             for i in range(amount):
                 self.statpoints -= 1
-                self.health = (self.health * 1.015)
-                self.health_max = (self.health_max * 1.015)
+                self.health = (self.health * 1.05)
+                self.health_max = (self.health_max * 1.05)
             print(f"You have put {amount} points into Health!")
+
+
 
 
 
@@ -98,3 +103,6 @@ class Boss(Character):
     def __init__(self, 
                  name: str, health: int, health_max: int, damage: int, classes: str, level: int, exp: int, statpoints: int, exp_next: int):
         super().__init__(name = name, health = health, health_max = health_max, damage = damage, classes = classes, level = level, exp = exp, statpoints = statpoints, exp_next = exp_next)
+
+
+
