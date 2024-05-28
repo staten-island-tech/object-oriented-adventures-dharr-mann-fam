@@ -26,7 +26,6 @@ Eilte_Wolf = Boss(name="Elite Wolf", health=300, health_max=300, damage = 50, cl
 Zombie = Enemy(name="Zombie", health = 225, health_max=225, damage=20, classes="mob", level = 25, exp = 500, statpoints=0, exp_next=0)
 Giant_Zombie = Boss(name="Giant_Zombie", health=550, health_max=550, damage=125, classes="boss", level = 30, exp = 2500, statpoints=0, exp_next=0)
 
-
 #Dungeon 4 
 Spider = Enemy(name="Spider", health = 550, health_max=550, damage=50, classes="mob", level = 35, exp = 1250, statpoints=0, exp_next=0)
 Tarantula = Boss(name="Tarantula", health=1350, health_max=1350, damage= 300, classes="boss", level = 60, exp = 7500, statpoints=0, exp_next=0)
@@ -242,7 +241,6 @@ if Choice == "3":
                 hero.statpoint_HP(hero.statpoints)
             
             
-
 
 
 add_data = Hero(name = hero.name, health = hero.health, health_max = hero.health_max, damage = hero.damage, classes = hero.classes, level = hero.level, exp = hero.exp, statpoints = hero.statpoints, exp_next = hero.exp_next) 

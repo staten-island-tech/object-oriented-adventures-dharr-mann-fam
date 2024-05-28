@@ -1,4 +1,5 @@
 from weapon import none
+import math
 import weapon
 import os
 
@@ -48,8 +49,9 @@ class Hero(Character):
     def level_up(self):
         self.level += 1
         self.exp -= self.exp_next
-        self.exp_next = self.exp_next * 1.25
-        self.statpoints += 3
+        self.exp_next = self.exp_next * 1.15
+        self.exp_next = math.ceil(self.exp_next)
+        self.statpoints += 5
         self.health_max = self.health_max * 1.05
         self.damage = self.damage * 1.05
         self.health = self.health_max
