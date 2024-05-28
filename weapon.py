@@ -154,6 +154,22 @@ scream = Weapon(name = "Scream",
                      damage = 2500,
                      clas = "noob")
 
+lightning = Weapon(name = "Ligthining Bolt",
+                     damage = 150,
+                     clas = "god")
+earthquake = Weapon(name = "Earfquake",
+                     damage = 1500,
+                     clas = "god")
+fireball = Weapon(name = "Fireball",
+                     damage = 15000,
+                     clas = "god")
+tsunami = Weapon(name = "Tsunami",
+                     damage = 150000,
+                     clas = "god")
+enlightenment = Weapon(name = "Earfquake",
+                     damage = 150000000000000000000000000,
+                     clas = "god")
+
 
 none = Weapon(name = "Unequiped",
               damage = 0,

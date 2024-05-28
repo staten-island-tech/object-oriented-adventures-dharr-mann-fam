@@ -44,7 +44,7 @@ Mega_Whalen = Boss(name="Mega Whalen", health=99999, health_max=99999, damage= 9
 Impossible = Enemy(name="Impossible Whalen Jr", health=5000, health_max=5000, damage= 500, classes="boss", level = 999, exp = 33333, statpoints=0, exp_next=0)
 Impossible_boss = Boss(name="Impossible Whalen", health=500000, health_max=500000, damage= 9999, classes="boss", level = 9999, exp = 999999, statpoints=0, exp_next=0)
 
-def battle():
+def battle_mob():
         number_mobs = 10
         for i in range(1,number_mobs):
             Enemy.health = Enemy.health_max
@@ -72,26 +72,27 @@ def battle():
         print("You are now moving onto the boss room...")
         print(" ")
         input()
-        while Boss.health > 0:
-            os.system("cls")
-            hero.attack(Boss)
-            Boss.attack(hero)          
-            print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
-            print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}") 
-            print("Press Enter to continue battle")  
-            input()
+def battle_boss():
+    while Boss.health > 0:
+        os.system("cls")
+        hero.attack(Boss)
+        Boss.attack(hero)          
+        print(f"Health of {hero.name} [Level:{hero.level}]:{hero.health}")    
+        print(f"Health of {Boss.name} [Level:{Boss.level}]:{Boss.health}") 
+        print("Press Enter to continue battle")  
+        input()
 
 
-            if Boss.health == 0:
-                hero.gain_experience(Boss.exp)
-                print(" ")
-                print(f"{hero.name} has gained {Boss.exp} exp")
-                hero.health = hero.health_max
-                print("You have beaten the dungeon! Run the code again and choose another dungeon. ")
-                
+        if Boss.health == 0:
+            hero.gain_experience(Boss.exp)
+            print(" ")
+            print(f"{hero.name} has gained {Boss.exp} exp")
+            hero.health = hero.health_max
+            print("You have beaten the dungeon! Run the code again and choose another dungeon. ")
+            
 
-            if hero.health <= 0:
-                hero.die()
+        if hero.health <= 0:
+            hero.die()
 
 
 
@@ -106,27 +107,27 @@ if Choice == "2":
         hero = Hero(name = Creation, health = 200, health_max = 200, damage = 15, classes = "Warrior", level = 1, exp = 0, statpoints = 0, exp_next = 100)
         warriorloot =  ["Base Sword", "sword", "Spear", "Sledge Hammer", "claymore", "Javelin", "Rapier", "Saber", "Cutlass", "Scimitar", "Zweihander"]
 
-    if Class_Chooser == "archer":
+    elif Class_Chooser == "archer":
         Class = "Archer"
         hero = Hero(name = Creation, health = 80, health_max = 80, damage = 45, classes = "Archer", level = 1, exp = 0, statpoints = 0, exp_next = 90)
         archerloot = ["Short Bow", "Bow", "Crossbow", "Celestial Bow", "Tempest Bow", "Phantasm", "Storm bow", "Regular Arrow", "Steel Arrow", "Celestial Arrow", "Flaming Arrow", "Unholy Arrow", "Venom Arrow", "Holy Arrow", "Spectral Arrow", "Uci", "Gock-71", "BK - 48", "BR-16", "N-14", "Sub Submachine sun", "Machine gum", "Regular Bullet", "Nano Bullet", "Bouncy Bullet", "Homing Bullet", "Fast Bullet", "Buck Shot", "Slug Shot", ".50 Cal"]
 
-    if Class_Chooser == "assassin":
+    elif Class_Chooser == "assassin":
         Class = "Assassin"
         hero = Hero(name = Creation, health = 100, health_max = 100, damage = 35, classes = "Assassin", level = 1, exp = 0, statpoints = 0, exp_next = 100)
         assassinloot = ["Dagger", "Shuriken", "Kunai", "Brass Knuckles", "Claws", "Choke", "Dagger but big", "Knife", "Siletto"]
 
-    if Class_Chooser == "snowman":
+    elif Class_Chooser == "snowman":
         Class = "Snowman"
         hero = Hero(name = Creation, health = 150, health_max = 150, damage = 30, classes = "Snowman", level = 1, exp = 0, statpoints = 0, exp_next = 100)
         snowmanloot = ["Snowballs", "Carrot Gun", "Coal Cannon", "Yellow Snow", "Ice Fist", "Brown Snow", "Carrot Sword"]
         
-    if Class_Chooser == "noob":
+    elif Class_Chooser == "noob":
         Class = "Noob"
         hero = Hero(name = Creation, health = 5000, health_max = 5000, damage = 500, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
         noobloot = ["Dirt Sword", "Toy Hammer", "Slap", "Baloon Pop", "Scream"]
 
-    if Class_Chooser == "god":
+    elif Class_Chooser == "god":
         Class = "God"
         hero = Hero(name = Creation, health = 150, health_max = 150, damage = 35, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 10)
         godloot = ["Lightniing Bolt", "Earthquake", "Fireball", "Tsunami", "Enlightenment"]
@@ -157,54 +158,68 @@ if Choice == "1":
                 """ up.remove(hero.remove(hero.name)) """
                 Narration = input("Now pick a dungeon to complete (Type the number corresponding to the Dungeon): ")
                 
-            
+        
         ##Dungeon 1
-        if Narration == "1":
+        if Narration == "1":     
             Enemy = Goblins
             Boss = Goblin_Leader
             number_mobs = 10
-            battle()
+            battle_mob()
+            if number_mobs == 0:
+                battle_boss()
 
         ##Dungeon 2
-        if Narration == "2":
+        elif Narration == "2":
             Enemy = Wolves
             Boss = Eilte_Wolf
             number_mobs = 10
-            battle()
+            battle_mob()
+            if number_mobs == 0:
+                battle_boss()
 
         ##Dungeon 3
         if Narration == "3":
             Enemy = Zombie
             Boss = Giant_Zombie
             number_mobs = 12
-            battle()
+            battle_mob()
+            if number_mobs == 0:
+                battle_boss()
 
         ##Dungeon 4
         if Narration == "4":
             Enemy = Spider
             Boss = Tarantula
             number_mobs = 15
-            battle()
+            battle_mob()
+            if number_mobs == 0:
+                battle_boss()
 
         ##Dungeon 5
         if Narration == "5":
             Enemy = Lizard
             Boss = Dragon
             number_mobs = 20
-            battle()    
+            battle_mob()
+            if number_mobs == 0:
+                battle_boss()  
         ##Dungeon 6
         if Narration == "6":
             Enemy = Professor_Whalen
             Boss = Mega_Whalen
             number_mobs = 2
-            battle()
+            battle_mob()
+            if number_mobs == 0:
+                battle_boss()
 
         ##Dungeon 7
         if Narration == "7":
             Enemy = Impossible
             Boss = Impossible_boss
             number_mobs = 2
-            battle()
+            battle_mob()
+            if number_mobs == 0:
+                battle_boss()
 
 
 
