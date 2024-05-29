@@ -101,7 +101,7 @@ if Choice == "2":
             print("Username is taken. Please choose another. ")
             quit()
 
-    Class_Chooser = input("Enter class [Warrior,Archer,Assassin,Snowman,Noob,???]: ").lower()
+    Class_Chooser = input("Enter class [Warrior/ Archer/ Assassin/ Snowman/ Noob]: ").lower()
 
     if Class_Chooser == "warrior":
         Class = "Warrior"
@@ -200,6 +200,9 @@ if Choice == "1":
             number_mobs = 2
             battle()
 
+        else:
+            print("Please enter a valid Dungion number! ")
+
 
 
 if Choice == "2":
@@ -282,6 +285,3 @@ with open(new_file, "w") as f:
 os.remove("data.json")
 os.rename(new_file, "data.json")
 
-
-#5,8,10,12,15,18
-#5,10,15,18,20,23
