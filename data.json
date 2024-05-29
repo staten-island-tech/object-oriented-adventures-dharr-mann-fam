@@ -1,1 +1,1 @@
-[{"name": "noobie", "health": 140, "health_max": 140, "damage": 140, "classes": "Noob", "level": 20, "exp": 390, "statpoints": 95, "exp_next": 749}]
+[{"name": "a", "health": 92, "health_max": 92, "damage": 92, "classes": "Noob", "level": 12, "exp": 92, "statpoints": 55, "exp_next": 243}, {"name": "ri", "health": 105, "health_max": 105, "damage": 42, "classes": "Assassin", "level": 2, "exp": 0, "statpoints": 5, "exp_next": 115}]

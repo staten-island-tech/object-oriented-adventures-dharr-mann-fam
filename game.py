@@ -280,5 +280,3 @@ os.remove("data.json")
 os.rename(new_file, "data.json")
 
 
-#5,8,10,12,15,18
-#5,10,15,18,20,23

@@ -74,7 +74,8 @@ class Hero(Character):
         else:
             for i in range(amount):
                 self.statpoints -= 1
-                self.damage = (self.damage * 1.05)
+                self.damage = (self.damage * 1.01)
+
             print(f"You have put {amount} points into Damage!")
 
 
@@ -86,8 +87,8 @@ class Hero(Character):
         else:
             for i in range(amount):
                 self.statpoints -= 1
-                self.health = (self.health * 1.05)
-                self.health_max = (self.health_max * 1.05)
+                self.health = (self.health * 1.01)
+                self.health_max = (self.health_max * 1.01)
             print(f"You have put {amount} points into Health!")
 
 
