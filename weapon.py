@@ -166,7 +166,7 @@ fireball = Weapon(name = "Fireball",
 tsunami = Weapon(name = "Tsunami",
                      damage = 150000,
                      clas = "god")
-enlightenment = Weapon(name = "Earfquake",
+enlightenment = Weapon(name = "Enlightenment",
                      damage = 150000000000000000000000000,
                      clas = "god")
 
