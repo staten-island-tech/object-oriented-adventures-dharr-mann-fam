@@ -43,7 +43,7 @@ Impossible = Enemy(name="Impossible Whalen Jr", health=5000, health_max=5000, da
 Impossible_boss = Boss(name="Impossible Whalen", health=500000, health_max=500000, damage= 9999, classes="boss", level = 9999, exp = 999999, statpoints=0, exp_next=0)
 
 def battle():
-        number_mobs = 22
+        number_mobs = 21
         counter = 20
         for i in range(1,number_mobs):
             Enemy.health = Enemy.health_max
@@ -65,12 +65,16 @@ def battle():
                     input()
                     counter = counter - 1
                 
-                if hero.health <= 0:
+                elif hero.health <= 0:
                     hero.die()
-                    
-        print("You are now moving onto the boss room...")
-        print(" ")
-        input()
+
+                if counter == 0:     
+                    print("You are now moving onto the boss room...")
+                    print(" ")
+                    input()
+                    boss()
+
+def boss():    
         while Boss.health > 0:
             os.system("cls")
             hero.attack(Boss)

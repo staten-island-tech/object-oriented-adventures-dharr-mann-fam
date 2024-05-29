@@ -20,6 +20,7 @@ class Character():
 
     def attack(self, target):
         target.health -= self.damage
+        math.ceil(self.health)
         target.health = max(target.health, 0)
         print(f"{self.name} dealt {self.damage} to [{target.name}]")
 
@@ -53,7 +54,9 @@ class Hero(Character):
         self.exp_next = math.ceil(self.exp_next)
         self.statpoints += 5
         self.health_max = self.health_max * 1.05
+        self.health_max = math.ceil(self.health_max)
         self.damage = self.damage * 1.05
+        self.damage = math.ceil(self.damage)
         self.health = self.health_max
 
 
