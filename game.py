@@ -2,6 +2,7 @@ from character import Hero, Enemy, Character, Boss
 import json
 import os
 import random
+import time
 f = open("data.json", encoding="utf8")
 up = json.load(f)
 Y = 0
@@ -68,10 +69,12 @@ def battle():
                 
                 if hero.health <= 0:
                     hero.die()
-                    
-        print("You are now moving onto the boss room...")
-        print(" ")
-        input()
+
+                if counter == 0:
+                    print("You are now moving onto the boss room...")
+                    print(" ")
+                    input()
+                    battle_boss()
 def battle_boss():
     while Boss.health > 0:
         os.system("cls")
@@ -101,43 +104,51 @@ def battle_boss():
 
 
 Choice = input("What Would you like to do? [1]Load Existing Character, [2]Create New Character, [3]Inventory: ")
-if Choice == "2":
-    Creation = input("Enter your Username: ")
-    for i in  up:
-        if Creation in i["name"]:
-            print("Username is taken. Please choose another. ")
-            quit()
+def create():
+    if Choice == "2":
+        Creation = input("Enter your Username: ")
+        for i in  up:
+            if Creation in i["name"]:
+                print("Username is taken. Please choose another. ")
+                quit()
 
-    Class_Chooser = input("Enter class [Warrior,Archer,Assassin,Snowman,Noob,???]: ").lower()
+        Class_Chooser = input("Enter class [Warrior,Archer,Assassin,Snowman,Noob,???]: ").lower()
+        def classchoose():
+            if Class_Chooser == "warrior":
+                Class = "Warrior"
+                hero = Hero(name = Creation, health = 200, health_max = 200, damage = 15, classes = "Warrior", level = 1, exp = 0, statpoints = 0, exp_next = 100)
+                warriorloot =  ["Base Sword", "sword", "Spear", "Sledge Hammer", "claymore", "Javelin", "Rapier", "Saber", "Cutlass", "Scimitar", "Zweihander"]
 
-    if Class_Chooser == "warrior":
-        Class = "Warrior"
-        hero = Hero(name = Creation, health = 200, health_max = 200, damage = 15, classes = "Warrior", level = 1, exp = 0, statpoints = 0, exp_next = 100)
-        warriorloot =  ["Base Sword", "sword", "Spear", "Sledge Hammer", "claymore", "Javelin", "Rapier", "Saber", "Cutlass", "Scimitar", "Zweihander"]
+            elif Class_Chooser == "archer":
+                Class = "Archer"
+                hero = Hero(name = Creation, health = 80, health_max = 80, damage = 45, classes = "Archer", level = 1, exp = 0, statpoints = 0, exp_next = 90)
+                archerloot = ["Short Bow", "Bow", "Crossbow", "Celestial Bow", "Tempest Bow", "Phantasm", "Storm bow", "Regular Arrow", "Steel Arrow", "Celestial Arrow", "Flaming Arrow", "Unholy Arrow", "Venom Arrow", "Holy Arrow", "Spectral Arrow", "Uci", "Gock-71", "BK - 48", "BR-16", "N-14", "Sub Submachine sun", "Machine gum", "Regular Bullet", "Nano Bullet", "Bouncy Bullet", "Homing Bullet", "Fast Bullet", "Buck Shot", "Slug Shot", ".50 Cal"]
 
-    elif Class_Chooser == "archer":
-        Class = "Archer"
-        hero = Hero(name = Creation, health = 80, health_max = 80, damage = 45, classes = "Archer", level = 1, exp = 0, statpoints = 0, exp_next = 90)
-        archerloot = ["Short Bow", "Bow", "Crossbow", "Celestial Bow", "Tempest Bow", "Phantasm", "Storm bow", "Regular Arrow", "Steel Arrow", "Celestial Arrow", "Flaming Arrow", "Unholy Arrow", "Venom Arrow", "Holy Arrow", "Spectral Arrow", "Uci", "Gock-71", "BK - 48", "BR-16", "N-14", "Sub Submachine sun", "Machine gum", "Regular Bullet", "Nano Bullet", "Bouncy Bullet", "Homing Bullet", "Fast Bullet", "Buck Shot", "Slug Shot", ".50 Cal"]
+            elif Class_Chooser == "assassin":
+                Class = "Assassin"
+                hero = Hero(name = Creation, health = 100, health_max = 100, damage = 35, classes = "Assassin", level = 1, exp = 0, statpoints = 0, exp_next = 100)
+                assassinloot = ["Dagger", "Shuriken", "Kunai", "Brass Knuckles", "Claws", "Choke", "Dagger but big", "Knife", "Siletto"]
 
-    elif Class_Chooser == "assassin":
-        Class = "Assassin"
-        hero = Hero(name = Creation, health = 100, health_max = 100, damage = 35, classes = "Assassin", level = 1, exp = 0, statpoints = 0, exp_next = 100)
-        assassinloot = ["Dagger", "Shuriken", "Kunai", "Brass Knuckles", "Claws", "Choke", "Dagger but big", "Knife", "Siletto"]
+            elif Class_Chooser == "snowman":
+                Class = "Snowman"
+                hero = Hero(name = Creation, health = 150, health_max = 150, damage = 30, classes = "Snowman", level = 1, exp = 0, statpoints = 0, exp_next = 100)
+                snowmanloot = ["Snowballs", "Carrot Gun", "Coal Cannon", "Yellow Snow", "Ice Fist", "Brown Snow", "Carrot Sword"]
+                
+            elif Class_Chooser == "noob":
+                Class = "Noob"
+                hero = Hero(name = Creation, health = 5000, health_max = 5000, damage = 500, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
+                noobloot = ["Dirt Sword", "Toy Hammer", "Slap", "Baloon Pop", "Scream"]
 
-    elif Class_Chooser == "snowman":
-        Class = "Snowman"
-        hero = Hero(name = Creation, health = 150, health_max = 150, damage = 30, classes = "Snowman", level = 1, exp = 0, statpoints = 0, exp_next = 100)
-        snowmanloot = ["Snowballs", "Carrot Gun", "Coal Cannon", "Yellow Snow", "Ice Fist", "Brown Snow", "Carrot Sword"]
+            elif Class_Chooser == "god":
+                Class = "God"
+                hero = Hero(name = Creation, health = 125, health_max = 125, damage = 25, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 1)
+            else:
+                print('Please type a valid class')
+                time.sleep(3)
+                create()
+        classchoose()
         
-    elif Class_Chooser == "noob":
-        Class = "Noob"
-        hero = Hero(name = Creation, health = 5000, health_max = 5000, damage = 500, classes = "Noob", level = 1, exp = 0, statpoints = 0, exp_next = 50)
-        noobloot = ["Dirt Sword", "Toy Hammer", "Slap", "Baloon Pop", "Scream"]
-
-    elif Class_Chooser == "god":
-        Class = "God"
-        hero = Hero(name = Creation, health = 125, health_max = 125, damage = 25, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 1)
+create()
 
 
 
