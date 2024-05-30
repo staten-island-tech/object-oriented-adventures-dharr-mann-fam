@@ -97,6 +97,7 @@ class Hero(Character):
 
 
 
+
 class Enemy(Character):
     def __init__(self, 
                  name: str, health: int, health_max: int, damage: int, classes: str, level: int, exp: int, statpoints: int, exp_next: int):
@@ -108,6 +109,5 @@ class Boss(Character):
     def __init__(self, 
                  name: str, health: int, health_max: int, damage: int, classes: str, level: int, exp: int, statpoints: int, exp_next: int):
         super().__init__(name = name, health = health, health_max = health_max, damage = damage, classes = classes, level = level, exp = exp, statpoints = statpoints, exp_next = exp_next)
-
 
 

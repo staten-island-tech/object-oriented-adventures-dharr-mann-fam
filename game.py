@@ -98,7 +98,7 @@ def boss():
 
 
 
-Choice = input("What Would you like to do? [1]Load Existing Character, [2]Create New Character, [3]Inventory: ")
+Choice = input("What Would you like to do? [1]Load Existing Character | [2]Create New Character | [3]Inventory: ")
 if Choice == "2":
     Creation = input("Enter your Username: ")
     for i in  up:
@@ -231,7 +231,7 @@ if Choice == "3":
     for j in up:
         hero = Hero(name = j["name"], health = j["health"], health_max = j["health_max"], damage = j["damage"], classes = j["classes"], level = j["level"], exp = j["exp"], statpoints = j["statpoints"], exp_next=j["exp_next"])
         print(f"Stats: [name: {hero.name}, level: {hero.level}, hp: {hero.health_max}, damage: {hero.damage}, class: {hero.classes}, exp: {hero.exp}, statpoints: {hero.statpoints}, Exp Req: {hero.exp_next}]")
-        ask = input("What would you like to do?: [1] Edit Statpoints [2] Exit: ")
+        ask = input("What would you like to do?: [1] Edit Statpoints | [2] Exit: ")
 
         if ask == "2":
             exit()
