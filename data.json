@@ -1,1 +1,1 @@
-[{"name": "good", "health": 5250.0, "health_max": 5250.0, "damage": 670.0478203125002, "classes": "Noob", "level": 2, "exp": 50, "statpoints": 0, "exp_next": 58}]
+[{"name": "good", "health": 5250.0, "health_max": 5250.0, "damage": 670.0478203125002, "classes": "Noob", "level": 2, "exp": 50, "statpoints": 0, "exp_next": 58}, {"name": "zoe", "health": 201.01434609375005, "health_max": 201.01434609375005, "damage": 46.903347421875004, "classes": "God", "level": 7, "exp": 4, "statpoints": 30, "exp_next": 27, "extra_damage": 0}]

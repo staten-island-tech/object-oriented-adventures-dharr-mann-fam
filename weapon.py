@@ -35,7 +35,7 @@ saber = Weapon(name = "Saber",
 cutlass = Weapon(name = "Cutlass",
                     damage = 50,
                     clas = "Warrior")
-Scimitar = Weapon(name = "Scimitar",
+scimitar = Weapon(name = "Scimitar",
                     damage = 75,
                     clas = "Warrior")
 
@@ -44,7 +44,7 @@ Scimitar = Weapon(name = "Scimitar",
 shortbow = Weapon(name = "Shortbow",
                  damage = 20,
                  clas = "Archer")
-Bow = Weapon(name = "Bow",
+bow = Weapon(name = "Bow",
                  damage = 35,
                  clas = "Archer")
 crossbow = Weapon(name = "Crossbow",
@@ -176,14 +176,24 @@ none = Weapon(name = "Unequiped",
               clas = "Every")
 
 
-warriorloot =  ["Base Sword", "sword", "Spear", "Sledge Hammer", "claymore", "Javelin", "Rapier", "Saber", "Cutlass", "Scimitar"]
+warriorloot =  [basesword, sword, spear, sledge_hammer, claymore, javelin, rapier, saber, cutlass, scimitar]
 
-archerloot = ["Short Bow", "Bow", "Crossbow", "Celestial Bow", "Tempest Bow", "Uci", "Gock-17", "N-14", "Sub Submachine sun", "Machine gum", "AR-16", "BK-47"]
+archerloot = [shortbow, bow, crossbow, celestial_bow, tempest_bow, uzi, glock, m14, smg, mg, ar, ak]
 
-assassinloot = ["Basic Dagger", "Dagger", "Shuriken", "Kunai", "Brass Knuckles", "Claws", "Dagger but big", "Knife", "Siletto"]
+assassinloot = [base_dagger, dagger, shuriken, kunai, brass, claws, bigdagger, knife, siletto, katana, karambit, butterfly]
 
-snowmanloot = ["Snowballs", "Carrot Gun", "Coal Cannon", "Yellow Snow", "Ice Fist", "Brown Snow", "Carrot Sword"]
+snowmanloot = [snowball, carrotgun, coalcannon, yellowsnow, icefist, brownsnow, carrotsword]
 
-noobloot = ["Dirt Sword", "Toy Hammer", "Slap", "Balloon Pop", "Scream"]
+noobloot = [dirtsword, toyhammer, slap, balloonpop, scream]
 
-godloot = ["Lightniing Bolt", "Earthquake", "Fireball", "Tsunami", "Enlightenment"]
+godloot = [lightning, earthquake, fireball, tsunami, enlightenment ]
+
+
+what_class = {
+  "warrior": warriorloot,
+  "archer": archerloot,
+  "assassin": assassinloot,
+  "snowman": snowmanloot,
+  "noob": noobloot,
+  "god": godloot
+}

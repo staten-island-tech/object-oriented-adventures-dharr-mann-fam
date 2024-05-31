@@ -2,9 +2,10 @@ from weapon import none
 import math
 import weapon
 import os
+import random
 
 class Character():
-    def __init__(self, name: str, health: int, health_max: int, damage: int, classes: str, level: int, exp: int, statpoints: int, exp_next: int):
+    def __init__(self, name: str, health: int, health_max: int, damage: int, classes: str, level: int, exp: int, statpoints: int, exp_next: int, extra_damage: int):
         self.name = name
         self.health = health
         self.health_max = health_max
@@ -14,14 +15,16 @@ class Character():
         self.exp = exp
         self.statpoints = statpoints
         self.exp_next = exp_next
+        self.extra_damage = extra_damage
   
  
 
 
     def attack(self, target):
         target.health -= self.damage
+        target.health -= self.extra_damage
         target.health = max(target.health, 0)
-        print(f"{self.name} dealt {self.damage} to [{target.name}]")
+        print(f"{self.name} dealt {round(self.damage)} and {self.extra_damage} to [{target.name}]")
 
 
 
@@ -33,18 +36,27 @@ class Hero(Character):
                  health: int,
                  health_max: int,
                  damage: int,
+                 extra_damage: int,
                  classes: str,
                  level: int,
                  exp: int,
                  statpoints: int,
                  exp_next: int):
-        super().__init__(name = name, health = health, health_max = health_max, damage = damage, classes = classes, level = level, exp = exp, statpoints = statpoints, exp_next = exp_next)
+        super().__init__(name = name, health = health, health_max = health_max, damage = damage, classes = classes, level = level, exp = exp, statpoints = statpoints, exp_next = exp_next, extra_damage=extra_damage)
 
 
     def gain_experience(self, experience):
         self.exp += experience
         while self.exp >= self.exp_next:
             self.level_up()
+            
+    def roll_weapon(self, cls):
+        rng = random.randint(1,2)
+        rng2 = random.randint(1,len(weapon.what_class[cls.lower()])-1)
+        if rng == 1:
+            self.extra_damage = weapon.what_class[cls.lower()][rng2].damage
+            print(f"You have dropped {weapon.what_class[cls.lower()][rng2].name} damage")
+            print(f"You have gained {self.extra_damage} damage")
 
     def level_up(self):
         self.level += 1
@@ -96,15 +108,15 @@ class Hero(Character):
 
 class Enemy(Character):
     def __init__(self, 
-                 name: str, health: int, health_max: int, damage: int, classes: str, level: int, exp: int, statpoints: int, exp_next: int):
-        super().__init__(name = name, health = health, health_max = health_max, damage = damage, classes = classes, level = level, exp = exp, statpoints = statpoints, exp_next = exp_next)
+                 name: str, health: int, health_max: int, damage: int, classes: str, level: int, exp: int, statpoints: int, exp_next: int, extra_damage: int):
+        super().__init__(name = name, health = health, health_max = health_max, damage = damage, classes = classes, level = level, exp = exp, statpoints = statpoints, exp_next = exp_next, extra_damage=extra_damage)
 
 
 
 class Boss(Character):
     def __init__(self, 
-                 name: str, health: int, health_max: int, damage: int, classes: str, level: int, exp: int, statpoints: int, exp_next: int):
-        super().__init__(name = name, health = health, health_max = health_max, damage = damage, classes = classes, level = level, exp = exp, statpoints = statpoints, exp_next = exp_next)
+                 name: str, health: int, health_max: int, damage: int, classes: str, level: int, exp: int, statpoints: int, exp_next: int, extra_damage: int):
+        super().__init__(name = name, health = health, health_max = health_max, damage = damage, classes = classes, level = level, exp = exp, statpoints = statpoints, exp_next = exp_next, extra_damage=extra_damage)
 
 
 
