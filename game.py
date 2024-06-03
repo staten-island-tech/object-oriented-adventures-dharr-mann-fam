@@ -70,7 +70,7 @@ def battle():
 
                 if hero.health <= 0:
                     hero.die()
-                    
+
         print("You are now moving onto the boss room...")
         print(" ")
         input()
