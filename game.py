@@ -11,6 +11,7 @@ os.system("cls")
 number_mobs = 1
 play = True
 alive = 0
+inventory = []
 ##Mobs
 
 #Dungeon 1
@@ -95,6 +96,8 @@ def boss():
                 hero.health = hero.health_max
                 print("You have beaten the dungeon! Run the code again and choose another dungeon. ")
                 hero.roll_weapon(hero.classes)
+                hero.store(inventory)
+                
                 
 
             if hero.health <= 0:
@@ -172,41 +175,41 @@ if Choice == "1":
             battle()
 
         ##Dungeon 2
-        if Narration == "2":
+        elif Narration == "2":
             Enemy = Wolves
             Boss = Eilte_Wolf
             number_mobs = 10
             battle()
 
         ##Dungeon 3
-        if Narration == "3":
+        elif Narration == "3":
             Enemy = Zombie
             Boss = Giant_Zombie
             number_mobs = 12
             battle()
 
         ##Dungeon 4
-        if Narration == "4":
+        elif Narration == "4":
             Enemy = Spider
             Boss = Tarantula
             number_mobs = 15
             battle()
 
         ##Dungeon 5
-        if Narration == "5":
+        elif Narration == "5":
             Enemy = Lizard
             Boss = Dragon
             number_mobs = 20
             battle()    
         ##Dungeon 6
-        if Narration == "6":
+        elif Narration == "6":
             Enemy = Professor_Whalen
             Boss = Mega_Whalen
             number_mobs = 2
             battle()
 
         ##Dungeon 7
-        if Narration == "7":
+        elif Narration == "7":
             Enemy = Impossible
             Boss = Impossible_boss
             number_mobs = 2
@@ -233,7 +236,7 @@ if Choice == "2":
             hero.attack(Tutorial_Dummy)
             Tutorial_Dummy.attack(hero)
 
-            print(f"Healtero of {hero.name}:{hero.health}")
+            print(f"Health of {hero.name}:{hero.health}")
             print(f"Health of {Tutorial_Dummy.name}: {Tutorial_Dummy.health}")
 
             input()
@@ -270,7 +273,7 @@ if Choice == "3":
 
 
 
-add_data = Hero(name = hero.name, health = hero.health, health_max = hero.health_max, damage = hero.damage, classes = hero.classes, level = hero.level, exp = hero.exp, statpoints = hero.statpoints, exp_next = hero.exp_next, extra_damage=hero.extra_damage) 
+add_data = Hero(name = hero.name, health = hero.health, health_max = hero.health_max, damage = hero.damage, classes = hero.classes, level = hero.level, exp = hero.exp, statpoints = hero.statpoints, exp_next = hero.exp_next, extra_damage=hero.extra_damage, ) 
 
 
 
@@ -283,6 +286,7 @@ data = [obj for obj in data if obj['name'] != hero.name]
 json.dumps(data, indent = 4)
 
 data.append(add_data.__dict__)
+data.append(inventory)
 
 
 
