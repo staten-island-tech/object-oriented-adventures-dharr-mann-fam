@@ -209,7 +209,6 @@ if Choice == "1":
             battle()
 
 
-
 if Choice == "2":
     for i in  up:
         if Creation in i["name"]:
