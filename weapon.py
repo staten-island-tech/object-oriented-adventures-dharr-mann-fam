@@ -169,7 +169,9 @@ tsunami = Weapon(name = "Tsunami",
 enlightenment = Weapon(name = "Enlightenment",
                      damage = 150000000000000000000000000,
                      clas = "god")
-
+skibidi = Weapon(name = "skibidi",
+                damage = 99999999999999999999999999999999999999999,
+                clas = "noob")
 
 none = Weapon(name = "Unequiped",
               damage = 0,
@@ -184,7 +186,7 @@ assassinloot = [base_dagger, dagger, shuriken, kunai, brass, claws, bigdagger, k
 
 snowmanloot = [snowball, carrotgun, coalcannon, yellowsnow, icefist, brownsnow, carrotsword]
 
-noobloot = [dirtsword, toyhammer, slap, balloonpop, scream]
+noobloot = [dirtsword, toyhammer, slap, balloonpop, scream, skibidi]
 
 godloot = [lightning, earthquake, fireball, tsunami, enlightenment ]
 
