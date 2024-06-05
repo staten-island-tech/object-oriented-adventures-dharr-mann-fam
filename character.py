@@ -59,19 +59,19 @@ class Hero(Character):
             print(f"You have gained {self.extra_damage} damage")
             item = weapon.what_class[cls.lower()][rng2].name
             return item
-            """ self.store(weapon.what_class[cls.lower()][rng2].name) """
+
 
 
     def level_up(self):
         self.level += 1
         self.exp -= self.exp_next
         self.exp_next = self.exp_next * 1.15
-        self.exp_next = math.ceil(self.exp_next)
+        self.exp_next = round(self.exp_next)
         self.statpoints += 5
         self.health_max = self.health_max * 1.05
-        self.health_max = math.ceil(self.health_max)
+        self.health_max = round(self.health_max)
         self.damage = self.damage * 1.05
-        self.damage = math.ceil(self.damage)
+        self.damage = round(self.damage)
         self.health = self.health_max
 
 
