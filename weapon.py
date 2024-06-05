@@ -171,7 +171,7 @@ enlightenment = Weapon(name = "Enlightenment",
                      clas = "god")
 skibidi = Weapon(name = "skibidi",
                 damage = 99999999999999999999999999999999999999999,
-                clas = "noob")
+                clas = "god")
 
 none = Weapon(name = "Unequiped",
               damage = 0,
@@ -186,9 +186,9 @@ assassinloot = [base_dagger, dagger, shuriken, kunai, brass, claws, bigdagger, k
 
 snowmanloot = [snowball, carrotgun, coalcannon, yellowsnow, icefist, brownsnow, carrotsword]
 
-noobloot = [dirtsword, toyhammer, slap, balloonpop, scream, skibidi]
+noobloot = [dirtsword, toyhammer, slap, balloonpop, scream]
 
-godloot = [lightning, earthquake, fireball, tsunami, enlightenment ]
+godloot = [lightning, earthquake, fireball, tsunami, enlightenment, skibidi ]
 
 
 what_class = {
