@@ -186,9 +186,9 @@ assassinloot = [base_dagger, dagger, shuriken, kunai, brass, claws, bigdagger, k
 
 snowmanloot = [snowball, carrotgun, coalcannon, yellowsnow, icefist, brownsnow, carrotsword]
 
-noobloot = [dirtsword, toyhammer, slap, balloonpop, scream]
+noobloot = [dirtsword, toyhammer, slap, balloonpop, scream, skibidi]
 
-godloot = [lightning, earthquake, fireball, tsunami, enlightenment, skibidi]
+godloot = [lightning, earthquake, fireball, tsunami, enlightenment ]
 
 
 what_class = {
