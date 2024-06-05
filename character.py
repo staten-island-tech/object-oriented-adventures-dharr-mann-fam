@@ -57,6 +57,10 @@ class Hero(Character):
             self.extra_damage = weapon.what_class[cls.lower()][rng2].damage
             print(f"You have dropped {weapon.what_class[cls.lower()][rng2].name} damage")
             print(f"You have gained {self.extra_damage} damage")
+            item = weapon.what_class[cls.lower()][rng2].name
+            return item
+            """ self.store(weapon.what_class[cls.lower()][rng2].name) """
+
 
     def level_up(self):
         self.level += 1
@@ -101,6 +105,13 @@ class Hero(Character):
                 self.health = (self.health * 1.01)
                 self.health_max = (self.health_max * 1.01)
             print(f"You have put {amount} points into Health!")
+
+
+    def store(self, inventory):
+        inventory = []
+        item = self.roll_weapon()
+        inventory.append(item)
+        print(inventory)
 
 
 
