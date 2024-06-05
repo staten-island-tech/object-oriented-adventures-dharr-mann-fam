@@ -22,7 +22,7 @@ class Character():
 
     def attack(self, target):
         target.health -= self.damage
-        target.health -= self.extra_damage
+        math.ceil(self.health)
         target.health = max(target.health, 0)
         print(f"{self.name} dealt {round(self.damage)} and {self.extra_damage} to [{target.name}]")
 
@@ -65,7 +65,9 @@ class Hero(Character):
         self.exp_next = math.ceil(self.exp_next)
         self.statpoints += 5
         self.health_max = self.health_max * 1.05
+        self.health_max = math.ceil(self.health_max)
         self.damage = self.damage * 1.05
+        self.damage = math.ceil(self.damage)
         self.health = self.health_max
 
 
@@ -83,7 +85,8 @@ class Hero(Character):
         else:
             for i in range(amount):
                 self.statpoints -= 1
-                self.damage = (self.damage * 1.05)
+                self.damage = (self.damage * 1.01)
+
             print(f"You have put {amount} points into Damage!")
 
 
@@ -95,9 +98,10 @@ class Hero(Character):
         else:
             for i in range(amount):
                 self.statpoints -= 1
-                self.health = (self.health * 1.05)
-                self.health_max = (self.health_max * 1.05)
+                self.health = (self.health * 1.01)
+                self.health_max = (self.health_max * 1.01)
             print(f"You have put {amount} points into Health!")
+
 
 
 
@@ -117,6 +121,5 @@ class Boss(Character):
     def __init__(self, 
                  name: str, health: int, health_max: int, damage: int, classes: str, level: int, exp: int, statpoints: int, exp_next: int, extra_damage: int):
         super().__init__(name = name, health = health, health_max = health_max, damage = damage, classes = classes, level = level, exp = exp, statpoints = statpoints, exp_next = exp_next, extra_damage=extra_damage)
-
 
 

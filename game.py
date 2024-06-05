@@ -46,14 +46,15 @@ Impossible = Enemy(name="Impossible Whalen Jr", health=5000, health_max=5000, da
 Impossible_boss = Boss(name="Impossible Whalen", health=500000, health_max=500000, damage= 9999, classes="boss", level = 9999, exp = 999999, statpoints=0, exp_next=0, extra_damage=0)
 
 def battle():
-        number_mobs = 10
+        number_mobs = 21
+        counter = 20
         for i in range(1,number_mobs):
             Enemy.health = Enemy.health_max
             while Enemy.health > 0:
                 os.system("cls")
                 hero.attack(Enemy)
                 Enemy.attack(hero) 
-                print(f"Total number of mobs: {number_mobs}")
+                print(f"Total number of mobs: {counter}")
                 print(f"Health of {Enemy.name} [Level:{Enemy.level}]:{Enemy.health}")   
                 print(f"Health of {hero.name} [Level:[{hero.level}]:{hero.health}")
                 print("Enter to continue")
@@ -65,15 +66,18 @@ def battle():
                     print(" ")
                     print(f"{hero.name} has gained {Enemy.exp} exp")
                     input()
-                    hero.roll_weapon(hero.classes)
-                    number_mobs = number_mobs - 1
-
-                if hero.health <= 0:
+                    counter = counter - 1
+                
+                elif hero.health <= 0:
                     hero.die()
 
-        print("You are now moving onto the boss room...")
-        print(" ")
-        input()
+                if counter == 0:     
+                    print("You are now moving onto the boss room...")
+                    print(" ")
+                    input()
+                    boss()
+
+def boss():    
         while Boss.health > 0:
             os.system("cls")
             hero.attack(Boss)
@@ -90,6 +94,7 @@ def battle():
                 print(f"{hero.name} has gained {Boss.exp} exp")
                 hero.health = hero.health_max
                 print("You have beaten the dungeon! Run the code again and choose another dungeon. ")
+                hero.roll_weapon(hero.classes)
                 
 
             if hero.health <= 0:
@@ -97,11 +102,12 @@ def battle():
 
 
 
-Choice = input("What Would you like to do? [1]Load Existing Character, [2]Create New Character, [3]Inventory: ")
+
+Choice = input("What Would you like to do? [1]Load Existing Character | [2]Create New Character | [3]Inventory: ")
 if Choice == "2":
     Creation = input("Enter your Username: ")
 
-    Class_Chooser = input("Enter class [Warrior,Archer,Assassin,Snowman,Noob,???]: ").lower()
+    Class_Chooser = input("Enter class [Warrior/ Archer/ Assassin/ Snowman/ Noob]: ").lower()
 
     if Class_Chooser == "warrior":
         Class = "Warrior"
@@ -131,7 +137,7 @@ if Choice == "2":
     if Class_Chooser == "god":
         Class = "God"
         hero = Hero(name = Creation, health = 150, health_max = 150, damage = 35, classes = "God", level = 1, exp = 0, statpoints = 0, exp_next = 10, extra_damage=0)
-        godloot = ["Lightniing Bolt", "Earthquake", "Fireball", "Tsunami", "Enlightenment"]
+        godloot = ["Lightning Bolt", "Earthquake", "Fireball", "Tsunami", "Enlightenment"]
 
     
 
@@ -143,20 +149,18 @@ def search():
                 "[3] Zombies",
                 "[4] Arachnids",
                 "[5] Lizards",
-                "[6] Mega Boss"
+                "[6] Mega Boss",
+                "[7] Impossible"
     ]
     list(map(print, Dungeons))
 
 if Choice == "1":
-    while play == True:
         Search = input("Enter username to start search: ")
-        play == False
         for i in up:
             if Search in i["name"]:
                 hero = Hero(name = i["name"], health = i["health"], health_max = i["health_max"], damage = i["damage"], classes = i["classes"], level = i["level"], exp = i["exp"], statpoints = i["statpoints"], exp_next = i["exp_next"], extra_damage =   i['extra_damage'])
                 print (f"Welcome back {hero.name}! ") 
                 search()
-                """ up.remove(hero.remove(hero.name)) """
                 Narration = input("Now pick a dungeon to complete (Type the number corresponding to the Dungeon): ")
                 
             
@@ -208,6 +212,11 @@ if Choice == "1":
             number_mobs = 2
             battle()
 
+        else:
+            print("Please enter a valid Dungion number! ")
+
+
+
 
 if Choice == "2":
     for i in  up:
@@ -243,9 +252,9 @@ if Choice == "2":
 if Choice == "3":
     Search = input("Enter username to start search: ")
     for j in up:
-        hero = Hero(name = j["name"], health = j["health"], health_max = j["health_max"], damage = j["damage"], classes = j["classes"], level = j["level"], exp = j["exp"], statpoints = j["statpoints"], exp_next=["exp_next"], extra_damage=['extra_damage'])
-        print(f"[name: {hero.name}, level: {hero.level}, hp: {hero.health_max}, damage: {hero.damage}, class: {hero.classes}, exp: {hero.exp}, statpoints: {hero.statpoints}, Exp Req: {hero.exp_next}, extra_damage: {hero.extra_damage}]")
-        ask = input("What would you like to do?: [1] Edit Statpoints [2] Exit: ")
+        hero = Hero(name = j["name"], health = j["health"], health_max = j["health_max"], damage = j["damage"], classes = j["classes"], level = j["level"], exp = j["exp"], statpoints = j["statpoints"], exp_next=j["exp_next"], extra_damage=j["extra_damage"])
+        print(f"Stats: [name: {hero.name}, level: {hero.level}, hp: {hero.health_max}, damage: {hero.damage}, class: {hero.classes}, exp: {hero.exp}, statpoints: {hero.statpoints}, Exp Req: {hero.exp_next}, Extra Damage: {hero.extra_damage}]")
+        ask = input("What would you like to do?: [1] Edit Statpoints | [2] Exit: ")
 
         if ask == "2":
             exit()
@@ -270,12 +279,11 @@ with open("data.json", "r") as f:
     # Serialize the updated Python list to a JSON string
     data = json.load(f)
     ##Call classes in here
+data = [obj for obj in data if obj['name'] != hero.name]
+json.dumps(data, indent = 4)
 
+data.append(add_data.__dict__)
 
-if add_data.__dict__ in data:
-    add_data.__dict__.update(name = hero.name, health = hero.health, health_max = hero.health_max, damage = hero.damage, classes = hero.classes, level = hero.level, exp = hero.exp, statpoints = hero.statpoints, exp_next = hero.exp_next, extra_damage = hero.extra_damage)
-else:
-    data.append(add_data.__dict__)
 
 
 #No code needed below this line
@@ -292,6 +300,3 @@ with open(new_file, "w") as f:
 os.remove("data.json")
 os.rename(new_file, "data.json")
 
-
-#5,8,10,12,15,18
-#5,10,15,18,20,23
