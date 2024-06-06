@@ -1,1 +1,1 @@
-[{"name": "a", "health": 546, "health_max": 546, "damage": 5333333, "classes": "Warrior", "level": 21, "exp": 899, "statpoints": 100, "exp_next": 1677, "extra_damage": 20}, {"name": "skib", "health": 204, "health_max": 204, "damage": 50, "classes": "God", "level": 7, "exp": 4, "statpoints": 30, "exp_next": 27, "extra_damage": 0}, []]
+[{"name": "a", "health": 210, "health_max": 210, "damage": 16, "classes": "Warrior", "level": 2, "exp": 0, "statpoints": 5, "exp_next": 115, "extra_damage": 0}, []]
