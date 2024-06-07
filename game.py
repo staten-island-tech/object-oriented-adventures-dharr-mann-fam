@@ -11,7 +11,6 @@ os.system("cls")
 number_mobs = 1
 play = True
 alive = 0
-inventory = []
 ##Mobs
 
 #Dungeon 1
@@ -96,7 +95,6 @@ def boss():
                 hero.health = hero.health_max
                 print("You have beaten the dungeon! Run the code again and choose another dungeon. ")
                 hero.roll_weapon(hero.classes)
-                hero.store(inventory)
                 
                 
 
@@ -106,7 +104,7 @@ def boss():
 
 
 
-Choice = input("What Would you like to do? [1]Load Existing Character | [2]Create New Character | [3]Inventory: ")
+Choice = input("What Would you like to do? [1]Load Existing Character | [2]Create New Character | [3]Inventory/Statpoints: ")
 if Choice == "2":
     Creation = input("Enter your Username: ")
 
@@ -158,75 +156,66 @@ def search():
     list(map(print, Dungeons))
 
 if Choice == "1":
-        Search = input("Enter username to start search: ")
-        for i in up:
-            if Search in i["name"]:
-                hero = Hero(name = i["name"], health = i["health"], health_max = i["health_max"], damage = i["damage"], classes = i["classes"], level = i["level"], exp = i["exp"], statpoints = i["statpoints"], exp_next = i["exp_next"], extra_damage =   i['extra_damage'])
-                print (f"Welcome back {hero.name}! ") 
-                search()
-                Narration = input("Now pick a dungeon to complete (Type the number corresponding to the Dungeon): ")
-            else:
-                print("Please type a valid name")
+    Search = input("Enter username to start search: ")
+    for i in up:
+        if Search in i["name"]:
+            hero = Hero(name = i["name"], health = i["health"], health_max = i["health_max"], damage = i["damage"], classes = i["classes"], level = i["level"], exp = i["exp"], statpoints = i["statpoints"], exp_next = i["exp_next"], extra_damage = i["extra_damage"])
+            print (f"Welcome back {hero.name}! ") 
+            search()
+            Narration = input("Now pick a dungeon to complete (Type the number corresponding to the Dungeon): ")
 
-        enemies = [Goblins, Wolves, Zombie, Spider, Lizard, Professor_Whalen, Impossible]
-        bosses = [Goblin_Leader, Eilte_Wolf, Giant_Zombie, Tarantula, Dragon, Mega_Whalen, Impossible_boss]
-        num_mobs = [10, 10, 12, 15, 20, 2, 2]
-        Enemy = enemies[int(Narration) - 1]
-        Boss = bosses[int(Narration) - 1]
-        number_mobs = num_mobs[int(Narration) - 1]
-        battle()
-""" 
-        ##Dungeon 1
-        if Narration == "1":
+
+               
+      ##Dungeon 1
+    if Narration == "1":
             Enemy = Goblins
             Boss = Goblin_Leader
             number_mobs = 10
             battle()
 
         ##Dungeon 2
-        elif Narration == "2":
+    elif Narration == "2":
             Enemy = Wolves
             Boss = Eilte_Wolf
             number_mobs = 10
             battle()
 
         ##Dungeon 3
-        elif Narration == "3":
+    elif Narration == "3":
             Enemy = Zombie
             Boss = Giant_Zombie
             number_mobs = 12
             battle()
 
         ##Dungeon 4
-        elif Narration == "4":
+    elif Narration == "4":
             Enemy = Spider
             Boss = Tarantula
             number_mobs = 15
             battle()
 
         ##Dungeon 5
-        elif Narration == "5":
+    elif Narration == "5":
             Enemy = Lizard
             Boss = Dragon
             number_mobs = 20
             battle()    
         ##Dungeon 6
-        elif Narration == "6":
+    elif Narration == "6":
             Enemy = Professor_Whalen
             Boss = Mega_Whalen
             number_mobs = 2
             battle()
 
         ##Dungeon 7
-        elif Narration == "7":
+    elif Narration == "7":
             Enemy = Impossible
             Boss = Impossible_boss
             number_mobs = 2
             battle()
 
-        else:
-            print("Please enter a valid Dungion number! ")
- """
+    else:
+        print("Please enter a valid Dungion number! ") 
 
 
 
@@ -295,7 +284,7 @@ data = [obj for obj in data if obj['name'] != hero.name]
 json.dumps(data, indent = 4)
 
 data.append(add_data.__dict__)
-data.append(inventory)
+
 
 
 
