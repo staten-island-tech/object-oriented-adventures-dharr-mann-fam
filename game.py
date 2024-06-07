@@ -11,7 +11,6 @@ os.system("cls")
 number_mobs = 1
 play = True
 alive = 0
-inventory = []
 ##Mobs
 
 #Dungeon 1
@@ -105,7 +104,7 @@ def boss():
 
 
 
-Choice = input("What Would you like to do? [1]Load Existing Character | [2]Create New Character | [3]Inventory: ")
+Choice = input("What Would you like to do? [1]Load Existing Character | [2]Create New Character | [3]Inventory/Statpoints: ")
 if Choice == "2":
     Creation = input("Enter your Username: ")
 
@@ -160,17 +159,11 @@ if Choice == "1":
     Search = input("Enter username to start search: ")
     for i in up:
         if Search in i["name"]:
-            hero = Hero(name = i["name"], health = i["health"], health_max = i["health_max"], damage = i["damage"], classes = i["classes"], level = i["level"], exp = i["exp"], statpoints = i["statpoints"], exp_next = i["exp_next"], extra_damage =   i['extra_damage'])
+            hero = Hero(name = i["name"], health = i["health"], health_max = i["health_max"], damage = i["damage"], classes = i["classes"], level = i["level"], exp = i["exp"], statpoints = i["statpoints"], exp_next = i["exp_next"], extra_damage = i["extra_damage"])
             print (f"Welcome back {hero.name}! ") 
             search()
-        Narration = input("Now pick a dungeon to complete (Type the number corresponding to the Dungeon): ")
-"""                 enemies = [Goblins, Wolves, Zombie, Spider, Lizard, Professor_Whalen, Impossible]
-                bosses = [Goblin_Leader, Eilte_Wolf, Giant_Zombie, Tarantula, Dragon, Mega_Whalen, Impossible_boss]
-                num_mobs = [10, 10, 12, 15, 20, 2, 2]
-                Enemy = enemies[int(Narration) - 1]
-                Boss = bosses[int(Narration) - 1]
-                number_mobs = num_mobs[int(Narration) - 1]
-                battle() """
+            Narration = input("Now pick a dungeon to complete (Type the number corresponding to the Dungeon): ")
+
 
                
       ##Dungeon 1
@@ -291,7 +284,7 @@ data = [obj for obj in data if obj['name'] != hero.name]
 json.dumps(data, indent = 4)
 
 data.append(add_data.__dict__)
-data.append(inventory)
+
 
 
 

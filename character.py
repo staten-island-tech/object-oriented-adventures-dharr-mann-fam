@@ -54,13 +54,10 @@ class Hero(Character):
         rng = random.randint(1,2)
         rng2 = random.randint(1,len(weapon.what_class[cls.lower()])-1)
         if rng == 1:
-            if self.extra_damage < rng2:
                 self.extra_damage = weapon.what_class[cls.lower()][rng2].damage
                 print(f"You have dropped {weapon.what_class[cls.lower()][rng2].name} damage")
                 print(f"You have gained {self.extra_damage} damage")
-            else:
-                print(f"You have dropped {weapon.what_class[cls.lower()][rng2].name} damage, but your current weapon won't be replaced since it has a higher stat")
-                self.extra_damage = self.extra_damage
+
 
 
 
@@ -109,11 +106,7 @@ class Hero(Character):
             print(f"You have put {amount} points into Health!")
 
 
-"""     def store(self, inventory):
-        inventory = []
-        item = self.roll_weapon()
-        inventory.append(item)
-        print(inventory) """
+
 
 
 
