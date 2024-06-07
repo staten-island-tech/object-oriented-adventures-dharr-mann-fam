@@ -1,1 +1,1 @@
-[{"name": "a", "health": 281, "health_max": 281, "damage": 22, "classes": "Warrior", "level": 8, "exp": 244, "statpoints": 35, "exp_next": 266, "extra_damage": 30}]
+[{"name": "a", "health": 281, "health_max": 281, "damage": 22, "classes": "Warrior", "level": 8, "exp": 244, "statpoints": 35, "exp_next": 266, "extra_damage": 30}, {"name": "Not Mark", "health": 212, "health_max": 212, "damage": 44, "classes": "Snowman", "level": 8, "exp": 244, "statpoints": 35, "exp_next": 266, "extra_damage": 0}]
